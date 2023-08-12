@@ -1,9 +1,39 @@
 <ion-header [translucent]="false">
   <ion-toolbar>
-    <ion-title>Medicamentos</ion-title>
+    <ion-title>Lista de Medicamentos</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
+  <!-- Aqui iria las citas del año formato: Citas, año -->
+
+  <ion-label class="citas-formato" color="dark">Citas, 2020</ion-label>
+
+  <!-- Habran 4 estados pendiente, perdido, exitoso, cancelada -->
+  <div>
+    <ion-img class="icon-img" src="../../../../assets/img/library.png"></ion-img>
+    <ion-label class="label-cita" color="tertiary">Cita del 20/01/2020</ion-label>
+    <ion-badge class="label-estado" color="success">Exitoso</ion-badge>
+  </div>
+
+  <div>
+    <ion-img class="icon-img" src="../../../../assets/img/library.png"></ion-img>
+    <ion-label class="label-cita" color="tertiary">Cita del 25/05/2020</ion-label>
+    <ion-badge class="label-estado" color="warning">Cancelada</ion-badge>
+  </div>
+
+  <div>
+    <ion-img class="icon-img" src="../../../../assets/img/library.png"></ion-img>
+    <ion-label class="label-cita" color="tertiary">Cita del 02/02/2020</ion-label>
+    <ion-badge class="label-estado" color="danger">Perdido</ion-badge>
+  </div>
+
+  <ion-label class="citas-formato" color="dark">Citas, 2023</ion-label>
+
+  <div>
+    <ion-img class="icon-img" src="../../../../assets/img/library.png"></ion-img>
+    <ion-label class="label-cita" color="tertiary">Cita del 12/12/2023</ion-label>
+    <ion-badge class="label-estado" color="medium">Pendiente</ion-badge>
+  </div>
 </ion-content>

@@ -1,0 +1,40 @@
+div{
+    background-color: #95a5a6a9;
+    width: 350px;
+    height: 160px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.citas-formato{
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+.icon-img{
+    width: 90px;
+    height: 90px;
+    position: relative;
+    top: 30px;
+    left: 25px;
+}
+
+.label-estado{
+    position: relative;
+    left: -70px;
+    top: -15px;
+    font-size: 15px;
+    width: 100px;
+}
+
+.label-cita{
+    position: relative;
+    left: 130px;
+    top: -50px;
+    font-size: 23px;
+}
