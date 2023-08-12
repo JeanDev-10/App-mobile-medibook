@@ -11,5 +11,6 @@ export class MedicamentosPage implements OnInit {
 
   ngOnInit() {
   }
+  
 
 }

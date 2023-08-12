@@ -1,13 +1,29 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="false">
   <ion-toolbar>
-    <ion-title>medicamentosDetalle</ion-title>
+    <!-- Nombre del Medicamento -->
+    <ion-title>Detalle del Medicamento</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">medicamentosDetalle</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <div>
+      <ion-img class="icon-img" src="../../../../assets/img/medicaments.png"></ion-img>
+      <ion-label class="label-cita" color="tertiary">Pilisilina</ion-label>
+      <ion-badge class="label-estado label-estado-1" color="success">60mg</ion-badge>
+      <ion-label class="label-lapso"  color="dark">Cada 8 Horas</ion-label>
+      <br>
+      <ion-label class="label-duracion"  color="dark">4 Meses</ion-label>
+
+      <ion-fab class="edit">
+        <ion-fab-button color="warning">
+          <ion-icon name="create"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+
+      <ion-fab class="close">
+        <ion-fab-button (click)="DeleteMedicament()" color="danger"> 
+          <ion-icon name="close"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </div>
 </ion-content>
