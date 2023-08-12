@@ -11,5 +11,11 @@ export class MedicamentosDetallePage implements OnInit {
 
   ngOnInit() {
   }
+  editarMedicamento() {
+    // Agrega la lógica para redirigir a la página de edición con los datos del examen
+  }
 
+  eliminarMedicamento() {
+    // Agrega la lógica para eliminar el examen y redirigir a la lista de exámenes
+  }
 }

@@ -1,0 +1,50 @@
+.chat-content {
+    --ion-background-color: #f4f4f4;
+}
+
+.message-list {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+.message-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-bottom: 12px;
+}
+
+.message-bubble {
+    border-radius: 8px;
+    padding: 10px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.sender {
+    background-color: #007bff;
+    color: white;
+    align-self: flex-end;
+}
+
+.receiver {
+    background-color: #e0e0e0;
+    color: black;
+    align-self: flex-start;
+}
+
+ion-footer {
+    --ion-background-color: white;
+    --ion-border-color: transparent;
+    --ion-padding-end: 0;
+    --ion-padding-start: 0;
+}
+
+ion-input {
+    flex: 1;
+}
+
+ion-button {
+    margin-left: 8px;
+}
