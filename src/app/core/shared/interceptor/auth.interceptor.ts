@@ -9,15 +9,15 @@ import {
 import { Observable, catchError, throwError } from 'rxjs';
 
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/public/services/auth.service';
+import { ToastService } from '../services/toast.service';
 
 @Injectable()
 export class AuthInterceptorInterceptor implements HttpInterceptor {
   constructor(
     private readonly authService: AuthService,
     private router: Router,
-    private notificacion: ToastrService
+    private notificacion: ToastService
   ) {}
 
   intercept(
@@ -46,12 +46,12 @@ export class AuthInterceptorInterceptor implements HttpInterceptor {
         if (error.status === 401) {
           this.authService.deleteToken();
           console.log('redireccionar interceptor');
-          this.notificacion.error("No has iniciado sesión", 'Proceso Erroneo');
+          this.notificacion.error("No has iniciado sesión");
           this.router.navigate(['login']);
         }
         if (error.status === 403) {
           console.log('redireccionar no autorizado');
-          this.notificacion.error("No estás autorizado para estar aquí", 'Proceso Erroneo');
+          this.notificacion.error("No estás autorizado para estar aquí");
 
           this.router.navigate(['login']);
         }
@@ -61,11 +61,11 @@ export class AuthInterceptorInterceptor implements HttpInterceptor {
           console.log(error.error);
           if(error.error.messages){
             Object.entries(error.error?.messages).forEach(([key, value]:any) => {
-            this.notificacion.error(value, 'Proceso Erroneo');
+            this.notificacion.error(value);
 
             });
           }else{
-            this.notificacion.error(error.error.message, 'Proceso Erroneo');
+            this.notificacion.error(error.error.message);
           }
           /*  this.router.navigate(['login']); */
         }
