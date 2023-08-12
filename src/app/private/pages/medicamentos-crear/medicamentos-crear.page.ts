@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AnimationOptions } from 'ngx-lottie';
 

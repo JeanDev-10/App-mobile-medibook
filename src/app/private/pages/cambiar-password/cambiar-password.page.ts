@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-cambiar-password',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CambiarPasswordPage implements OnInit {
 
-  constructor() { }
+  
 
-  ngOnInit() {
+  constructor() {
   }
 
-}
+  ngOnInit() {}
+
+  ChangePassword() {
+   
+  }
+  }
+
