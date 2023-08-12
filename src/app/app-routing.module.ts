@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { PermissionGuard } from './core/shared/guards/permission.guard';
 import { AuthGuard } from './core/shared/guards/auth.guard';
+import { SignoVitalesComponent } from './core/shared/components/signo-vitales/signo-vitales.component';
 
 const routes: Routes = [
 
-    //Rutas Publicas
+    {
+      path: 'animacion',
+      component: SignoVitalesComponent
+    },
 
     {
       path: '',

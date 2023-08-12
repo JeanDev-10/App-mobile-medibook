@@ -1,49 +1,88 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="false">
     <ion-toolbar>
-        <ion-title>medicamentosCrear</ion-title>
+        <ion-title>Crear Medicamentos</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <!--  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">medicamentosCrear</ion-title>
-    </ion-toolbar>
-  </ion-header> -->
+    <!-- Animación -->
+    <div class="anim">
+        <ng-lottie [options]="options"></ng-lottie>
+    </div>
 
+    <ion-list>
 
+        <form [formGroup]="FormularioMedicamentos" (ngSubmit)="CreateMedicament(FormularioMedicamentos.value)">
+            <ion-item>
+                <ion-icon name="eyedrop-outline"></ion-icon>
+                <ion-input formControlName="nombre" class="inputs" label="Medicamento" labelPlacement="floating" placeholder="Lozartan"></ion-input>
+            </ion-item>
 
+            <!-- Validación de campo nombre requerido -->
+            <div class="mt-1" *ngIf="FormularioMedicamentos.get('nombre')?.invalid && FormularioMedicamentos.get('nombre')?.touched">
+                <ion-badge *ngIf="FormularioMedicamentos.get('nombre')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            </div>
 
+            <!-- Validacion de campo caracter menor que 3 -->
+            <ion-badge *ngIf="FormularioMedicamentos.get('nombre')?.hasError('minlength')" color="warning">3 Caracteres Minímos Permitidos</ion-badge>
 
-    <form #form="ngForm" (ngSubmit)="submitForm(form)">
-        <ion-item>
-            <!--  <ion-label position="floating">Nombre</ion-label> -->
-            <ion-label position="stacked">Nombre</ion-label>
-            <ion-input type="text" name="nombre" [(ngModel)]="medicamento.nombre" required></ion-input>
-        </ion-item>
+            <!-- Input de dosis -->
 
-        <ion-item>
-            <ion-label position="stacked">Dosis</ion-label>
-            <ion-input type="text" name="dosis" [(ngModel)]="medicamento.dosis" required></ion-input>
-        </ion-item>
+            <ion-item>
+                <ion-icon name="skull-outline"></ion-icon>
+                <ion-input formControlName="dosis" class="inputs" label="Dosis" labelPlacement="floating" placeholder="50 mg"></ion-input>
+            </ion-item>
 
-        <ion-item>
-            <ion-label position="stacked">Lapso</ion-label>
-            <ion-input type="text" name="lapso" [(ngModel)]="medicamento.lapso" required></ion-input>
-        </ion-item>
+            <!-- Validación de campo dosis requerido -->
+            <div class="mt-1" *ngIf="FormularioMedicamentos.get('dosis')?.invalid && FormularioMedicamentos.get('dosis')?.touched">
+                <ion-badge *ngIf="FormularioMedicamentos.get('dosis')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            </div>
 
-        <ion-item>
-            <ion-label position="stacked">Duracion</ion-label>
-            <ion-input type="text" name="duracion" [(ngModel)]="medicamento.duracion" required></ion-input>
-        </ion-item>
+            <!-- Validacion de campo dosis caracter menor que 3 -->
+            <ion-badge *ngIf="FormularioMedicamentos.get('dosis')?.hasError('minlength')" color="warning">3 Caracteres Minímos Permitidos</ion-badge>
 
-        <ion-button type="submit" expand="full">Guardar</ion-button>
-    </form>
+            <!-- Input de lapso -->
 
+            <ion-item>
+                <ion-icon name="alarm-outline"></ion-icon>
+                <ion-input formControlName="lapso" class="inputs" label="Lapso" labelPlacement="floating" placeholder="8 Horas"></ion-input>
+            </ion-item>
 
+            <!-- Validación de campo dosis requerido -->
+            <div class="mt-1" *ngIf="FormularioMedicamentos.get('lapso')?.invalid && FormularioMedicamentos.get('lapso')?.touched">
+                <ion-badge *ngIf="FormularioMedicamentos.get('lapso')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            </div>
 
+            <!-- Validacion de campo lapso caracter menor que 3 -->
+            <ion-badge *ngIf="FormularioMedicamentos.get('lapso')?.hasError('minlength')" color="warning">3 Caracteres Minímos Permitidos</ion-badge>
 
+            <!-- Input duración -->
 
+            <ion-item>
+                <ion-icon name="hourglass-outline"></ion-icon>
+                <ion-input formControlName="duracion" class="inputs" label="Duración" labelPlacement="floating" placeholder="4 Meses"></ion-input>
+            </ion-item>
 
+            <!-- Validación de campo dosis requerido -->
+            <div class="mt-1" *ngIf="FormularioMedicamentos.get('duracion')?.invalid && FormularioMedicamentos.get('duracion')?.touched">
+                <ion-badge *ngIf="FormularioMedicamentos.get('duracion')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            </div>
 
+            <!-- Validacion de campo dosis caracter menor que 3 -->
+            <ion-badge *ngIf="FormularioMedicamentos.get('duracion')?.hasError('minlength')" color="warning">3 Caracteres Minímos Permitidos</ion-badge>
+
+            <ion-button [disabled]="FormularioMedicamentos.invalid" color="medium" type="submit">
+                Registrar
+                <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
+            </ion-button>
+        </form>
+
+    </ion-list>
+
+    <!-- Para regresar atrás -->
+    <ion-fab [routerLink]="['/medicamentos']" slot="fixed" horizontal="end" vertical="bottom">
+        <ion-fab-button color="dark">
+            <ion-icon name="chevron-back"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 </ion-content>

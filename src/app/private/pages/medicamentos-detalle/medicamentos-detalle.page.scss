@@ -1,0 +1,70 @@
+.container-div{
+    background-color: #95a5a6a9;
+    width: 350px;
+    height: 500px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+
+ion-button{
+    margin-left: 15px;
+}
+
+.icon-img{
+    width: 150px;
+    height: 150px;
+    position: relative;
+    top: 30px;
+    left: 100px;
+}
+
+.label-cita{
+    position: relative;
+    left: 120px;
+    top: 50px;
+    font-size: 30px;
+}
+
+.label-estado{
+    font-size: 15px;
+    width: 100px;
+    position: relative;
+    top: 80px;
+    left: -15px;
+}
+
+.label-lapso{
+    position: relative;
+    top: 120px;
+    left: 120px;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.label-duracion{
+    position: relative;
+    top:  140px;
+    left: 140px;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.close{
+    margin-left: 130px;
+    margin-top: 200px;
+}
+
+.edit{
+    margin-left: 30px;
+    margin-top: 200px;
+}
+
+ion-badge{
+    margin-left: 30px;
+}

@@ -9,27 +9,15 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class CambiarPasswordPage implements OnInit {
 
-  formChangePassword!:FormGroup
+  
 
-  constructor(private formBuilder: FormBuilder) {
-    this.formChangePassword = this.formBuilder.group({
-     
-      password:['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
-    })
+  constructor() {
   }
 
   ngOnInit() {}
 
-  ChangePassword(form: any) {
-    if (this.formChangePassword) {
-      // Marcar los campos del formulario como tocados para mostrar los mensajes de error
-      Object.values(this.formChangePassword.controls).forEach((control) =>
-        control.markAsTouched(),
-      );
-      return;
-    } else {
-     
-    }
+  ChangePassword() {
+   
   }
   }
 

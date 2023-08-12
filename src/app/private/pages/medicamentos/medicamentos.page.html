@@ -1,36 +1,40 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="false">
     <ion-toolbar>
-        <ion-title>medicamentos</ion-title>
+        <ion-title>Lista de Medicamentos</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <!-- <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">medicamentos</ion-title>
-    </ion-toolbar>
-  </ion-header> -->
+
+    <ion-button type="button" [routerLink]="['/medicamentos-crear']" class="add">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+    </ion-button>
+
+    <div [routerLink]="['/medicamentos-detalle']">
+        <ion-img class="icon-img" src="../../../../assets/img/library.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Pilisilina</ion-label>
+        <ion-badge class="label-estado label-estado-1" color="success">60mg</ion-badge>
+    </div>
+
+    <div>
+        <ion-img class="icon-img" src="../../../../assets/img/library.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Paracetamol</ion-label>
+        <ion-badge class="label-estado label-estado-2" color="warning">1/2mg</ion-badge>
+    </div>
+
+    <div>
+        <ion-img class="icon-img" src="../../../../assets/img/library.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Lozartán
+            <nav></nav>
+        </ion-label>
+        <ion-badge class="label-estado label-estado-3" color="danger">500mg</ion-badge>
+    </div>
 
 
-    <ion-card>
-        <ion-card-content>
-            <div class="card-content">
-                <ion-avatar class="photo" slot="start">
-                    <img src="data:image/jpeg;base64,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"
-                        alt="Foto del examen">
-                </ion-avatar>
-                <div class="details">
-                    <ion-card-title>Trembolona</ion-card-title>
-                    <ion-card-subtitle></ion-card-subtitle>
-                    <!-- Agrega otros datos aquí, como resultado, etc. -->
-                </div>
-            </div>
-        </ion-card-content>
-
-    </ion-card>
-
-
-
-
+    <div>
+        <ion-img class="icon-img" src="../../../../assets/img/library.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Chepasilina</ion-label>
+        <ion-badge class="label-estado label-estado-4" color="medium">1000mg</ion-badge>
+    </div>
 
 </ion-content>

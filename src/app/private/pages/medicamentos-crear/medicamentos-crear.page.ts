@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
   selector: 'app-medicamentos-crear',
@@ -9,26 +11,27 @@ import { NgForm } from '@angular/forms';
 })
 export class MedicamentosCrearPage implements OnInit {
 
-  medicamento = {
-    nombre: '',
-    dosis: '',
-    lapso: '',
-    duracion: ''
+  FormularioMedicamentos!:FormGroup;
+
+  options: AnimationOptions = {
+    path: '/assets/anim/medicina-crear.json',
   };
 
-  submitForm(form: NgForm) {
-    if (form.valid) {
-      console.log('Formulario válido. Enviando datos:', this.medicamento);
-      // Aquí puedes agregar la lógica para enviar los datos a tu servidor
-    } else {
-      console.log('Formulario inválido. Asegúrate de completar todos los campos.');
-      // Puedes mostrar un mensaje de error al usuario o realizar alguna otra acción
-    }
-  }
-
-  constructor() { }
+  constructor(private formBuilder:FormBuilder) {
+    this.FormularioMedicamentos = this.formBuilder.group({
+      'nombre' : new FormControl('',[Validators.required,Validators.minLength(3)]),
+      'dosis' : new FormControl('',[Validators.required,Validators.minLength(3)]),
+      'lapso' : new FormControl('',[Validators.required,Validators.minLength(3)]),
+      'duracion' : new FormControl('',[Validators.required,Validators.minLength(3)])
+    })
+   }
 
   ngOnInit() {
   }
 
+  // Create Medicament
+
+  CreateMedicament(Form:any){
+    console.log(Form);
+  }
 }

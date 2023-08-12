@@ -11,24 +11,7 @@
         </ion-toolbar>
     </ion-header> -->
 
-    <form #form="ngForm" (ngSubmit)="submitForm(form)">
-        <ion-item>
-            <ion-label position="stacked">Nombre</ion-label>
-            <ion-input type="text" name="nombre" [(ngModel)]="exam.nombre" required></ion-input>
-        </ion-item>
 
-        <ion-item>
-            <ion-label position="stacked">Fecha</ion-label>
-            <ion-input type="date" name="fecha" [(ngModel)]="exam.fecha" required></ion-input>
-        </ion-item>
-
-        <ion-item>
-            <ion-label position="stacked">Resultado</ion-label>
-            <ion-input type="text" name="resultado" [(ngModel)]="exam.resultado" required></ion-input>
-        </ion-item>
-
-        <ion-button type="submit" expand="full">Guardar</ion-button>
-    </form>
 
 
 
