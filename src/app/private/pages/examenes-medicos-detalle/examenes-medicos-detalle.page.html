@@ -1,16 +1,90 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
-        <ion-title>examenesMedicosDetalle</ion-title>
+        <ion-title>Detalles de Examen Médico</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <!--  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">examenesMedicosDetalle</ion-title>
-    </ion-toolbar>
-  </ion-header> -->
 
+    <div class="container-div">
+        <ion-img class="icon-img" src="../../../../assets/img/medicaments.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Hemograma</ion-label>
+
+        <ion-badge class="label-estado label-estado-3" color="success">12/08/2023</ion-badge>
+        <br>
+        <ion-label class="label-lapso" color="dark">Positivo</ion-label>
+
+
+        <ion-fab class="edit">
+            <ion-fab-button (click)=" ChangeStateForm()" color="warning">
+                <ion-icon name="create"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+
+
+
+        <ion-fab class="close">
+            <ion-fab-button (click)="deleteExamen()" color="danger">
+                <ion-icon name="close"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+
+    </div>
+
+
+    <form *ngIf="StateForm" [formGroup]="FormularioExamenMedicoDetalle" (ngSubmit)="EditExamen(FormularioExamenMedicoDetalle.value)">
+        <ion-item>
+            <ion-icon name="eyedrop-outline"></ion-icon>
+            <ion-input formControlName="nombre" class="inputs" label="Nombre" labelPlacement="floating" placeholder=""></ion-input>
+        </ion-item>
+
+        <!-- Validación de campo nombre requerido -->
+        <div class="mt-1" *ngIf="FormularioExamenMedicoDetalle.get('nombre')?.invalid && FormularioExamenMedicoDetalle.get('nombre')?.touched">
+            <ion-badge *ngIf="FormularioExamenMedicoDetalle.get('nombre')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+        </div>
+
+        <!-- Validacion de campo caracter menor que 3 -->
+        <ion-badge *ngIf="FormularioExamenMedicoDetalle.get('nombre')?.hasError('minlength')" color="warning">3 Caracteres Minímos Permitidos</ion-badge>
+
+        <!-- Input de Fecha -->
+
+        <ion-item>
+            <ion-icon name="calendar-outline"></ion-icon>
+            <ion-input formControlName="dosis" class="inputs" label="Fecha" labelPlacement="floating" placeholder="" type="date"></ion-input>
+        </ion-item>
+
+        <!-- Validación de campo fecha requerido -->
+        <div class="mt-1" *ngIf="FormularioExamenMedicoDetalle.get('dosis')?.invalid && FormularioExamenMedicoDetalle.get('dosis')?.touched">
+            <ion-badge *ngIf="FormularioExamenMedicoDetalle.get('dosis')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+        </div>
+
+        <!-- Validacion de campo fecha caracter menor que 3 -->
+        <ion-badge *ngIf="FormularioExamenMedicoDetalle.get('dosis')?.hasError('minlength')" color="warning">3 Caracteres Minímos Permitidos</ion-badge>
+
+        <!-- Input de resultado -->
+
+        <ion-item>
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+            <ion-input formControlName="resultado" class="inputs" label="Resultado" labelPlacement="floating" placeholder=""></ion-input>
+        </ion-item>
+
+        <!-- Validación de campo resultado requerido -->
+        <div class="mt-1" *ngIf="FormularioExamenMedicoDetalle.get('resultado')?.invalid && FormularioExamenMedicoDetalle.get('resultado')?.touched">
+            <ion-badge *ngIf="FormularioExamenMedicoDetalle.get('resultado')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+        </div>
+
+        <!-- Validacion de campo resultado caracter menor que 3 -->
+        <ion-badge *ngIf="FormularioExamenMedicoDetalle.get('resultado')?.hasError('minlength')" color="warning">3 Caracteres Minímos Permitidos</ion-badge>
+
+
+        <ion-button [disabled]="FormularioExamenMedicoDetalle.invalid" color="medium" type="submit">
+            Actualizar
+            <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
+        </ion-button>
+
+
+
+    </form>
 
 
 
