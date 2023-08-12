@@ -13,26 +13,26 @@
 
   <ion-card-content>
     <form [formGroup]="formLogin" (submit)="Login(formLogin.value)" class="ion-margin">
-      <ion-input label="Email" 
-          label-placement="floating" 
-          fill="outline" 
+      <ion-input label="Email"
+          label-placement="floating"
+          fill="outline"
           placeholder="Ingrese email"
           formControlName="email">
       </ion-input>
- 
+
       <div *ngIf="formLogin.get('email')?.invalid && formLogin.get('email')?.touched">
         <div *ngIf="formLogin.get('email')?.hasError('required')">
           <p class="error-message">Email requerido</p>
-        </div> 
+        </div>
 
         <div *ngIf="formLogin.get('email')?.hasError('email')">
           <p class="error-message">Email invalido</p>
         </div>
       </div>
-  
-      <ion-input class="ion-margin-top" label="Contraseña" 
-        label-placement="floating" 
-        fill="outline" 
+
+      <ion-input class="ion-margin-top" label="Contraseña"
+        label-placement="floating"
+        fill="outline"
         placeholder="Ingrese Contraseña"
         formControlName="password">
       </ion-input>
@@ -51,8 +51,8 @@
         </div>
       </div>
       <br>
-      
-      <ion-button expand="full" color="medium" fill="solid">
+
+      <ion-button expand="full" color="medium" fill="solid" [disabled]="formLogin.invalid">
           Logearse
       </ion-button>
 
