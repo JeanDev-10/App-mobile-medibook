@@ -1,13 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>vacunas</ion-title>
+    <ion-title>Lista de Vacuna</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">vacunas</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-button type="button" [routerLink]="['/vacunas-crear']" class="add">
+    <ion-icon  slot="icon-only" name="add-outline"></ion-icon>
+  </ion-button>
+
+  <div [routerLink]="['/vacunas-detalle']">
+    <ion-img class="icon-img" src="../../../../assets/img/vacuna.png"></ion-img>
+    <ion-label class="label-vacuna-1" color="tertiary">Pfizer</ion-label>
+    <ion-badge class="label-fecha-1" color="success">Aplicada: 11/08/23</ion-badge>
+  </div>
+
+  <div>
+    <ion-img class="icon-img" src="../../../../assets/img/vacuna.png"></ion-img>
+    <ion-label class="label-vacuna-2" color="tertiary">Varicela</ion-label>
+    <ion-badge class="label-fecha-2" color="success">Aplicada: 11/08/23</ion-badge>
+  </div>
+
+  <div>
+    <ion-img class="icon-img" src="../../../../assets/img/vacuna.png"></ion-img>
+    <ion-label class="label-vacuna-3" color="tertiary">Lozartán<nav></nav></ion-label>
+    <ion-badge class="label-fecha-3" color="success">Aplicada: 11/08/23</ion-badge>
+  </div>
 </ion-content>
