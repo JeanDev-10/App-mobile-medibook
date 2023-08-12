@@ -34,7 +34,8 @@
     <!-- Input de Fecha -->
 
     <ion-item>
-      <ion-datetime class="fecha-input" formControlName="fecha" presentation="date" [preferWheel]="true"></ion-datetime>
+      <ion-icon name="calendar"></ion-icon>
+      <ion-input  displayFormat="DD/MM/YYYY" type="date" formControlName="fecha" class="inputs" label="Fecha" labelPlacement="floating"></ion-input>
     </ion-item>
 
     <ion-button color="medium" type="submit">
