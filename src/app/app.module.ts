@@ -7,17 +7,15 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { ToastrModule } from 'ngx-toastr';
+// import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptorInterceptor } from './core/shared/interceptor/auth.interceptor';
 import { SpinnerInterceptor } from './core/shared/interceptor/spinner.interceptor';
 import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule, ToastrModule.forRoot({
-    positionClass: 'toast-top-right',
-    timeOut:1500
-  }),CoreModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule
+  ,CoreModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptorInterceptor,
