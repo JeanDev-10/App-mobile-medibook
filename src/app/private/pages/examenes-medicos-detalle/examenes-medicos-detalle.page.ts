@@ -12,4 +12,5 @@ export class ExamenesMedicosDetallePage implements OnInit {
   ngOnInit() {
   }
 
+
 }
