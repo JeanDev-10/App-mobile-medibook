@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 import { IonicModule } from '@ionic/angular';
 
@@ -13,7 +16,10 @@ import { CambiarPasswordPage } from './cambiar-password.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CambiarPasswordPageRoutingModule
+    CambiarPasswordPageRoutingModule,
+    ReactiveFormsModule,
+   
+    
   ],
   declarations: [CambiarPasswordPage]
 })
