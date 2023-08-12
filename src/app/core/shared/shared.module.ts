@@ -4,6 +4,7 @@ import { ProgressBarComponent } from './components/progress-bar/progress-bar.com
 import { IonicModule } from '@ionic/angular';
 import { SignoVitalesComponent } from './components/signo-vitales/signo-vitales.component';
 
+
 @NgModule({
   declarations: [ProgressBarComponent, SignoVitalesComponent],
   imports: [CommonModule, IonicModule],
