@@ -1,4 +1,4 @@
-div{
+.container-div{
     background-color: #95a5a6a9;
     width: 350px;
     height: 500px;
@@ -36,13 +36,13 @@ ion-button{
     width: 100px;
     position: relative;
     top: 80px;
-    left: 15px;
+    left: -15px;
 }
 
 .label-lapso{
     position: relative;
     top: 120px;
-    left: -90px;
+    left: 120px;
     font-weight: 900;
     font-size: 20px;
 }
@@ -65,3 +65,6 @@ ion-button{
     margin-top: 200px;
 }
 
+ion-badge{
+    margin-left: 30px;
+}

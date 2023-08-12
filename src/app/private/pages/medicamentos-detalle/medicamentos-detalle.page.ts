@@ -12,12 +12,16 @@ export class MedicamentosDetallePage implements OnInit {
 
   FormularioMedicamentoDetalle!:FormGroup;
 
+  // Atributo para el estado del formulario
+
+  StateForm:boolean = false;
+
   constructor(private formBuilder:FormBuilder, private router:Router, private toastController:ToastController) { 
     this.FormularioMedicamentoDetalle = this.formBuilder.group({
-      'nombre' : new FormControl('',[Validators.required,Validators.minLength(3)]),
-      'dosis' : new FormControl('',[Validators.required,Validators.minLength(3)]),
-      'lapso' : new FormControl('',[Validators.required,Validators.minLength(3)]),
-      'duracion' : new FormControl('',[Validators.required,Validators.minLength(3)])
+      'nombre' : new FormControl('Lozártan',[Validators.required,Validators.minLength(3)]),
+      'dosis' : new FormControl('500mg',[Validators.required,Validators.minLength(3)]),
+      'lapso' : new FormControl('Cada 8 Horas',[Validators.required,Validators.minLength(3)]),
+      'duracion' : new FormControl('4 Meses',[Validators.required,Validators.minLength(3)])
     })
   }
 
@@ -42,5 +46,16 @@ export class MedicamentosDetallePage implements OnInit {
     });
 
     await toast.present();
+  }
+
+  // Cambiar el estado del formulario
+
+  ChangeStateForm(){
+    this.StateForm = !this.StateForm;
+  }
+
+  // Se podría hacer ya el edit método
+  EditMecament(Form:any){
+    this.StateForm = true;
   }
 }
