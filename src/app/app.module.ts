@@ -12,6 +12,7 @@ import { AuthInterceptorInterceptor } from './core/shared/interceptor/auth.inter
 import { SpinnerInterceptor } from './core/shared/interceptor/spinner.interceptor';
 import { CoreModule } from './core/core.module';
 
+
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule

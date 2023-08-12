@@ -11,7 +11,7 @@ import { IonicModule } from '@ionic/angular';
   imports: [
     CommonModule,
     PrivateRoutingModule,
-    IonicModule
+    IonicModule,
   ]
 })
 export class PrivateModule { }
