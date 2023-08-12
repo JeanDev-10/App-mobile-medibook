@@ -1,18 +1,49 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
-        <ion-title>examenesMedicos</ion-title>
+        <ion-title>Examenes Medicos</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <!--    <ion-header collapse="condense">
-        <ion-toolbar>
-            <ion-title size="large">examenesMedicos</ion-title>
-        </ion-toolbar>
-    </ion-header> -->
 
 
+    <ion-button type="button" [routerLink]="['/examenes-medicos-crear']" class="add">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+    </ion-button>
 
+    <div [routerLink]="['/examenes-medicos-detalle']">
+        <ion-img class="icon-img" src="../../../../assets/img/examen.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Hemograma
+            <nav></nav>
+        </ion-label>
+        <ion-badge class="label-estado label-estado-3" color="success">12/08/2023</ion-badge>
+    </div>
+
+    <div>
+        <ion-img class="icon-img" src="../../../../assets/img/examen.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Urianálisis
+            <nav></nav>
+        </ion-label>
+
+        <ion-badge class="label-estado label-estado-3" color="warning">12/08/2023</ion-badge>
+    </div>
+
+    <div>
+        <ion-img class="icon-img" src="../../../../assets/img/examen.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Elastografía
+            <nav></nav>
+        </ion-label>
+        <ion-badge class="label-estado label-estado-3" color="danger">12/08/2023</ion-badge>
+    </div>
+
+
+    <div>
+        <ion-img class="icon-img" src="../../../../assets/img/examen.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Elastasa fecal
+            <nav></nav>
+        </ion-label>
+        <ion-badge class="label-estado label-estado-3" color="danger">12/08/2023</ion-badge>
+    </div>
 
 
 

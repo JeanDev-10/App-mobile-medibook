@@ -1,0 +1,52 @@
+.add {
+    position: relative;
+    left: 180px;
+    width: 50px;
+    height: 50px;
+}
+
+div {
+    background-color: #95a5a6a9;
+    width: 350px;
+    height: 160px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+.active {
+    font-size: 30px;
+    margin-left: -70px;
+    margin-top: 30px;
+}
+
+.citas-formato {
+    font-size: 30px;
+    position: relative;
+    left: 30px;
+}
+
+.icon-img {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    top: 30px;
+    left: 25px;
+}
+
+.label-estado-3 {
+    position: relative;
+    left: 130px;
+    top: -45px;
+}
+
+.label-cita {
+    position: relative;
+    left: 130px;
+    top: -50px;
+    font-size: 23px;
+}
