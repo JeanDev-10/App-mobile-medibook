@@ -5,8 +5,6 @@ import { AuthGuard } from './core/shared/guards/auth.guard';
 
 const routes: Routes = [
 
-    //Rutas Publicas
-
     {
       path: '',
       loadChildren: () =>

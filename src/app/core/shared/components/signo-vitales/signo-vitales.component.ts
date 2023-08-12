@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
   selector: 'app-signo-vitales',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signo-vitales.component.scss'],
 })
 export class SignoVitalesComponent  implements OnInit {
+
+  options: AnimationOptions = {
+    path: '/assets/anim/animacion_carga.json',
+  };
 
   constructor() { }
 
