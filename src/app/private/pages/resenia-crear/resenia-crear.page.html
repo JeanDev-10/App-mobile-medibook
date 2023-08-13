@@ -1,13 +1,62 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>reseniaCrear</ion-title>
+    <ion-title>Crear una Reseña</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">reseniaCrear</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      <!-- Animación -->
+      <div class="anim">
+        <ng-lottie [options]="options"></ng-lottie>
+    </div>
+
+    <ion-list>
+
+        <form [formGroup]="FormularioResenia" (ngSubmit)="CreateResenia(FormularioResenia.value)">
+
+            <!-- Input de Califacion -->
+
+            <ion-item>
+              <ion-icon name="star-outline"></ion-icon>
+              <ion-input formControlName="calificacion" label="Calificación" type="number" placeholder="1-5" min="1" max="5"></ion-input>
+            </ion-item>
+
+            <!-- Input de Comentario -->
+
+            <ion-item class="text-area-input">
+                <ion-textarea formControlName="comentario_id"
+                  aria-label="Custom textarea"
+                  placeholder="Deja tu Comentario"
+                  class="custom"
+                  helperText="Caracteres"
+                  [counter]="true"
+                  [maxlength]="500"
+                ></ion-textarea>
+            </ion-item>
+
+            <!-- Input Cita_id -->
+
+            <ion-item>
+              <ion-select formControlName="cita_id" label="Elige la Cita" label-placement="floating" fill="solid">
+                <ion-select-option value="1">Cita 1</ion-select-option>
+                <ion-select-option value="2">Cita 2</ion-select-option>
+                <ion-select-option value="3">Cita 3</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+
+            <ion-button color="medium" type="submit">
+                Registrar
+                <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
+            </ion-button>
+        </form>
+
+    </ion-list>
+
+    <!-- Para regresar atrás -->
+    <ion-fab [routerLink]="['/dudas']" slot="fixed" horizontal="end" vertical="start">
+        <ion-fab-button color="dark">
+            <ion-icon name="chevron-back"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 </ion-content>
