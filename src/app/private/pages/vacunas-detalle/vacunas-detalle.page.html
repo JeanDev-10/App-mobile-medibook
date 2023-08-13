@@ -48,5 +48,10 @@
     </ion-button>
   </form>
 
-  
+      <!-- Para regresar atrás -->
+      <ion-fab [routerLink]="['/vacunas']" slot="fixed" horizontal="end" vertical="bottom">
+        <ion-fab-button color="dark">
+            <ion-icon name="chevron-back"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 </ion-content>
