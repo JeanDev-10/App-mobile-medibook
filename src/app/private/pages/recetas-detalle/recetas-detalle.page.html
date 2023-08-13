@@ -1,13 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>recetasDetalle</ion-title>
+    <ion-title>Detalle de la Receta</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">recetasDetalle</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container-div">
+    <ion-img class="icon-img" src="../../../../assets/img/receta.png"></ion-img>
+    <ion-label class="label-cita" color="tertiary">Lozartán</ion-label>
+    <ion-badge class="label-estado label-estado-1" color="success">Cantidad: 5</ion-badge>
+    <br>
+    <ion-label class="label-lapso" color="dark">Cada 8 Horas</ion-label>
+    <br>
+    <ion-label class="label-duracion" color="dark">Nombre de la Cita</ion-label>
+</div>
+
+      <!-- Para regresar atrás -->
+      <ion-fab [routerLink]="['/recetas']" slot="fixed" horizontal="end" vertical="bottom">
+        <ion-fab-button color="dark">
+            <ion-icon name="chevron-back"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 </ion-content>
