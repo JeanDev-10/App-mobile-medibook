@@ -19,22 +19,29 @@
                 <ion-icon name="leaf"></ion-icon>
                 <ion-input formControlName="titulo" class="inputs" label="Titulo de la Cita" labelPlacement="floating" placeholder="Problemas Respiratorio"></ion-input>
             </ion-item>
+            <div class="mt-1" *ngIf="FormularioCitasMedicas.get('titulo')?.invalid && FormularioCitasMedicas.get('titulo')?.touched">
+              <ion-badge *ngIf="FormularioCitasMedicas.get('titulo')?.hasError('required')" color="warning">Campo Requerido</ion-badge>
+          </div>
 
             <!-- Input de hora de inicio -->
 
             <ion-item>
                 <ion-icon name="time"></ion-icon>
-                <ion-input formControlName="hora_inicio" class="inputs" label="Hora Llegada" labelPlacement="floating" placeholder="2:30 PM"></ion-input>
+                <ion-input formControlName="hora_inicio" class="inputs" label="Hora Llegada" labelPlacement="floating" placeholder="2:30 PM" type="time"></ion-input>
             </ion-item>
-
+            <div class="mt-1" *ngIf="FormularioCitasMedicas.get('hora_inicio')?.invalid && FormularioCitasMedicas.get('hora_inicio')?.touched">
+              <ion-badge *ngIf="FormularioCitasMedicas.get('hora_inicio')?.hasError('required')" color="warning">Campo Requerido</ion-badge>
+          </div>
 
             <!-- Input de hora de fin -->
 
             <ion-item>
                 <ion-icon name="alarm-outline"></ion-icon>
-                <ion-input formControlName="hora_fin" class="inputs" label="Hora Salida" labelPlacement="floating" placeholder="17:00 PM"></ion-input>
+                <ion-input formControlName="hora_fin" class="inputs" label="Hora Salida" labelPlacement="floating" placeholder="17:00 PM" type="time"></ion-input>
             </ion-item>
-
+            <div class="mt-1" *ngIf="FormularioCitasMedicas.get('hora_fin')?.invalid && FormularioCitasMedicas.get('hora_fin')?.touched">
+              <ion-badge *ngIf="FormularioCitasMedicas.get('hora_fin')?.hasError('required')" color="warning">Campo Requerido</ion-badge>
+          </div>
 
             <!-- Input de Medico -->
 
@@ -45,8 +52,10 @@
                 <ion-select-option value="3">Dr. Jean Pierre Zambrano</ion-select-option>
               </ion-select>
             </ion-item>
-
-            <ion-button color="medium" type="submit">
+            <div class="mt-1" *ngIf="FormularioCitasMedicas.get('medico_id')?.invalid && FormularioCitasMedicas.get('medico_id')?.touched">
+              <ion-badge *ngIf="FormularioCitasMedicas.get('medico_id')?.hasError('required')" color="warning">Campo Requerido</ion-badge>
+          </div>
+            <ion-button color="medium" type="submit" [disabled]="FormularioCitasMedicas.invalid">
               Registrar
             <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
             </ion-button>

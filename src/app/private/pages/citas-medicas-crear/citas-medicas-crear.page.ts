@@ -15,20 +15,25 @@ export class CitasMedicasCrearPage implements OnInit {
     path: '/assets/anim/animacion_reservar-cita.json',
   };
 
-  constructor(private formBuilder:FormBuilder) {
-    this.FormularioCitasMedicas = this.formBuilder.group({
-      titulo : new FormControl('',Validators.required),
-      hora_inicio : new FormControl('',Validators.required),
-      hora_fin : new FormControl('',Validators.required),
-      medico_id : new FormControl('',Validators.required)
-    });
-   }
+  constructor(private formBuilder:FormBuilder) {}
 
-  ngOnInit() {
+   buildForm() {
+    this.FormularioCitasMedicas = this.formBuilder.group({
+      titulo: ['', [Validators.required]],
+      hora_inicio: ['', [Validators.required]],
+      hora_fin: ['', [Validators.required]],
+      medico_id: ['', [Validators.required]],
+
+    });
   }
+  ngOnInit() {
+    this.buildForm();
+  }
+
 
   // Por el momento solo muestro por consola
   CreateCitaMedica(Form:any){
     console.log(Form);
+    if(this.FormularioCitasMedicas.invalid){}
   }
 }

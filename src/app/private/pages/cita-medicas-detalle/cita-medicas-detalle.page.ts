@@ -16,17 +16,20 @@ export class CitaMedicasDetallePage implements OnInit {
   StateForm = false;
 
   constructor(private formBuilder:FormBuilder,private router:Router, private toastController:ToastController) {
-    this.FormCitasMedicasEditar = this.formBuilder.group({
-      titulo : new FormControl('', Validators.required),
-      hora_inicio : new FormControl('',Validators.required),
-      hora_fin : new FormControl('',Validators.required),
-      medico_id : new FormControl('',Validators.required)
-    })
    }
 
-  ngOnInit() {
-  }
+   buildForm() {
+    this.FormCitasMedicasEditar = this.formBuilder.group({
+      titulo: ['', [Validators.required]],
+      hora_inicio: ['', [Validators.required]],
+      hora_fin: ['', [Validators.required]],
+      medico_id: ['', [Validators.required]],
 
+    });
+  }
+  ngOnInit() {
+    this.buildForm();
+  }
   // Método creado para hacer el delete del medicamento
   DeleteMedicament(){
     this.router.navigate(['citas-medicas'])
