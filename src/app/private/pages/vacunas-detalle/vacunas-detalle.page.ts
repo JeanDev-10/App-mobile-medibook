@@ -22,15 +22,19 @@ export class VacunasDetallePage implements OnInit {
 
 
   constructor(private formBuilder:FormBuilder, private router:Router, private toastController:ToastController) {
-    this.FormularioVacuna = this.formBuilder.group({
-      nombre : new FormControl('Pfizer',Validators.required),
-      fecha: new FormControl('26/03/2020',Validators.required)
-    })
+
    }
 
-  ngOnInit() {
-  }
+   buildForm() {
+    this.FormularioVacuna = this.formBuilder.group({
+      nombre: ['', [Validators.required]],
+      fecha: ['', [Validators.required]],
 
+    });
+  }
+  ngOnInit() {
+    this.buildForm();
+  }
   // Método para Crear una vacuna por el momento lo estoy usando para ver los datos por consola
 
   EditVacuna(){
@@ -43,7 +47,7 @@ export class VacunasDetallePage implements OnInit {
       this.StateForm = !this.StateForm;
     }
 
-  
+
   // Método creado para hacer el delete del medicamento
   DeleteMedicament(){
     this.router.navigate(['vacunas'])

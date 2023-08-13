@@ -17,7 +17,7 @@
     </ion-fab>
 
     <ion-fab class="close">
-      <ion-fab-button (click)="DeleteMedicament()" color="danger"> 
+      <ion-fab-button (click)="DeleteMedicament()" color="danger">
         <ion-icon name="close"></ion-icon>
       </ion-fab-button>
     </ion-fab>
@@ -30,16 +30,20 @@
       <ion-icon name="skull-outline"></ion-icon>
       <ion-input formControlName="nombre" class="inputs" label="Vacuna" labelPlacement="floating" placeholder="Pfizer"></ion-input>
     </ion-item>
-
+    <div class="mt-1" *ngIf="FormularioVacuna.get('nombre')?.invalid && FormularioVacuna.get('nombre')?.touched">
+      <ion-badge *ngIf="FormularioVacuna.get('nombre')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+  </div>
     <!-- Input de Fecha -->
 
     <ion-item>
       <ion-icon name="calendar"></ion-icon>
       <ion-input  displayFormat="DD/MM/YYYY" type="date" formControlName="fecha" class="inputs" label="Fecha" labelPlacement="floating"></ion-input>
     </ion-item>
-
-    <ion-button color="medium" type="submit">
-      Registrar
+    <div class="mt-1" *ngIf="FormularioVacuna.get('fecha')?.invalid && FormularioVacuna.get('fecha')?.touched">
+      <ion-badge *ngIf="FormularioVacuna.get('fecha')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+  </div>
+    <ion-button color="medium" type="submit" [disabled]="FormularioVacuna.invalid">
+      Actualizar
     <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
     </ion-button>
   </form>
