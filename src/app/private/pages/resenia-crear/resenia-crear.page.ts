@@ -19,7 +19,6 @@ export class ReseniaCrearPage implements OnInit {
     this.FormularioResenia = this.formBuilder.group({
       'calificacion' : new FormControl('',Validators.required),
       'comentario_id': new FormControl('',Validators.required),
-      'cita_id' : new FormControl('',Validators.required)
     })
    }
 

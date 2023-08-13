@@ -23,24 +23,12 @@
 
             <!-- Input de Comentario -->
 
-            <ion-item class="text-area-input">
-                <ion-textarea formControlName="comentario_id"
-                  aria-label="Custom textarea"
-                  placeholder="Deja tu Comentario"
-                  class="custom"
-                  helperText="Caracteres"
-                  [counter]="true"
-                  [maxlength]="500"
-                ></ion-textarea>
-            </ion-item>
-
-            <!-- Input Cita_id -->
-
             <ion-item>
-              <ion-select formControlName="cita_id" label="Elige la Cita" label-placement="floating" fill="solid">
-                <ion-select-option value="1">Cita 1</ion-select-option>
-                <ion-select-option value="2">Cita 2</ion-select-option>
-                <ion-select-option value="3">Cita 3</ion-select-option>
+              <ion-select formControlName="comentario_id" label="Eliga el Comentario" label-placement="floating" fill="solid">
+                <ion-select-option value="1">Predeterminado 1
+                </ion-select-option>
+                <ion-select-option value="2">Predeterminado 2</ion-select-option>
+                <ion-select-option value="3">Predeterminado 3</ion-select-option>
               </ion-select>
             </ion-item>
 
