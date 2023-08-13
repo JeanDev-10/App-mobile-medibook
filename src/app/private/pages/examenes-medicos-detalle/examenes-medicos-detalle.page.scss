@@ -23,35 +23,27 @@ ion-button {
     left: 100px;
 }
 
-.label-cita {
-    position: relative;
-    left: 120px;
-    top: 50px;
-    font-size: 30px;
+h2 {
+    color: blue;
+    position: absolute;
+    top: 39%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.label-estado {
-    font-size: 15px;
-    width: 100px;
-    position: relative;
-    top: 80px;
-    left: -15px;
+.datos {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
 }
 
-.label-lapso {
-    position: relative;
-    top: 120px;
-    left: 120px;
-    font-weight: 900;
-    font-size: 20px;
-}
-
-.label-duracion {
-    position: relative;
-    top: 140px;
-    left: 140px;
-    font-weight: 900;
-    font-size: 20px;
+.acciones {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    transform: translate(-50%, -50%);
 }
 
 .close {

@@ -8,26 +8,35 @@
 
     <div class="container-div">
         <ion-img class="icon-img" src="../../../../assets/img/medicaments.png"></ion-img>
-        <ion-label class="label-cita" color="tertiary">Hemograma</ion-label>
-
-        <ion-badge class="label-estado label-estado-3" color="success">12/08/2023</ion-badge>
-        <br>
-        <ion-label class="label-lapso" color="dark">Positivo</ion-label>
-
-
-        <ion-fab class="edit">
-            <ion-fab-button (click)=" ChangeStateForm()" color="warning">
-                <ion-icon name="create"></ion-icon>
-            </ion-fab-button>
-        </ion-fab>
 
 
 
-        <ion-fab class="close">
-            <ion-fab-button (click)="deleteExamen()" color="danger">
-                <ion-icon name="close"></ion-icon>
-            </ion-fab-button>
-        </ion-fab>
+        <h2>Hemograma</h2>
+
+        <div class="datos">
+
+            <ion-badge class="label-estado label-estado-3" color="success">12/08/2023</ion-badge>
+            <br>
+            <ion-badge class="label-estado label-estado-3" color="success">Positivo</ion-badge>
+        </div>
+
+
+
+        <div class="acciones">
+            <ion-fab class="edit">
+                <ion-fab-button (click)=" ChangeStateForm()" color="warning">
+                    <ion-icon name="create"></ion-icon>
+                </ion-fab-button>
+            </ion-fab>
+
+            <ion-fab class="close">
+                <ion-fab-button (click)="deleteExamen()" color="danger">
+                    <ion-icon name="close"></ion-icon>
+                </ion-fab-button>
+            </ion-fab>
+
+        </div>
+
 
     </div>
 

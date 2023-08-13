@@ -1,0 +1,61 @@
+.container-div {
+    background-color: #95a5a6a9;
+    width: 350px;
+    height: 500px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
+ion-button {
+    margin-left: 15px;
+}
+
+.icon-img {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    top: 30px;
+    left: 100px;
+}
+
+h2 {
+    color: blue;
+    position: absolute;
+    top: 39%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.datos {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+}
+
+.acciones {
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+}
+
+.close {
+    margin-left: 130px;
+    margin-top: 200px;
+}
+
+.edit {
+    margin-left: 30px;
+    margin-top: 200px;
+}
+
+ion-badge {
+    margin-left: 30px;
+}

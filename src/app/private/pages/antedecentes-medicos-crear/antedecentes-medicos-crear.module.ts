@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -8,12 +8,25 @@ import { AntedecentesMedicosCrearPageRoutingModule } from './antedecentes-medico
 
 import { AntedecentesMedicosCrearPage } from './antedecentes-medicos-crear.page';
 
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+
+
+// Note we need a separate function as it's required
+// by the AOT compiler.
+export function playerFactory() {
+  return player;
+}
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AntedecentesMedicosCrearPageRoutingModule
+    AntedecentesMedicosCrearPageRoutingModule,
+    LottieModule.forRoot({ player: playerFactory }),
+    ReactiveFormsModule
   ],
   declarations: [AntedecentesMedicosCrearPage]
 })

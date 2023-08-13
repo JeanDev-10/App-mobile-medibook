@@ -1,13 +1,49 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>AntedecentesMedicos</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Antedecentes Medicos</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">AntedecentesMedicos</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+
+    <ion-button type="button" [routerLink]="['/antedecentes-medicos-crear']" class="add">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+    </ion-button>
+
+    <div [routerLink]="['/antedecentes-medicos-detalle']">
+        <ion-img class="icon-img" src="../../../../assets/img/antecedentes.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Fiebre
+            <nav></nav>
+        </ion-label>
+        <ion-badge class="label-estado label-estado-3" color="success">A+</ion-badge>
+    </div>
+
+    <div>
+        <ion-img class="icon-img" src="../../../../assets/img/antecedentes.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Nauseas
+            <nav></nav>
+        </ion-label>
+
+        <ion-badge class="label-estado label-estado-3" color="warning">O+</ion-badge>
+    </div>
+
+    <div>
+        <ion-img class="icon-img" src="../../../../assets/img/antecedentes.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Vértigo
+            <nav></nav>
+        </ion-label>
+        <ion-badge class="label-estado label-estado-3" color="danger">A+</ion-badge>
+    </div>
+
+
+    <div>
+        <ion-img class="icon-img" src="../../../../assets/img/antecedentes.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Diabetes
+            <nav></nav>
+        </ion-label>
+        <ion-badge class="label-estado label-estado-3" color="danger">A+</ion-badge>
+    </div>
+
+
 </ion-content>

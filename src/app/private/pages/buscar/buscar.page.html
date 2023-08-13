@@ -3,12 +3,39 @@
         <ion-title>Buscar</ion-title>
 
     </ion-toolbar>
-  <app-progress-bar/>
-
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <ion-searchbar placeholder="Buscar" show-clear-button="always" clear-icon="trash-bin"></ion-searchbar>
+    <app-progress-bar/>
+
+    <ion-searchbar [(ngModel)]="searchTerm" placeholder="Buscar" show-clear-button="always" clear-icon="trash-bin"></ion-searchbar>
+
+
+    <ion-item>
+        <ion-label>Especialidad</ion-label>
+        <ion-select [(ngModel)]="specialtyFilter">
+            <ion-select-option value="">Todas</ion-select-option>
+            <ion-select-option *ngFor="let item of items" [value]="item.specialty">{{ item.specialty }}</ion-select-option>
+        </ion-select>
+    </ion-item>
+
+    <ion-list>
+        <ion-item *ngFor="let item of filteredItems">
+            <ion-card>
+                <ion-card-content>
+                    <div class="card-content">
+                        <ion-thumbnail class="avatar">
+                            <img src="../../../../assets/img/ante-detalles.png" alt="Avatar">
+                        </ion-thumbnail>
+                        <div class="info">
+                            <h2>{{ item.name }}</h2>
+                            <p>{{ item.specialty }}</p>
+                        </div>
+                    </div>
+                </ion-card-content>
+            </ion-card>
+        </ion-item>
+    </ion-list>
 
 
 

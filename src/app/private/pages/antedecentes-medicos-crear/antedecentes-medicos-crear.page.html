@@ -1,13 +1,115 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>AntedecentesMedicosCrear</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Crear Antedecentes Medicos</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">AntedecentesMedicosCrear</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+
+    <!-- Animación -->
+    <div class="anim">
+        <ng-lottie [options]="options"></ng-lottie>
+    </div>
+
+    <ion-list>
+
+        <form [formGroup]="FormularioAntecedentes" (ngSubmit)="CreateAntecedentes(FormularioAntecedentes.value)">
+
+            <!-- Input de Condicion Medica -->
+            <ion-item>
+                <ion-icon name="body-outline"></ion-icon>
+                <ion-input formControlName="condicionMedica" class="inputs" label="Condicion Médica" labelPlacement="floating" placeholder=""></ion-input>
+            </ion-item>
+
+            <!-- Validación de campo condicionMedica requerido -->
+            <div class="mt-1" *ngIf="FormularioAntecedentes.get('condicionMedica')?.invalid && FormularioAntecedentes.get('condicionMedica')?.touched">
+                <ion-badge *ngIf="FormularioAntecedentes.get('condicionMedica')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            </div>
+
+            <!-- Validacion de campo caracter menor que 3 -->
+            <ion-badge *ngIf="FormularioAntecedentes.get('condicionMedica')?.hasError('minlength')" color="warning">3 Caracteres Minímos Permitidos</ion-badge>
+
+            <!-- Input de alergias -->
+
+            <ion-item>
+                <ion-icon name="sad-outline"></ion-icon>
+                <ion-input formControlName="alergias" class="inputs" label="Alergias" labelPlacement="floating" placeholder=""></ion-input>
+            </ion-item>
+
+            <!-- Validación de campo alergias requerido -->
+            <div class="mt-1" *ngIf="FormularioAntecedentes.get('alergias')?.invalid && FormularioAntecedentes.get('alergias')?.touched">
+                <ion-badge *ngIf="FormularioAntecedentes.get('alergias')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            </div>
+
+            <!-- Validacion de campo alergias caracter menor que 3 -->
+            <ion-badge *ngIf="FormularioAntecedentes.get('alergias')?.hasError('minlength')" color="warning">3 Caracteres Minímos Permitidos</ion-badge>
+
+            <!-- Input de cirugiasPrevias -->
+
+            <ion-item>
+                <ion-icon name="pulse-outline"></ion-icon>
+                <ion-input formControlName="cirugiasPrevias" class="inputs" label="Cirugias Previas" labelPlacement="floating" placeholder=""></ion-input>
+            </ion-item>
+
+            <!-- Validación de campo cirugiasPrevias requerido -->
+            <div class="mt-1" *ngIf="FormularioAntecedentes.get('cirugiasPrevias')?.invalid && FormularioAntecedentes.get('cirugiasPrevias')?.touched">
+                <ion-badge *ngIf="FormularioAntecedentes.get('cirugiasPrevias')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            </div>
+
+            <!-- Validacion de campo cirugiasPrevias caracter menor que 3 -->
+            <ion-badge *ngIf="FormularioAntecedentes.get('cirugiasPrevias')?.hasError('minlength')" color="warning">3 Caracteres Minímos Permitidos</ion-badge>
+
+
+            <!-- Input tipo de sangre -->
+
+            <ion-item>
+                <ion-icon name="eyedrop-outline"></ion-icon>
+                <ion-select formControlName="tipoSangre" label="Tipo de Sangre" label-placement="floating" fill="solid">
+                    <ion-select-option value="a+">A+</ion-select-option>
+                    <ion-select-option value="o+">O+</ion-select-option>
+                    <ion-select-option value="b+">B+</ion-select-option>
+                    <ion-select-option value="ab+">AB+</ion-select-option>
+                    <ion-select-option value="a-">A-</ion-select-option>
+                    <ion-select-option value="o-">O-</ion-select-option>
+                    <ion-select-option value="b-">B-</ion-select-option>
+                    <ion-select-option value="ab-">AB-</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <!-- Validación de tipo de sangre requerido -->
+            <div class="mt-1" *ngIf="FormularioAntecedentes.get('tipoSangre')?.invalid && FormularioAntecedentes.get('tipoSangre')?.touched">
+                <ion-badge *ngIf="FormularioAntecedentes.get('tipoSangre')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            </div>
+
+
+            <!-- Input de otrosDatos -->
+
+            <ion-item>
+                <ion-icon name="folder-outline"></ion-icon>
+                <ion-input formControlName="otrosDatos" class="inputs" label="Otros Datos" labelPlacement="floating" placeholder=""></ion-input>
+            </ion-item>
+
+            <!-- Validación de campo otrosDatos requerido -->
+            <div class="mt-1" *ngIf="FormularioAntecedentes.get('otrosDatos')?.invalid && FormularioAntecedentes.get('otrosDatos')?.touched">
+                <ion-badge *ngIf="FormularioAntecedentes.get('otrosDatos')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            </div>
+
+            <!-- Validacion de campo otrosDatos caracter menor que 3 -->
+            <ion-badge *ngIf="FormularioAntecedentes.get('otrosDatos')?.hasError('minlength')" color="warning">3 Caracteres Minímos Permitidos</ion-badge>
+
+
+
+            <ion-button [disabled]="FormularioAntecedentes.invalid" color="medium" type="submit">
+                Registrar
+                <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
+            </ion-button>
+        </form>
+
+    </ion-list>
+
+
+
+
+
 </ion-content>

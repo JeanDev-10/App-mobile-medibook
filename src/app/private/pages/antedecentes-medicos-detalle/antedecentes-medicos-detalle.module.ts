@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -13,7 +13,8 @@ import { AntedecentesMedicosDetallePage } from './antedecentes-medicos-detalle.p
     CommonModule,
     FormsModule,
     IonicModule,
-    AntedecentesMedicosDetallePageRoutingModule
+    AntedecentesMedicosDetallePageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [AntedecentesMedicosDetallePage]
 })
