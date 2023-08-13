@@ -1,13 +1,19 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>pagosDetalle</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>pagosDetalle</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">pagosDetalle</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-card>
+        <div class="imagen">
+            <img src="../../../../assets/img/detallesPago.png" alt="">
+        </div>
+
+        <h2>Detalles del pago</h2>
+
+        <h5>Pago por Cirugía</h5>
+        <h6>Pago Total:</h6>
+        <ion-badge class="total" color="success">$ 100.00</ion-badge>
+    </ion-card>
 </ion-content>
