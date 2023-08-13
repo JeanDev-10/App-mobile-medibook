@@ -1,19 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
 import { ObservacionCrearPageRoutingModule } from './observacion-crear-routing.module';
 
 import { ObservacionCrearPage } from './observacion-crear.page';
+import { LottieModule } from 'ngx-lottie';
+import { playerFactory } from '../citas-medicas-crear/citas-medicas-crear.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ObservacionCrearPageRoutingModule
+    ObservacionCrearPageRoutingModule,
+    LottieModule.forRoot({ player: playerFactory }),
+    ReactiveFormsModule
   ],
   declarations: [ObservacionCrearPage]
 })

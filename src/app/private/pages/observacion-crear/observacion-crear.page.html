@@ -5,9 +5,27 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">observacionCrear</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Animación -->
+  <div class="anim">
+    <ng-lottie [options]="options"></ng-lottie>
+</div>
+
+<ion-list>
+
+    <form>
+        <ion-item>
+            <ion-icon name="eyedrop-outline"></ion-icon>
+            <ion-input class="inputs" label="Observación" labelPlacement="floating" placeholder="Ingrese observación"></ion-input>
+        </ion-item>
+    </form>
+
+</ion-list>
+
+<!-- Para regresar atrás -->
+<ion-fab [routerLink]="['/']" slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button color="dark">
+        <ion-icon name="chevron-back"></ion-icon>
+    </ion-fab-button>
+</ion-fab>
+  
 </ion-content>

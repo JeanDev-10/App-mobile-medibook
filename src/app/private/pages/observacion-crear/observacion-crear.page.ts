@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AnimationOptions } from 'ngx-lottie';
 
 @Component({
   selector: 'app-observacion-crear',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./observacion-crear.page.scss'],
 })
 export class ObservacionCrearPage implements OnInit {
+
+  options: AnimationOptions = {
+    path: '/assets/anim/medicina-crear.json',
+  };
 
   constructor() { }
 
