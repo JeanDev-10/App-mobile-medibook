@@ -5,9 +5,42 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">observacionDetalle</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
+  <p class="title">Detalle observación</p>
+
+  <ion-card>
+    <ion-card-header>
+       <div class="flex-warp">
+        <img class="rounded" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        <h3>Jorge <span>Zambrano</span></h3>
+       </div>
+       <p>25/10/2023</p>
+
+      <ion-accordion-group class="ion-no-padding">
+        <ion-accordion value="first" toggleIcon="caret-down-circle" toggleIconSlot="start">
+          <ion-item slot="header" color="light">
+            <ion-label>Titulo cita <span>Estado cita</span></ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+
+            <div class="flex-warp" [routerLink]="['/profile']" routerLinkActive="router-link-active" >
+              <img class="rounded" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+              <h3>Carlos <span>Zambrano</span></h3>
+            </div>
+            <p>Doctor <span>25/10/2023</span></p>
+            <p class="content-data">Hora inico </p>
+            <p class="content-data">Hora fin</p>
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+
+      <div class="ion-text-center ion-margin-top">
+        <ion-button [routerLink]="['/observacion']" routerLinkActive="router-link-active" >
+          Volver
+        </ion-button>
+      </div>
+
+    </ion-card-header>
+  </ion-card>
+
 </ion-content>
