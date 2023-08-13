@@ -59,16 +59,15 @@
 
         <ion-item>
             <ion-icon name="calendar-outline"></ion-icon>
-            <ion-input formControlName="dosis" class="inputs" label="Fecha" labelPlacement="floating" placeholder="" type="date"></ion-input>
+            <ion-input formControlName="fecha" class="inputs" label="Fecha" labelPlacement="floating" placeholder="" type="date"></ion-input>
         </ion-item>
 
         <!-- Validación de campo fecha requerido -->
-        <div class="mt-1" *ngIf="FormularioExamenMedicoDetalle.get('dosis')?.invalid && FormularioExamenMedicoDetalle.get('dosis')?.touched">
-            <ion-badge *ngIf="FormularioExamenMedicoDetalle.get('dosis')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+        <div class="mt-1" *ngIf="FormularioExamenMedicoDetalle.get('fecha')?.invalid && FormularioExamenMedicoDetalle.get('fecha')?.touched">
+            <ion-badge *ngIf="FormularioExamenMedicoDetalle.get('fecha')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
         </div>
 
-        <!-- Validacion de campo fecha caracter menor que 3 -->
-        <ion-badge *ngIf="FormularioExamenMedicoDetalle.get('dosis')?.hasError('minlength')" color="warning">3 Caracteres Minímos Permitidos</ion-badge>
+
 
         <!-- Input de resultado -->
 
