@@ -1,13 +1,80 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>citaMedicasDetalle</ion-title>
+    <ion-title>Información de la Cita</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">citaMedicasDetalle</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container-div">
+    <ion-img class="icon-img" src="../../../../assets/img/cita-medica.png"></ion-img>
+    <ion-label class="label-titulo" color="tertiary">Titulo</ion-label>
+    <ion-badge class="label-doctor label-estado-1" color="success">Nombre de Doctor</ion-badge>
+    <br>
+    <ion-label class="label-lapso" color="dark">Hora Inicio</ion-label>
+    <br>
+    <ion-label class="label-duracion" color="dark">Hora Fin</ion-label>
+
+    <ion-fab class="edit">
+        <ion-fab-button (click)=" EditMecament()" color="warning">
+            <ion-icon name="create"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+    <ion-fab class="close">
+        <ion-fab-button (click)="DeleteMedicament()" color="danger">
+            <ion-icon name="close"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+</div>
+
+
+<form *ngIf="StateForm" [formGroup]="FormCitasMedicasEditar" (ngSubmit)="UpdateMedicament(FormCitasMedicasEditar.value)">
+    <ion-item>
+        <ion-icon name="leaf"></ion-icon>
+
+        <!-- Inputs de titulo -->
+        <ion-input formControlName="titulo" class="inputs" label="Titulo de la Cita" labelPlacement="floating" placeholder="Problemas Cárdiacos"></ion-input>
+    </ion-item>
+
+    <!-- Input de Hora Inicio -->
+    <ion-item>
+        <ion-icon name="time"></ion-icon>
+        <ion-input formControlName="hora_inicio" class="inputs" label="Hora de Entrada" labelPlacement="floating" placeholder="2:00 pm"></ion-input>
+    </ion-item>
+
+
+
+    <!-- Input de hora_fin -->
+
+    <ion-item>
+        <ion-icon name="alarm-outline"></ion-icon>
+        <ion-input formControlName="hora_fin" class="inputs" label="Hora de Salida" labelPlacement="floating" placeholder="17:00 pm"></ion-input>
+    </ion-item>
+
+
+    <!-- Input medico_id -->
+
+    <ion-item>
+      <ion-select formControlName="medico_id" label="Medico" label-placement="floating" fill="solid">
+        <ion-select-option value="1">Dr. Jandry Kun</ion-select-option>
+        <ion-select-option value="2">Dr. Juan Jesús</ion-select-option>
+        <ion-select-option value="3">Dr. Jean Pierre Zambrano</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-button  color="medium" type="submit">
+        Actualizar
+        <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
+    </ion-button>
+</form>
+
+
+    <!-- Para regresar atrás -->
+    <ion-fab [routerLink]="['/citas-medicas']" slot="fixed" horizontal="end" vertical="bottom">
+      <ion-fab-button color="dark">
+        <ion-icon name="chevron-back"></ion-icon>
+      </ion-fab-button>
+  </ion-fab>
 </ion-content>
