@@ -1,10 +1,78 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Dudas</ion-title>
-
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
   <app-progress-bar/>
+
+  <nav class="nav">
+    <div class="title-app">MediBook</div>
+    <div class="nav-icon">
+      <ion-icon class="icon-notification" name="notifications-outline"></ion-icon>
+      <img class="img-profile" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+    </div>
+  </nav>
+  <p class="title">¡Tines alguna duda!</p>
+  
+  <ion-card>
+    <ion-card-header>
+       <div class="flex-warp">
+        <img class="rounded" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        <h3>Jorge</h3>
+       </div>
+       <p>Paciente <span>25/10/2023</span></p>
+
+       <p class="content-data">
+        Here's a small text description for the card content. Nothing more, nothing less.
+      </p>
+
+      <ion-accordion-group class="ion-no-padding">
+        <ion-accordion value="first" toggleIcon="caret-down-circle" toggleIconSlot="start">
+          <ion-item slot="header" color="light">
+            <ion-label><span>10</span> respuestas</ion-label>
+          </ion-item>
+          <div class="ion-padding" slot="content">
+          
+            <div class="flex-warp" [routerLink]="['/profile']" routerLinkActive="router-link-active" >
+              <img class="rounded" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+              <h3>Jorge</h3>
+            </div>
+            <p>Doctor <span>25/10/2023</span></p>
+            <p class="content-data">
+              Here's a small text description for the card content. Nothing more, nothing less.
+            </p>
+
+            <div class="flex-warp" [routerLink]="['/profile']" routerLinkActive="router-link-active" >
+              <img class="rounded" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+              <h3>Carlos</h3>
+            </div>
+            <p>Paciente <span>25/10/2023</span></p>
+            <p class="content-data">
+              Here's a small text description for the card content. Nothing more, nothing less.
+            </p>
+
+          </div>
+        </ion-accordion>
+      </ion-accordion-group>
+      
+    </ion-card-header>
+  </ion-card>
+
+  <div class="container">
+    <form class="ion-margin">
+      <div class="all">
+        <ion-input 
+          fill="outline" 
+          placeholder="Ingresa tu duda"
+          formControlName="contenido">
+        </ion-input>
+
+        <ion-fab-button >
+          <ion-icon name="send-outline"></ion-icon>
+        </ion-fab-button>
+      </div>
+    </form>
+  </div>
 </ion-content>
+
+<ion-footer [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Footer</ion-title>
+  </ion-toolbar>
+</ion-footer>

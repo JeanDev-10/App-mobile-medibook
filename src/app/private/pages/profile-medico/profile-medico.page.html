@@ -5,9 +5,112 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profileMedico</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-card>
+    <ion-card-header>
+       <div class="flex-warp">
+        <p class="title">Perfil Medico</p>
+        <img class="img-profile" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        <h3>Jose Cralos <span>Ramierz Briones</span></h3>
+        <p>jorge@gmail.com</p>
+       </div>
+
+       <div class="flex-warp-content">
+
+        <div class="data-content">
+          <ion-icon name="alarm-outline"></ion-icon>
+          <div class="subtitle">Horario <span> 7:00 am</span> <span>11:00 am</span></div>
+        </div>
+
+        <div class="data-content">
+          <ion-icon name="sparkles-outline"></ion-icon>
+          <div class="subtitle">Miembro desde <span>Agosto 10, 2023</span></div>
+        </div>
+
+        <div class="data-content">
+          <ion-icon name="location-outline"></ion-icon>
+          <div class="subtitle">Manabi, <span>Bolívar</span></div>
+        </div>
+
+        <div class="data-content">
+          <ion-icon name="calendar-number-outline"></ion-icon>
+          <div class="subtitle">Agosto 16, 2000</div>
+        </div>
+
+        <div class="data-content">
+          <ion-icon name="call-outline"></ion-icon>
+          <div class="subtitle">096 880 8810</div>
+        </div>
+
+        <div class="data-content">
+          <ion-icon name="calendar-outline"></ion-icon>
+          <div class="subtitle">Especialidad</div>
+        </div>
+       </div>
+
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-accordion-group>
+        <ion-accordion-group>
+        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
+          <ion-item slot="header" color="light">
+            <div class="subtitle">2 <span>Titulos</span></div>
+          </ion-item>
+
+          <div slot="content">
+            <div class="data-content">
+              <ion-icon name="trophy-outline"></ion-icon>
+              <div class="subtitle">Titulo 1</div>
+            </div>
+
+            <div class="data-content">
+              <ion-icon name="trophy-outline"></ion-icon>
+              <div class="subtitle">Titulo 2</div>
+            </div>
+         </div>
+        </ion-accordion>
+      </ion-accordion-group>
+      </ion-accordion-group>
+    </ion-card-header>
+
+    <ion-card-header>
+      <ion-accordion-group>
+        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
+          <ion-item slot="header" color="light">
+            <div class="subtitle">Recetas</div>
+          </ion-item>
+          <div slot="content">
+            <h5>Tienes <span>950</span> <span> recetas</span></h5>
+            <h5>Desde <span>20/08/2022</span></h5>
+            <h5>Hasta <span>20/08/2023</span></h5>
+         </div>
+        </ion-accordion> 
+      </ion-accordion-group>
+    </ion-card-header>
+
+    <ion-card-header>
+      <ion-accordion-group>
+        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
+          <ion-item slot="header" color="light">
+            <div class="subtitle">Citas</div>
+          </ion-item>
+          <div slot="content">
+            <h5>Tienes <span>102</span> <span> citas</span></h5>
+            <h5>Desde <span>20/08/2022</span></h5>
+            <h5>Hasta <span>20/08/2023</span></h5>
+         </div>
+        </ion-accordion>
+      </ion-accordion-group>
+    </ion-card-header>
+
+    <div class="ion-text-center ion-margin-vertical">
+      <ion-button>
+        Agendar cita
+      </ion-button>
+    </div>
+
+  </ion-card>
 </ion-content>
