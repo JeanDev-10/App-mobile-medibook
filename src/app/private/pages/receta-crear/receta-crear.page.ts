@@ -31,5 +31,6 @@ export class RecetaCrearPage implements OnInit {
 
   CreateReceta(FormReceta:any){
     console.log(FormReceta);
+    if(this.FormReceta.invalid){}
   }
 }

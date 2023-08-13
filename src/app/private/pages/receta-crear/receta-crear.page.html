@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Creaer Receta</ion-title>
+    <ion-title>Crear Receta</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -12,12 +12,19 @@
 
     <ion-list>
 
-        <form [formGroup]="FormReceta" (ngSubmit)="CreateReceta(FormReceta.value)">
+        <form [formGroup]="FormReceta" (submit)="CreateReceta(FormReceta.value)">
             <ion-item>
                 <ion-icon name="book-outline"></ion-icon>
                 <!-- Input de nombre_medicamento -->
                 <ion-input formControlName="nombre_medicamento" class="inputs" label="Medicamento" labelPlacement="floating" placeholder="Aspirina"></ion-input>
             </ion-item>
+ <!-- Validación de campo nombre requerido -->
+              <div class="mt-1" *ngIf="FormReceta.get('nombre_medicamento')?.invalid && FormReceta.get('nombre_medicamento')?.touched">
+                <ion-badge *ngIf="FormReceta.get('nombre_medicamento')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+              </div>
+
+
+<!-- Input de Fecha -->
 
 
             <!-- Input de cantidad -->
@@ -27,14 +34,18 @@
                 <ion-input formControlName="cantidad" class="inputs" label="Cantidad" type="number" labelPlacement="floating" placeholder="Total: 4"></ion-input>
             </ion-item>
 
-
+            <div class="mt-1" *ngIf="FormReceta.get('cantidad')?.invalid && FormReceta.get('cantidad')?.touched">
+              <ion-badge *ngIf="FormReceta.get('cantidad')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            </div>
             <!-- Input de lapso de tiempo -->
 
             <ion-item>
                 <ion-icon name="alarm-outline"></ion-icon>
                 <ion-input formControlName="lapso_tiempo" class="inputs" label="Lapso de Tiempo" labelPlacement="floating" type="time" placeholder="Cada 8 Horas"></ion-input>
             </ion-item>
-
+            <div class="mt-1" *ngIf="FormReceta.get('lapso_tiempo')?.invalid && FormReceta.get('lapso_tiempo')?.touched">
+              <ion-badge *ngIf="FormReceta.get('lapso_tiempo')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            </div>
 
             <!-- Input Cita -->
             <ion-item>
@@ -44,9 +55,11 @@
                 <ion-select-option value="3">Cita 3</ion-select-option>
               </ion-select>
             </ion-item>
+            <div class="mt-1" *ngIf="FormReceta.get('cita_id')?.invalid && FormReceta.get('cita_id')?.touched">
+              <ion-badge *ngIf="FormReceta.get('cita_id')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            </div>
 
-
-            <ion-button color="medium" type="submit">
+            <ion-button color="medium" type="submit" [disabled]="FormReceta.invalid">
                 Registrar
                 <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
             </ion-button>

@@ -29,6 +29,7 @@ export class ReseniaCrearPage implements OnInit {
 
   CreateResenia(Form:any){
     console.log(Form);
+    if(this.FormularioResenia.invalid){}
   }
 
 }

@@ -12,7 +12,7 @@
 
     <ion-list>
 
-        <form [formGroup]="FormularioResenia" (ngSubmit)="CreateResenia(FormularioResenia.value)">
+        <form [formGroup]="FormularioResenia" (submit)="CreateResenia(FormularioResenia.value)">
 
             <!-- Input de Califacion -->
 
@@ -20,6 +20,10 @@
               <ion-icon name="star-outline"></ion-icon>
               <ion-input formControlName="calificacion" label="Calificación" type="number" placeholder="1-5" min="1" max="5"></ion-input>
             </ion-item>
+            <div class="mt-1" *ngIf="FormularioResenia.get('calificacion')?.invalid && FormularioResenia.get('calificacion')?.touched">
+              <ion-badge *ngIf="FormularioResenia.get('calificacion')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            </div>
+
 
             <!-- Input de Comentario -->
 
@@ -31,9 +35,11 @@
                 <ion-select-option value="3">Predeterminado 3</ion-select-option>
               </ion-select>
             </ion-item>
+            <div class="mt-1" *ngIf="FormularioResenia.get('comentario_id')?.invalid && FormularioResenia.get('comentario_id')?.touched">
+              <ion-badge *ngIf="FormularioResenia.get('comentario_id')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            </div>
 
-
-            <ion-button color="medium" type="submit">
+            <ion-button color="medium" type="submit" [disabled]="FormularioResenia.invalid">
                 Registrar
                 <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
             </ion-button>

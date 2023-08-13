@@ -12,11 +12,19 @@
 
 <ion-list>
 
-    <form>
+    <form [formGroup]="FormularioObservacion" (ngSubmit)="Observacion(FormularioObservacion.value)">
         <ion-item>
             <ion-icon name="eyedrop-outline"></ion-icon>
-            <ion-input class="inputs" label="Observación" labelPlacement="floating" placeholder="Ingrese observación"></ion-input>
+            <ion-input class="inputs" label="Observación" labelPlacement="floating" placeholder="Ingrese observación" formControlName="observacion"></ion-input>
         </ion-item>
+        <div class="mt-1" *ngIf="FormularioObservacion.get('observacion')?.invalid && FormularioObservacion.get('observacion')?.touched">
+          <ion-badge *ngIf="FormularioObservacion.get('observacion')?.hasError('required')" color="warning">Campo Requerido</ion-badge>
+      </div>
+
+      <ion-button color="medium" type="submit" [disabled]="FormularioObservacion.invalid">
+        Registrar
+      <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
+      </ion-button>
     </form>
 
 </ion-list>
@@ -27,5 +35,5 @@
         <ion-icon name="chevron-back"></ion-icon>
     </ion-fab-button>
 </ion-fab>
-  
+
 </ion-content>
