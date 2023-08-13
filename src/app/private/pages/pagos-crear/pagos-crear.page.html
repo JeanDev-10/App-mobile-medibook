@@ -1,13 +1,42 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>pagosCrear</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Crear Pago</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">pagosCrear</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+<ion-content class="ion-padding">
+    <ion-card>
+        <!-- Animación -->
+        <div class="anim">
+            <ng-lottie [options]="options"></ng-lottie>
+        </div>
+        <ion-list>
+
+            <form [formGroup]="FormularioPagos" (submit)="CreatePago(FormularioPagos.value)">
+                <ion-item>
+                    <ion-icon slot="start" name="cash-outline"></ion-icon>
+                    <ion-input formControlName="cantidad" class="inputs" label="Cantidad a Pagar" labelPlacement="floating" type="number" step="0.01"></ion-input>
+                </ion-item>
+
+
+
+                <!-- Validación de campo cantidad requerido -->
+                <div class="mt-1" *ngIf="FormularioPagos.get('cantidad')?.invalid && FormularioPagos.get('cantidad')?.touched">
+                    <ion-badge *ngIf="FormularioPagos.get('cantidad')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+                </div>
+
+
+                <div class="boton">
+                    <ion-button [disabled]="FormularioPagos.invalid" color="success" type="submit">
+                        Registrar Pago
+                        <ion-icon class="ion-icon-create" slot="end" name="checkmark-circle"></ion-icon>
+                    </ion-button>
+                </div>
+            </form>
+
+        </ion-list>
+    </ion-card>
+
+
 </ion-content>
