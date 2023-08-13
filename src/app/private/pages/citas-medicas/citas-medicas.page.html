@@ -1,13 +1,38 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>citasMedicas</ion-title>
+    <ion-title>Citas Médicas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">citasMedicas</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-button type="button" [routerLink]="['/citas-medicas-crear']" class="add">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+    </ion-button>
+
+    <div [routerLink]="['/cita-medicas-detalle']">
+        <ion-img class="icon-img" src="../../../../assets/img/cita-medica.png"></ion-img>
+        <ion-label class="label-titulo" color="tertiary">Titulo</ion-label>
+        <ion-badge class="label-fecha-final" color="success">Finaliza: 12/01/2020</ion-badge>
+    </div>
+
+    <div>
+        <ion-img class="icon-img" src="../../../../assets/img/cita-medica.png"></ion-img>
+        <ion-label class="label-titulo2" color="tertiary">Titulo</ion-label>
+        <ion-badge class="label-fecha-final2" color="success">Finaliza: 02/05/2020</ion-badge>
+    </div>
+
+    <div>
+        <ion-img class="icon-img" src="../../../../assets/img/cita-medica.png"></ion-img>
+        <ion-label class="label-titulo3" color="tertiary">Titulo
+            <nav></nav>
+        </ion-label>
+        <ion-badge class="label-fecha-final3" color="success"> Finaliza: 15/07/2020</ion-badge>
+    </div>
+
+
+    <div>
+        <ion-img class="icon-img" src="../../../../assets/img/cita-medica.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Titulo</ion-label>
+        <ion-badge class="label-estado label-estado-4" color="medium">Finaliza: 12/08/2023</ion-badge>
+    </div>
 </ion-content>

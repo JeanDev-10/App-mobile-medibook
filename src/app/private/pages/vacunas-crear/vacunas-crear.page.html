@@ -1,13 +1,51 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>vacunasCrear</ion-title>
+    <ion-title>Crear Vacunas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">vacunasCrear</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <!-- Animación -->
+    <div class="anim">
+      <ng-lottie [options]="options"></ng-lottie>
+    </div>
+
+    <ion-list>
+
+      <form [formGroup]="FormularioVacuna" (ngSubmit)="CreateVacuna(FormularioVacuna.value)">
+
+        <!-- Input nombre -->
+        <ion-item>
+          <ion-icon name="eyedrop-outline"></ion-icon>
+          <ion-input formControlName="nombre" class="inputs" label="Vacuna" labelPlacement="floating" placeholder="Pfizer"></ion-input>
+        </ion-item>
+        <div class="mt-1" *ngIf="FormularioVacuna.get('nombre')?.invalid && FormularioVacuna.get('nombre')?.touched">
+          <ion-badge *ngIf="FormularioVacuna.get('nombre')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+      </div>
+
+
+        <!-- Input de fecha -->
+
+        <ion-item>
+          <ion-icon name="calendar"></ion-icon>
+          <ion-input class="inputs"  displayFormat="DD/MM/YYYY" type="date" formControlName="fecha" class="inputs" label="Fecha" labelPlacement="floating"></ion-input>
+        </ion-item>
+        <div class="mt-1" *ngIf="FormularioVacuna.get('fecha')?.invalid && FormularioVacuna.get('fecha')?.touched">
+          <ion-badge *ngIf="FormularioVacuna.get('fecha')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+      </div>
+
+        <ion-button color="medium" type="submit" [disabled]="FormularioVacuna.invalid">
+          Registrar
+        <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
+        </ion-button>
+      </form>
+
+    </ion-list>
+
+    <!-- Para regresar atrás -->
+    <ion-fab [routerLink]="['/vacunas']" slot="fixed" horizontal="end" vertical="bottom">
+        <ion-fab-button  color="dark">
+          <ion-icon name="chevron-back"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 </ion-content>

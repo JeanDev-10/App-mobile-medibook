@@ -1,13 +1,57 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>vacunasDetalle</ion-title>
+    <ion-title>Detalle de la Vacuna</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">vacunasDetalle</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="container-div">
+    <ion-img class="icon-img" src="../../../../assets/img/medicaments.png"></ion-img>
+    <ion-label class="label-vacuna" color="tertiary">Pfizer</ion-label>
+    <ion-badge class="label-fecha" color="success">Fecha de Aplicación: 12/08/2023</ion-badge>
+
+    <ion-fab class="edit">
+      <ion-fab-button (click)=" EditVacuna()" color="warning">
+        <ion-icon name="create"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <ion-fab class="close">
+      <ion-fab-button (click)="DeleteMedicament()" color="danger">
+        <ion-icon name="close"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+
+  <form *ngIf="StateForm" [formGroup]="FormularioVacuna" (ngSubmit)="UpdateMedicament(FormularioVacuna.value)">
+    <!-- Input de Vacuna -->
+
+    <ion-item>
+      <ion-icon name="skull-outline"></ion-icon>
+      <ion-input formControlName="nombre" class="inputs" label="Vacuna" labelPlacement="floating" placeholder="Pfizer"></ion-input>
+    </ion-item>
+    <div class="mt-1" *ngIf="FormularioVacuna.get('nombre')?.invalid && FormularioVacuna.get('nombre')?.touched">
+      <ion-badge *ngIf="FormularioVacuna.get('nombre')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+  </div>
+    <!-- Input de Fecha -->
+
+    <ion-item>
+      <ion-icon name="calendar"></ion-icon>
+      <ion-input  displayFormat="DD/MM/YYYY" type="date" formControlName="fecha" class="inputs" label="Fecha" labelPlacement="floating"></ion-input>
+    </ion-item>
+    <div class="mt-1" *ngIf="FormularioVacuna.get('fecha')?.invalid && FormularioVacuna.get('fecha')?.touched">
+      <ion-badge *ngIf="FormularioVacuna.get('fecha')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+  </div>
+    <ion-button color="medium" type="submit" [disabled]="FormularioVacuna.invalid">
+      Actualizar
+    <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
+    </ion-button>
+  </form>
+
+      <!-- Para regresar atrás -->
+      <ion-fab [routerLink]="['/vacunas']" slot="fixed" horizontal="end" vertical="bottom">
+        <ion-fab-button color="dark">
+            <ion-icon name="chevron-back"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
 </ion-content>

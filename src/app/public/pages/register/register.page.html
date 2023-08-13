@@ -18,36 +18,36 @@
 
   <ion-card-content>
     <form [formGroup]="formRegister" (submit)="Register(formRegister.value)" class="ion-margin">
-  
+
       <ion-accordion-group [multiple]="false" [value]="['first']">
 
         <ion-accordion value="first" toggleIcon="caret-down-circle" toggleIconSlot="start">
           <ion-item slot="header" color="light">
-            <ion-label>Sección 1</ion-label>
+            <ion-label>Correo y Contraseña</ion-label>
           </ion-item>
 
           <div slot="content">
             <br>
-            <ion-input label="Email" 
-              label-placement="floating" 
-              fill="outline" 
+            <ion-input label="Email"
+              label-placement="floating"
+              fill="outline"
               placeholder="Ingrese email"
               formControlName="email">
             </ion-input>
-            
+
             <div *ngIf="formRegister.get('email')?.invalid && formRegister.get('email')?.touched">
               <div *ngIf="formRegister.get('email')?.hasError('required')">
                 <p class="error-message">Campo requerido</p>
-              </div> 
-      
+              </div>
+
               <div *ngIf="formRegister.get('email')?.hasError('email')">
                 <p class="error-message">Email invalido</p>
               </div>
             </div>
-  
-            <ion-input class="ion-margin-top" label="Contraseña" 
-              label-placement="floating" 
-              fill="outline" 
+
+            <ion-input class="ion-margin-top" label="Contraseña"
+              label-placement="floating"
+              fill="outline"
               placeholder="Ingrese Contraseña"
               formControlName="password">
             </ion-input>
@@ -56,11 +56,11 @@
               <div *ngIf="formRegister.get('password')?.hasError('required')">
                 <p class="error-message">Campo requerida</p>
               </div>
-      
+
               <div class="error-message" *ngIf="formRegister.get('password')?.hasError('minlength')">
                 5 caracteres mínimo
               </div>
-      
+
               <div class="error-message" *ngIf="formRegister.get('password')?.hasError('maxlength')">
                 10 caracteres máximo
               </div>
@@ -72,18 +72,18 @@
 
         <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
           <ion-item slot="header" color="light">
-            <ion-label>Sección 2</ion-label>
+            <ion-label>Datos Personales</ion-label>
           </ion-item>
 
           <div slot="content">
             <br>
-            <ion-input label="Nombres completos" 
-              label-placement="floating" 
-              fill="outline" 
+            <ion-input label="Nombres completos"
+              label-placement="floating"
+              fill="outline"
               placeholder="Ingrese nombres"
               formControlName="nombre">
             </ion-input>
-            
+
             <div *ngIf="formRegister.get('nombre')?.invalid && formRegister.get('nombre')?.touched">
               <div *ngIf="formRegister.get('nombre')?.hasError('required')">
                 <p class="error-message">Campo requerido</p>
@@ -94,13 +94,13 @@
               </div>
             </div>
 
-            <ion-input class="ion-margin-top" label="Apellidos completos" 
-              label-placement="floating" 
-              fill="outline" 
+            <ion-input class="ion-margin-top" label="Apellidos completos"
+              label-placement="floating"
+              fill="outline"
               placeholder="Ingrese apellidos"
               formControlName="apellido">
             </ion-input>
-    
+
             <div *ngIf="formRegister.get('apellido')?.invalid && formRegister.get('apellido')?.touched">
               <div *ngIf="formRegister.get('nombre')?.hasError('required')">
                 <p class="error-message">Campo requerido</p>
@@ -111,54 +111,66 @@
               </div>
             </div>
 
-            <ion-input class="ion-margin-top" label="Cédula" 
-              label-placement="floating" 
-              fill="outline" 
+            <ion-input class="ion-margin-top" label="Cédula"
+              label-placement="floating"
+              fill="outline"
               placeholder="Ingrese cédula"
               formControlName="ci">
             </ion-input>
 
-            <div *ngIf="formRegister.get('ci')?.invalid && formRegister.get('ci')?.touched">
-              <div class="error-message" *ngIf="formRegister.get('ci')?.hasError('required')"> 
-                Compo requerido
-              </div>
+            <div
+            *ngIf="formRegister.get('ci')?.invalid && formRegister.get('ci')?.touched">
+            <span
+              *ngIf="formRegister.get('ci')?.hasError('required')"
+              style="color: red">
+              Campo requerido.</span>
+          </div>
+          <div
+          *ngIf="formRegister.get('ci')?.hasError('maxlength')" style="color: red;">
+          10 Caracteres como Máximo.
+          </div>
+          <div
+          *ngIf="formRegister.get('ci')?.hasError('pattern')" style="color: red;">
+          La cedula debe contener solo números.
+          </div>
 
-              <div class="error-message" *ngIf="formRegister.get('ci')?.hasError('pattern')">
-                10 caracteres mínimo
-              </div>
-            </div>
-  
-            <ion-input type="date" class="ion-margin-top" label="Fecha de nacimiento" 
-              label-placement="floating" 
-              fill="outline" 
+            <ion-input type="date" class="ion-margin-top" label="Fecha de nacimiento"
+              label-placement="floating"
+              fill="outline"
               placeholder="Ingrese fecha"
               formControlName="fecha"
               formArrayName="fecha">
             </ion-input>
 
             <div *ngIf="formRegister.get('fecha')?.invalid && formRegister.get('fecha')?.touched">
-              <div class="error-message" *ngIf="formRegister.get('fecha')?.hasError('required')"> 
-                Compo requerido
+              <div class="error-message" *ngIf="formRegister.get('fecha')?.hasError('required')">
+                Campo requerido
               </div>
             </div>
 
-  
-            <ion-input class="ion-margin-top" label="Teléfono" 
-              label-placement="floating" 
-              fill="outline" 
+
+            <ion-input class="ion-margin-top" label="Teléfono"
+              label-placement="floating"
+              fill="outline"
               placeholder="Ingrese teléfono"
               formControlName="telefono">
             </ion-input>
+            <div
+            *ngIf="formRegister.get('telefono')?.invalid && formRegister.get('telefono')?.touched">
+            <span
+              *ngIf="formRegister.get('telefono')?.hasError('required')"
+              style="color: red">
+              Campo requerido.</span>
+          </div>
 
-            <div *ngIf="formRegister.get('telefono')?.invalid && formRegister.get('telefono')?.touched">
-              <div *ngIf="formRegister.get('telefono')?.hasError('required')"> 
-                Compo requerido
-              </div>
-
-              <div class="error-message" *ngIf="formRegister.get('telefono')?.hasError('pattern')">
-                10 caracteres mínimo y solo números
-              </div>
-            </div>
+          <div
+          *ngIf="formRegister.get('telefono')?.hasError('maxlength')" style="color: red;">
+          10 Caracteres como Máximo.
+          </div>
+          <div
+          *ngIf="formRegister.get('telefono')?.hasError('pattern')" style="color: red;">
+          El telefono debe contener solo números.
+          </div>
             <br>
           </div>
 
@@ -166,29 +178,31 @@
 
         <ion-accordion value="thrid" toggleIcon="caret-down-circle" toggleIconSlot="start">
           <ion-item slot="header" color="light">
-            <ion-label>Sección 3</ion-label>
+            <ion-label>Ubicacion</ion-label>
           </ion-item>
 
           <div slot="content">
             <br>
-            <ion-select formControlName="provincia" class="ion-margin-top">
-              <ion-select *ngFor="let provincia of provincias_array; let i = index" value="{{provincia}}">
-                {{provincia}}
+            <ion-item>
+              <ion-label>Provincia</ion-label>
+              <ion-select  formControlName="provincia">
+                <ion-select-option *ngFor="let item of provincias" [value]="item.id">{{ item.label }}</ion-select-option>
               </ion-select>
-            </ion-select>
+            </ion-item>
 
-            <ion-select class="ion-margin-top">
-              <ion-select >
-               gggggg
+            <ion-item>
+              <ion-label>Cantón</ion-label>
+              <ion-select   formControlName="canton">
+                <ion-select-option *ngFor="let item of cantones" [value]="item.id">{{ item.label }}</ion-select-option>
               </ion-select>
-            </ion-select>
+            </ion-item>
          </div>
         </ion-accordion>
 
       </ion-accordion-group>
       <br>
 
-      <ion-button expand="full" color="medium" fill="solid">
+      <ion-button expand="full" color="medium" fill="solid" [disabled]="formRegister.invalid">
           Registrarse
       </ion-button>
     </form>

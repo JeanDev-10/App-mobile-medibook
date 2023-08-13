@@ -1,38 +1,40 @@
 <ion-header [translucent]="false">
-  <ion-toolbar>
-    <ion-title>Lista de Medicamentos</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>Lista de Medicamentos</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
 
-  <ion-button type="button" [routerLink]="['/medicamentos-crear']" class="add">
-    <ion-icon  slot="icon-only" name="add-outline"></ion-icon>
-  </ion-button>
+    <ion-button type="button" [routerLink]="['/medicamentos-crear']" class="add">
+        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+    </ion-button>
 
-  <div [routerLink]="['/medicamentos-detalle']">
-    <ion-img class="icon-img" src="../../../../assets/img/library.png"></ion-img>
-    <ion-label class="label-cita" color="tertiary">Pilisilina</ion-label>
-    <ion-badge class="label-estado label-estado-1" color="success">60mg</ion-badge>
-  </div>
+    <div [routerLink]="['/medicamentos-detalle']">
+        <ion-img class="icon-img" src="../../../../assets/img/library.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Pilisilina</ion-label>
+        <ion-badge class="label-estado label-estado-1" color="success">60mg</ion-badge>
+    </div>
 
-  <div>
-    <ion-img class="icon-img" src="../../../../assets/img/library.png"></ion-img>
-    <ion-label class="label-cita" color="tertiary">Paracetamol</ion-label>
-    <ion-badge class="label-estado label-estado-2" color="warning">1/2mg</ion-badge>
-  </div>
+    <div>
+        <ion-img class="icon-img" src="../../../../assets/img/library.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Paracetamol</ion-label>
+        <ion-badge class="label-estado label-estado-2" color="warning">1/2mg</ion-badge>
+    </div>
 
-  <div>
-    <ion-img class="icon-img" src="../../../../assets/img/library.png"></ion-img>
-    <ion-label class="label-cita" color="tertiary">Lozartán<nav></nav></ion-label>
-    <ion-badge class="label-estado label-estado-3" color="danger">500mg</ion-badge>
-  </div>
+    <div>
+        <ion-img class="icon-img" src="../../../../assets/img/library.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Lozartán
+            <nav></nav>
+        </ion-label>
+        <ion-badge class="label-estado label-estado-3" color="danger">500mg</ion-badge>
+    </div>
 
 
-  <div>
-    <ion-img class="icon-img" src="../../../../assets/img/library.png"></ion-img>
-    <ion-label class="label-cita" color="tertiary">Chepasilina</ion-label>
-    <ion-badge class="label-estado label-estado-4" color="medium">1000mg</ion-badge>
-  </div>
+    <div>
+        <ion-img class="icon-img" src="../../../../assets/img/library.png"></ion-img>
+        <ion-label class="label-cita" color="tertiary">Chepasilina</ion-label>
+        <ion-badge class="label-estado label-estado-4" color="medium">1000mg</ion-badge>
+    </div>
 
 </ion-content>
