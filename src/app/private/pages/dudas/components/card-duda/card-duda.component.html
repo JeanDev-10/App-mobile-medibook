@@ -1,0 +1,34 @@
+<ion-card>
+  <ion-card-header>
+    <div class="flex-warp">
+      <img
+        class="rounded"
+        alt="user"
+        src="https://ionicframework.com/docs/img/demos/avatar.svg"
+      />
+      <h3>Jorge</h3>
+    </div>
+    <p>Paciente <span>25/10/2023</span></p>
+
+    <p class="content-data">
+      Here's a small text description for the card content. Nothing more,
+      nothing less.
+    </p>
+
+    <ion-accordion-group class="ion-no-padding">
+      <ion-accordion
+        value="first"
+        toggleIcon="caret-down-circle"
+        toggleIconSlot="start"
+      >
+        <ion-item slot="header" color="light">
+          <ion-label><span>1</span> respuestas</ion-label>
+        </ion-item>
+        <app-card-reply-duda slot="content"/>
+        <app-card-reply-duda slot="content"/>
+        <app-card-reply-duda slot="content"/>
+        <app-card-reply-duda slot="content"/>
+      </ion-accordion>
+    </ion-accordion-group>
+  </ion-card-header>
+</ion-card>

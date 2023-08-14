@@ -1,8 +1,5 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Información de la Cita</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-navbar [NameRoute]="'Detalle de Cita'" [href]="'/citas-medicas'" />
+
 
 <ion-content [fullscreen]="true">
   <div class="container-div">
@@ -81,9 +78,9 @@
 
 
     <!-- Para regresar atrás -->
-    <ion-fab [routerLink]="['/citas-medicas']" slot="fixed" horizontal="end" vertical="bottom">
+    <!-- <ion-fab [routerLink]="['/citas-medicas']" slot="fixed" horizontal="end" vertical="bottom">
       <ion-fab-button color="dark">
         <ion-icon name="chevron-back"></ion-icon>
       </ion-fab-button>
-  </ion-fab>
+  </ion-fab> -->
 </ion-content>

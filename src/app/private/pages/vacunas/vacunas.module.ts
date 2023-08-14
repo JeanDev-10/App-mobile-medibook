@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { VacunasPageRoutingModule } from './vacunas-routing.module';
 
 import { VacunasPage } from './vacunas.page';
+import { CoreModule } from 'src/app/core/core.module';
+import { CardVacunasComponent } from './components/card-vacunas/card-vacunas.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    VacunasPageRoutingModule
+    VacunasPageRoutingModule,
+    CoreModule
   ],
-  declarations: [VacunasPage]
+  declarations: [VacunasPage,CardVacunasComponent]
 })
 export class VacunasPageModule {}

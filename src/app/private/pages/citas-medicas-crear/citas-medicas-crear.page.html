@@ -1,8 +1,5 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Reservar Cita</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-navbar [NameRoute]="'Crear cita'" [href]="'/citas-medicas'" />
+
 
 <ion-content [fullscreen]="true">
       <!-- Animación -->
@@ -64,9 +61,9 @@
     </ion-list>
 
     <!-- Para regresar atrás -->
-    <ion-fab [routerLink]="['/citas-medicas']" slot="fixed" horizontal="end" vertical="bottom">
+   <!--  <ion-fab [routerLink]="['/citas-medicas']" slot="fixed" horizontal="end" vertical="bottom">
         <ion-fab-button color="dark">
             <ion-icon name="chevron-back"></ion-icon>
         </ion-fab-button>
-    </ion-fab>
+    </ion-fab> -->
 </ion-content>

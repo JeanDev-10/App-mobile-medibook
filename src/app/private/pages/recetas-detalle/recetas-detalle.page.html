@@ -1,8 +1,5 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Detalle de la Receta</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-navbar [NameRoute]="'Detalle de receta'" [href]="'/recetas'" />
+
 
 <ion-content [fullscreen]="true">
   <div class="container-div">
@@ -16,9 +13,5 @@
 </div>
 
       <!-- Para regresar atrás -->
-      <ion-fab [routerLink]="['/recetas']" slot="fixed" horizontal="end" vertical="bottom">
-        <ion-fab-button color="dark">
-            <ion-icon name="chevron-back"></ion-icon>
-        </ion-fab-button>
-    </ion-fab>
+
 </ion-content>

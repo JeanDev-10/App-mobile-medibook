@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { ObservacionPageRoutingModule } from './observacion-routing.module';
 
 import { ObservacionPage } from './observacion.page';
+import { CoreModule } from 'src/app/core/core.module';
+import { CardObservacionesComponent } from './components/card-observaciones/card-observaciones.component';
 
 @NgModule({
   imports: [
@@ -14,8 +16,8 @@ import { ObservacionPage } from './observacion.page';
     FormsModule,
     IonicModule,
     ObservacionPageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,CoreModule
   ],
-  declarations: [ObservacionPage]
+  declarations: [ObservacionPage,CardObservacionesComponent]
 })
 export class ObservacionPageModule {}

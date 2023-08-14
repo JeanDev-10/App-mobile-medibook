@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { MedicamentosPageRoutingModule } from './medicamentos-routing.module';
 
 import { MedicamentosPage } from './medicamentos.page';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MedicamentosPageRoutingModule
+    MedicamentosPageRoutingModule,
+    CoreModule
   ],
   declarations: [MedicamentosPage]
 })

@@ -7,13 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { RecetasDetallePageRoutingModule } from './recetas-detalle-routing.module';
 
 import { RecetasDetallePage } from './recetas-detalle.page';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RecetasDetallePageRoutingModule
+    RecetasDetallePageRoutingModule,CoreModule
   ],
   declarations: [RecetasDetallePage]
 })

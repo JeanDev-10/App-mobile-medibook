@@ -1,0 +1,74 @@
+/* Botón de añadir */
+
+.add {
+  position: relative;
+  left: 180px;
+  width: 50px;
+  height: 50px;
+}
+
+/* Para el fondo del div  */
+
+div {
+  background-color: #95a5a6a9;
+  width: 350px;
+  height: 160px;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  margin-left: 15px;
+  margin-top: 20px;
+}
+
+/* Para los iconos del div */
+
+.icon-img {
+  width: 90px;
+  height: 90px;
+  position: relative;
+  top: 30px;
+  left: 25px;
+}
+
+/* Texto de los divs */
+
+.label-estado {
+  font-size: 15px;
+  width: 100px;
+}
+
+.label-estado-1 {
+  position: relative;
+  left: 50px;
+  top: -15px;
+}
+
+.label-estado-2 {
+  position: relative;
+  left: 30px;
+  top: -15px;
+}
+
+.label-estado-3 {
+  position: relative;
+  left: 130px;
+  top: -45px;
+  width: 200px;
+}
+
+.label-estado-4 {
+  position: relative;
+  left: 80px;
+  top: -20px;
+  width: 140px;
+}
+
+.label-cita {
+  position: relative;
+  left: 150px;
+  top: -50px;
+  font-size: 23px;
+}
+

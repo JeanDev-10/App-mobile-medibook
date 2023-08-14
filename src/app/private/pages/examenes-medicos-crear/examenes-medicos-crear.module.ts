@@ -12,6 +12,7 @@ import { ExamenesMedicosCrearPageRoutingModule } from './examenes-medicos-crear-
 import { ExamenesMedicosCrearPage } from './examenes-medicos-crear.page';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 export function playerFactory() {
@@ -24,8 +25,8 @@ export function playerFactory() {
     IonicModule,
     ExamenesMedicosCrearPageRoutingModule,
     LottieModule.forRoot({ player: playerFactory }),
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,CoreModule
+
   ],
   declarations: [ExamenesMedicosCrearPage]
 })

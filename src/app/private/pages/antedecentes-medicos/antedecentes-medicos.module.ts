@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { AntedecentesMedicosPageRoutingModule } from './antedecentes-medicos-routing.module';
 
 import { AntedecentesMedicosPage } from './antedecentes-medicos.page';
+import { CoreModule } from 'src/app/core/core.module';
+import { CardAntecedentesMedicosComponent } from './components/card-antecedentes-medicos/card-antecedentes-medicos.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AntedecentesMedicosPageRoutingModule
+    AntedecentesMedicosPageRoutingModule,CoreModule
   ],
-  declarations: [AntedecentesMedicosPage]
+  declarations: [AntedecentesMedicosPage,CardAntecedentesMedicosComponent]
 })
 export class AntedecentesMedicosPageModule {}

@@ -1,8 +1,5 @@
-<ion-header [translucent]="false">
-    <ion-toolbar>
-        <ion-title>Crear Medicamentos</ion-title>
-    </ion-toolbar>
-</ion-header>
+<app-navbar [NameRoute]="'Crear medicamentos'" [href]="'/medicamentos'" />
+
 
 <ion-content [fullscreen]="true">
     <!-- Animación -->
@@ -80,9 +77,9 @@
     </ion-list>
 
     <!-- Para regresar atrás -->
-    <ion-fab [routerLink]="['/medicamentos']" slot="fixed" horizontal="end" vertical="bottom">
+    <!-- <ion-fab [routerLink]="['/medicamentos']" slot="fixed" horizontal="end" vertical="bottom">
         <ion-fab-button color="dark">
             <ion-icon name="chevron-back"></ion-icon>
         </ion-fab-button>
-    </ion-fab>
+    </ion-fab> -->
 </ion-content>

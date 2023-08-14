@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { CitaMedicasDetallePageRoutingModule } from './cita-medicas-detalle-routing.module';
 
 import { CitaMedicasDetallePage } from './cita-medicas-detalle.page';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CitaMedicasDetallePageRoutingModule, 
-    ReactiveFormsModule
+    CitaMedicasDetallePageRoutingModule,
+    ReactiveFormsModule,
+    CoreModule
   ],
   declarations: [CitaMedicasDetallePage]
 })

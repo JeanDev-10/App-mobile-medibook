@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ObservacionDetallePageRoutingModule } from './observacion-detalle-routing.module';
 
 import { ObservacionDetallePage } from './observacion-detalle.page';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,9 @@ import { ObservacionDetallePage } from './observacion-detalle.page';
     FormsModule,
     IonicModule,
     ObservacionDetallePageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoreModule
+
   ],
   declarations: [ObservacionDetallePage]
 })

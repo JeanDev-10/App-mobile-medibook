@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { ExamenesMedicosPageRoutingModule } from './examenes-medicos-routing.module';
 
 import { ExamenesMedicosPage } from './examenes-medicos.page';
+import { CoreModule } from 'src/app/core/core.module';
+import { CardExamenesMedicosComponent } from './components/card-examenes-medicos/card-examenes-medicos.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ExamenesMedicosPageRoutingModule
+    ExamenesMedicosPageRoutingModule,
+    CoreModule
   ],
-  declarations: [ExamenesMedicosPage]
+  declarations: [ExamenesMedicosPage,CardExamenesMedicosComponent]
 })
 export class ExamenesMedicosPageModule {}

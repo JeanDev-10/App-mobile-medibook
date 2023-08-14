@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ProfilePacientePageRoutingModule } from './profile-paciente-routing.module';
 
 import { ProfilePacientePage } from './profile-paciente.page';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { ProfilePacientePage } from './profile-paciente.page';
     FormsModule,
     IonicModule,
     ProfilePacientePageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoreModule
   ],
   declarations: [ProfilePacientePage]
 })

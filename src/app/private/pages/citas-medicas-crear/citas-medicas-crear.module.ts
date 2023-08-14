@@ -9,6 +9,7 @@ import { CitasMedicasCrearPageRoutingModule } from './citas-medicas-crear-routin
 import { CitasMedicasCrearPage } from './citas-medicas-crear.page';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { CoreModule } from 'src/app/core/core.module';
 
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -23,7 +24,8 @@ export function playerFactory() {
     IonicModule,
     CitasMedicasCrearPageRoutingModule,
     ReactiveFormsModule,
-    LottieModule.forRoot({ player: playerFactory })
+    LottieModule.forRoot({ player: playerFactory }),
+    CoreModule
   ],
   declarations: [CitasMedicasCrearPage]
 })

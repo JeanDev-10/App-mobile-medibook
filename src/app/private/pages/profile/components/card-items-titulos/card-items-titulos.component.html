@@ -1,0 +1,23 @@
+<ion-card-header>
+  <ion-accordion-group>
+    <ion-accordion
+      value="second"
+      toggleIcon="caret-down-circle"
+      toggleIconSlot="start"
+    >
+      <ion-item slot="header" color="light">
+        <div class="subtitle">
+          <span> Titulos </span>
+        </div>
+      </ion-item>
+
+      <div slot="content">
+        <ng-container *ngFor="let titulo of titulos">
+          <div class="data-content">
+            <div class="subtitle">{{ titulo.nombre }}</div>
+          </div>
+        </ng-container>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+</ion-card-header>

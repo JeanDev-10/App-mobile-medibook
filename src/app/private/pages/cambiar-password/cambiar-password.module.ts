@@ -10,6 +10,7 @@ import { IonicModule } from '@ionic/angular';
 import { CambiarPasswordPageRoutingModule } from './cambiar-password-routing.module';
 
 import { CambiarPasswordPage } from './cambiar-password.page';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   imports: [
@@ -18,8 +19,8 @@ import { CambiarPasswordPage } from './cambiar-password.page';
     IonicModule,
     CambiarPasswordPageRoutingModule,
     ReactiveFormsModule,
-   
-    
+   CoreModule
+
   ],
   declarations: [CambiarPasswordPage]
 })

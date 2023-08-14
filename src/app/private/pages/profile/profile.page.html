@@ -1,10 +1,5 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Profile</ion-title>
-  </ion-toolbar>
-  <app-progress-bar/>
+<app-navbar [NameRoute]="'Profile'" [href]="''" />
 
-</ion-header>
 
 <ion-content [fullscreen]="true">
 
@@ -47,126 +42,12 @@
 
     </ion-card-header>
   </ion-card>
+  <app-card-items-titulo [titulos]="titulos" />
+  <app-card-items-antecedentes />
+  <app-card-items [Number]="'200'" [Nombre]="'Recetas'" />
+  <app-card-items [Number]="'20'" [Nombre]="'Citas'" />
+  <app-card-items [Number]="'10'" [Nombre]="'Vacunas'" />
+  <app-card-items [Number]="'30'" [Nombre]="'Medicamentos'" />
+  <app-card-items [Number]="'30'" [Nombre]="'Examenes'" />
 
-  <div class="ion-text-center ion-margin-top">
-    <ion-button [routerLink]="['/historial-medico']" routerLinkActive="router-link-active" >
-      Ver historial medico
-    </ion-button>
-  </div>
-
-
-  <ion-card>
-    <ion-card-header>
-      <ion-accordion-group>
-        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
-          <ion-item slot="header" color="light">
-            <div class="subtitle">2 <span>Titulos</span></div>
-          </ion-item>
-
-          <div slot="content">
-            <div class="data-content">
-              <ion-icon name="trophy-outline"></ion-icon>
-              <div class="subtitle">Titulo 1</div>
-            </div>
-
-            <div class="data-content">
-              <ion-icon name="trophy-outline"></ion-icon>
-              <div class="subtitle">Titulo 2</div>
-            </div>
-         </div>
-        </ion-accordion>
-      </ion-accordion-group>
-    </ion-card-header>
-
-    <ion-card-header>
-      <ion-accordion-group>
-        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
-          <ion-item slot="header" color="light">
-            <div class="subtitle">Antedentes médicos</div>
-          </ion-item>
-          <div slot="content">
-            <h5>Condicion medica</h5>
-            <h5>Alergias</h5>
-            <h5>Tipo sangre</h5>
-            <h5>Otros datos</h5>
-         </div>
-        </ion-accordion>
-      </ion-accordion-group>
-    </ion-card-header>
-
-    <ion-card-header>
-      <ion-accordion-group>
-        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
-          <ion-item slot="header" color="light">
-            <div class="subtitle">Recetas</div>
-          </ion-item>
-          <div slot="content">
-            <h5>Tienes <span>950</span> <span> recetas</span></h5>
-            <h5>Desde <span>20/08/2022</span></h5>
-            <h5>Hasta <span>20/08/2023</span></h5>
-         </div>
-        </ion-accordion> 
-      </ion-accordion-group>
-    </ion-card-header>
-
-    <ion-card-header>
-      <ion-accordion-group>
-        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
-          <ion-item slot="header" color="light">
-            <div class="subtitle">Citas</div>
-          </ion-item>
-          <div slot="content">
-            <h5>Tienes <span>102</span> <span> citas</span></h5>
-            <h5>Desde <span>20/08/2022</span></h5>
-            <h5>Hasta <span>20/08/2023</span></h5>
-         </div>
-        </ion-accordion>
-      </ion-accordion-group>
-    </ion-card-header>
-
-    <ion-card-header>
-      <ion-accordion-group>
-        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
-          <ion-item slot="header" color="light">
-            <div class="subtitle">Medicamentos</div>
-          </ion-item>
-          <div slot="content">
-            <h5>Tienes <span>20</span> <span> medicamentos</span></h5>
-            <h5>Desde <span>20/08/2022</span></h5>
-            <h5>Hasta <span>20/08/2023</span></h5>
-         </div>
-        </ion-accordion> 
-      </ion-accordion-group>
-    </ion-card-header>
-
-    <ion-card-header>
-      <ion-accordion-group>
-        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
-          <ion-item slot="header" color="light">
-            <div class="subtitle">Vacunas</div>
-          </ion-item>
-          <div slot="content">
-            <h5>Tienes <span>10</span> <span> vacunas</span></h5>
-            <h5>Desde <span>20/08/2022</span></h5>
-            <h5>Hasta <span>20/08/2023</span></h5>
-         </div>
-        </ion-accordion>
-      </ion-accordion-group>
-    </ion-card-header>
-
-    <ion-card-header>
-      <ion-accordion-group>
-        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
-          <ion-item slot="header" color="light">
-            <div class="subtitle">Examenes</div>
-          </ion-item>
-          <div slot="content">
-            <h5>Tienes <span>50</span> <span> examnes</span></h5>
-            <h5>Desde <span>20/08/2022</span></h5>
-            <h5>Hasta <span>20/08/2023</span></h5>
-         </div>
-        </ion-accordion>
-      </ion-accordion-group>
-    </ion-card-header>
-  </ion-card>
 </ion-content>

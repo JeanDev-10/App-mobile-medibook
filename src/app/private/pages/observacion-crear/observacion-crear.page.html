@@ -1,8 +1,4 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>observacionCrear</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-navbar [NameRoute]="'Crear observacion'" [href]="'/citas-medicas'" />
 
 <ion-content [fullscreen]="true">
   <!-- Animación -->
@@ -30,10 +26,10 @@
 </ion-list>
 
 <!-- Para regresar atrás -->
-<ion-fab [routerLink]="['/']" slot="fixed" horizontal="end" vertical="bottom">
+<!-- <ion-fab [routerLink]="['/']" slot="fixed" horizontal="end" vertical="bottom">
     <ion-fab-button color="dark">
         <ion-icon name="chevron-back"></ion-icon>
     </ion-fab-button>
-</ion-fab>
+</ion-fab> -->
 
 </ion-content>

@@ -1,0 +1,37 @@
+
+// navbar
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: #28A061;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.title-app {
+  font-size: 20px;
+  font-weight: bold
+}
+
+.icon-notification {
+  width: 25px;
+  height: 25px;
+  padding: 5px;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+.img-profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}

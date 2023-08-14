@@ -1,8 +1,5 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>historialMedico</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-navbar [NameRoute]="'Historial Medico'" [href]="'/profile-paciente'" />
+
 
 <ion-content [fullscreen]="true">
   <p class="title">Historial</p>
@@ -59,12 +56,6 @@
         </ion-accordion>
 
       </ion-accordion-group>
-
-      <div class="ion-text-center ion-margin-top">
-        <ion-button [routerLink]="['/profile']" routerLinkActive="router-link-active" >
-          Volver
-        </ion-button>
-      </div>
 
     </ion-card-header>
   </ion-card>

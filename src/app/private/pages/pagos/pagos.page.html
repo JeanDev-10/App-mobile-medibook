@@ -1,67 +1,11 @@
-<ion-header [translucent]="true">
-    <ion-toolbar>
-        <ion-title>Pagos</ion-title>
-    </ion-toolbar>
-</ion-header>
+<app-navbar [NameRoute]="'Pagos'" [href]="'/home'" />
 
 <ion-content [fullscreen]="true">
 
     <h1>Registro de Pagos</h1>
-
-    <ion-list [routerLink]="['/pagos-detalle']">
-        <ion-item>
-            <ion-card>
-                <ion-card-content>
-                    <div class="card-content">
-                        <ion-thumbnail class="avatar">
-                            <img src="../../../../assets/img/pagos.png" alt="Avatar">
-                        </ion-thumbnail>
-                        <div class="info">
-                            <h2>Cirugia</h2>
-                            <p>$ 100.00</p>
-                        </div>
-                    </div>
-                </ion-card-content>
-            </ion-card>
-        </ion-item>
-    </ion-list>
-
-
-    <ion-list [routerLink]="['/pagos-detalle']">
-        <ion-item>
-            <ion-card>
-                <ion-card-content>
-                    <div class="card-content">
-                        <ion-thumbnail class="avatar">
-                            <img src="../../../../assets/img/pagos.png" alt="Avatar">
-                        </ion-thumbnail>
-                        <div class="info">
-                            <h2>Asistencia Médica</h2>
-                            <p>$ 50.00</p>
-                        </div>
-                    </div>
-                </ion-card-content>
-            </ion-card>
-        </ion-item>
-    </ion-list>
-
-    <ion-list [routerLink]="['/pagos-detalle']">
-        <ion-item>
-            <ion-card>
-                <ion-card-content>
-                    <div class="card-content">
-                        <ion-thumbnail class="avatar">
-                            <img src="../../../../assets/img/pagos.png" alt="Avatar">
-                        </ion-thumbnail>
-                        <div class="info">
-                            <h2>Consulta</h2>
-                            <p>$ 12.00</p>
-                        </div>
-                    </div>
-                </ion-card-content>
-            </ion-card>
-        </ion-item>
-    </ion-list>
+<app-card-pagos/>
+<app-card-pagos/>
+<app-card-pagos/>
 
 
 

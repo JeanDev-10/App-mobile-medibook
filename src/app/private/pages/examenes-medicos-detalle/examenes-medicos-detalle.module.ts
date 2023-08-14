@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ExamenesMedicosDetallePageRoutingModule } from './examenes-medicos-detalle-routing.module';
 
 import { ExamenesMedicosDetallePage } from './examenes-medicos-detalle.page';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { ExamenesMedicosDetallePage } from './examenes-medicos-detalle.page';
     FormsModule,
     IonicModule,
     ExamenesMedicosDetallePageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoreModule
   ],
   declarations: [ExamenesMedicosDetallePage]
 })

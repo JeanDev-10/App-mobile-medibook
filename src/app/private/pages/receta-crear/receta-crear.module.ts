@@ -9,6 +9,7 @@ import { RecetaCrearPageRoutingModule } from './receta-crear-routing.module';
 import { RecetaCrearPage } from './receta-crear.page';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { CoreModule } from 'src/app/core/core.module';
 
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -25,6 +26,7 @@ export function playerFactory() {
     RecetaCrearPageRoutingModule,
     ReactiveFormsModule,
     LottieModule.forRoot({ player: playerFactory }),
+    CoreModule
   ],
   declarations: [RecetaCrearPage]
 })

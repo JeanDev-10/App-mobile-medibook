@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { CoreModule } from 'src/app/core/core.module';
+import { CardsItemsComponent } from './components/cards-items/cards-items.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { CoreModule } from 'src/app/core/core.module';
     HomePageRoutingModule,
     CoreModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage,CardsItemsComponent]
 })
 export class HomePageModule {}

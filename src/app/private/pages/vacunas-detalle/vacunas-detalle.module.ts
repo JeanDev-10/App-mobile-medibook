@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { VacunasDetallePageRoutingModule } from './vacunas-detalle-routing.module';
 
 import { VacunasDetallePage } from './vacunas-detalle.page';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { VacunasDetallePage } from './vacunas-detalle.page';
     FormsModule,
     IonicModule,
     VacunasDetallePageRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoreModule
   ],
   declarations: [VacunasDetallePage]
 })

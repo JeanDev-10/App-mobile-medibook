@@ -8,6 +8,8 @@ import { DudasPageRoutingModule } from './dudas-routing.module';
 
 import { DudasPage } from './dudas.page';
 import { CoreModule } from 'src/app/core/core.module';
+import { CardDudaComponent } from './components/card-duda/card-duda.component';
+import { CardReplyDudaComponent } from './components/card-reply-duda/card-reply-duda.component';
 
 @NgModule({
   imports: [
@@ -17,6 +19,6 @@ import { CoreModule } from 'src/app/core/core.module';
     DudasPageRoutingModule,CoreModule,
     ReactiveFormsModule
   ],
-  declarations: [DudasPage]
+  declarations: [DudasPage,CardDudaComponent,CardReplyDudaComponent]
 })
 export class DudasPageModule {}

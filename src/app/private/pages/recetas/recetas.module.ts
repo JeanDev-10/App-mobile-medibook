@@ -9,6 +9,8 @@ import { RecetasPageRoutingModule } from './recetas-routing.module';
 import { RecetasPage } from './recetas.page';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { CoreModule } from 'src/app/core/core.module';
+import { CardRecetasComponent } from './component/card-recetas/card-recetas.component';
 
 // Note we need a separate function as it's required
 // by the AOT compiler.
@@ -22,8 +24,8 @@ export function playerFactory() {
     CommonModule,
     FormsModule,
     IonicModule,
-    RecetasPageRoutingModule
+    RecetasPageRoutingModule,CoreModule
   ],
-  declarations: [RecetasPage]
+  declarations: [RecetasPage,CardRecetasComponent]
 })
 export class RecetasPageModule {}

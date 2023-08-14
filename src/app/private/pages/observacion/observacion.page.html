@@ -1,108 +1,14 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>observacion</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-navbar [NameRoute]="'Observacion'" [href]="'/home'" />
 
 <ion-content [fullscreen]="true">
-
   <p class="title">Todas las observaciones</p>
 
   <ion-card>
     <ion-card-header>
-      <ion-accordion-group [multiple]="false" [value]="['first']">
-        <ion-accordion value="first" toggleIcon="caret-down-circle" toggleIconSlot="start">
-          <ion-item slot="header" color="light">
-            <div class="subtitle">Obervaciones <span>2023</span></div>
-          </ion-item>
-
-          <div slot="content">
-            
-            <ion-card-header>
-              <div class="flex-warp">
-                <img class="rounded" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-                <h3>Jorge <span>Zambrano</span></h3>
-               </div>
-               <p>Paciente <span>25/10/2023</span></p>
-        
-               <p class="content-data">
-                Here's a small text description for the card content. Nothing more, nothing less.
-              </p>
-              <div class="ion-text-center">
-                <ion-button [routerLink]="['/observacion-detalle']" routerLinkActive="router-link-active" >
-                  Ver detalle
-                </ion-button>
-              </div>
-            </ion-card-header>
-
-            <ion-card-header>
-              <div class="flex-warp">
-                <img class="rounded" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-                <h3>Jorge <span>Zambrano</span></h3>
-               </div>
-               <p>Paciente <span>25/10/2023</span></p>
-        
-               <p class="content-data">
-                Here's a small text description for the card content. Nothing more, nothing less.
-              </p>
-              <div class="ion-text-center">
-                <ion-button>
-                  Ver detalle
-                </ion-button>
-              </div>
-            </ion-card-header>
-
-         </div>
-        </ion-accordion>
-      </ion-accordion-group>
-    </ion-card-header>
-
-    <ion-card-header>
-      <ion-accordion-group>
-        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
-          <ion-item slot="header" color="light">
-            <div class="subtitle">Obervaciones <span>2022</span></div>
-          </ion-item>
-
-          <div slot="content">
-            
-            <ion-card-header>
-              <div class="flex-warp">
-                <img class="rounded" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-                <h3>Jorge <span>Zambrano</span></h3>
-               </div>
-               <p>Paciente <span>25/10/2023</span></p>
-        
-               <p class="content-data">
-                Here's a small text description for the card content. Nothing more, nothing less.
-              </p>
-              <div class="ion-text-center">
-                <ion-button>
-                  Ver detalle
-                </ion-button>
-              </div>
-            </ion-card-header>
-
-            <ion-card-header>
-              <div class="flex-warp">
-                <img class="rounded" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-                <h3>Jorge <span>Zambrano</span></h3>
-               </div>
-               <p>Paciente <span>25/10/2023</span></p>
-        
-               <p class="content-data">
-                Here's a small text description for the card content. Nothing more, nothing less.
-              </p>
-              <div class="ion-text-center">
-                <ion-button>
-                  Ver detalle
-                </ion-button>
-              </div>
-            </ion-card-header>
-
-         </div>
-        </ion-accordion>
-      </ion-accordion-group>
+      <app-card-observaciones />
+      <app-card-observaciones />
+      <app-card-observaciones />
+      <app-card-observaciones />
     </ion-card-header>
   </ion-card>
 </ion-content>

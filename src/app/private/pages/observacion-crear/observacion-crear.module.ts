@@ -9,6 +9,7 @@ import { ObservacionCrearPageRoutingModule } from './observacion-crear-routing.m
 import { ObservacionCrearPage } from './observacion-crear.page';
 import { LottieModule } from 'ngx-lottie';
 import { playerFactory } from '../citas-medicas-crear/citas-medicas-crear.module';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { playerFactory } from '../citas-medicas-crear/citas-medicas-crear.module
     IonicModule,
     ObservacionCrearPageRoutingModule,
     LottieModule.forRoot({ player: playerFactory }),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoreModule
   ],
   declarations: [ObservacionCrearPage]
 })

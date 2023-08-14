@@ -7,14 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { CitasMedicasPageRoutingModule } from './citas-medicas-routing.module';
 
 import { CitasMedicasPage } from './citas-medicas.page';
+import { CardCitasComponent } from './components/card-citas/card-citas.component';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CitasMedicasPageRoutingModule
+    CitasMedicasPageRoutingModule,
+    CoreModule
   ],
-  declarations: [CitasMedicasPage]
+  declarations: [CitasMedicasPage,CardCitasComponent]
 })
 export class CitasMedicasPageModule {}

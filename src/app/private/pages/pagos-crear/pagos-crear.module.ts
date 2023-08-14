@@ -12,6 +12,7 @@ import { PagosCrearPage } from './pagos-crear.page';
 
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 export function playerFactory() {
@@ -25,8 +26,8 @@ export function playerFactory() {
     IonicModule,
     PagosCrearPageRoutingModule,
     LottieModule.forRoot({ player: playerFactory }),
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,CoreModule
+
   ],
   declarations: [PagosCrearPage]
 })

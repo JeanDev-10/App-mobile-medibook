@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { HistorialMedicoPageRoutingModule } from './historial-medico-routing.module';
 
 import { HistorialMedicoPage } from './historial-medico.page';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HistorialMedicoPageRoutingModule
+    HistorialMedicoPageRoutingModule,
+    CoreModule
   ],
   declarations: [HistorialMedicoPage]
 })

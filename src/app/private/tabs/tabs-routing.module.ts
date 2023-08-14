@@ -161,6 +161,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'profile-paciente',
+        loadChildren: () =>
+          import('../pages/profile-paciente/profile-paciente.module').then(
+            (m) => m.ProfilePacientePageModule
+          ),
+      },
+      {
         path: 'observacion',
         loadChildren: () =>
           import('../pages/observacion/observacion.module').then(
@@ -235,6 +242,19 @@ const routes: Routes = [
             (m) => m.HistorialMedicoPageModule
           ),
       },
+      {
+        path: 'titulos',
+        loadChildren: () => import('../pages/titulos/titulos.module').then( m => m.TitulosPageModule)
+      },
+      {
+        path: 'titulos-crear',
+        loadChildren: () => import('../pages/titulos-crear/titulos-crear.module').then( m => m.TitulosCrearPageModule)
+      },
+      {
+        path: 'titulos-detalle',
+        loadChildren: () => import('../pages/titulos-detalle/titulos-detalle.module').then( m => m.TitulosDetallePageModule)
+      },
+
     ],
   },
 ];
