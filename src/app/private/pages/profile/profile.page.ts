@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastService } from 'src/app/core/shared/services/toast.service';
+import { AuthService } from 'src/app/public/services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -13,9 +16,15 @@ export class ProfilePage implements OnInit {
     "nombre":"asdasd"
   }
 ]
-  constructor() { }
+  constructor(private authService: AuthService,private toastService: ToastService,private router:Router) { }
 
   ngOnInit() {
   }
-
+  logout(){
+    this.authService.logout().subscribe(data=>{
+      this.authService.deleteToken();
+      this.router.navigate(['/login']);
+      this.toastService.sucess('Has finalizado la sesión');
+    });
+  }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { ToastService } from 'src/app/core/shared/services/toast.service';
 
 @Component({
   selector: 'app-register',
@@ -11,32 +12,35 @@ import { AuthService } from '../../services/auth.service';
 export class RegisterPage implements OnInit {
 
   formRegister!:FormGroup
-
+  isSeePassword:boolean=false;
 
 
 
   constructor(private router: Router, private authService: AuthService,
-    private formBuilder: FormBuilder) {
-    this.formRegister = this.formBuilder.group({
-      email:['', [Validators.required, Validators.email]],
-      password:['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
+    private formBuilder: FormBuilder,private toastService:ToastService) {
+      this.formRegister = this.formBuilder.group({
+        email:['', [Validators.required, Validators.email]],
+        password:['', [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
 
-      nombre:['',[Validators.required,Validators.minLength(3)]],
-      apellido: ['',[Validators.required,Validators.minLength(3)]],
+        nombre:['',[Validators.required,Validators.minLength(3)]],
+        apellido: ['',[Validators.required,Validators.minLength(3)]],
 
-      ci: ['', [Validators.required, Validators.pattern('^[0-9]*$'),Validators.maxLength(10)]],
-      telefono: ['', [Validators.required, Validators.pattern('^[0-9]*$'),Validators.maxLength(10)]],
-      fecha: ['', Validators.required],
+        ci: ['', [Validators.required, Validators.pattern('^[0-9]*$'),Validators.maxLength(10),Validators.minLength(10)]],
+        telefono: ['', [Validators.required, Validators.pattern('^[0-9]*$'),Validators.maxLength(10),Validators.minLength(10)]],
+        fecha: ['', Validators.required],
 
-      canton: ['', [Validators.required]],
-      provincia : ['', [Validators.required]]
+        canton: ['', [Validators.required]],
+        provincia : ['', [Validators.required]]
 
 
-    })
+      })
     this.formRegister.get('provincia')?.valueChanges.subscribe(valor=>{
       console.log(valor);
       this.onProvinciaSelected(valor);
     })
+  }
+  seePassword(){
+    this.isSeePassword=!this.isSeePassword;
   }
   provincias = [
     {
@@ -436,9 +440,27 @@ export class RegisterPage implements OnInit {
       );
       return;
     } else {
-      this.authService.login(form).subscribe((data) => {
-        this.authService.setToken(data.access_token);
-        this.router.navigate(['patient/home']);
+      const body={
+        nombre: form.nombre,
+        apellido:form.apellido,
+        fecha: form.fecha,
+        ci: form.ci,
+        telefono: form.telefono,
+        provincia:this.provincias[form.provincia-1].label,
+        canton:this.provincias[form.provincia-1].cantones[form.canton-1].label,
+        email: form.email,
+        password: form.password,
+      };
+      this.authService.register(body).subscribe((data) => {
+        const body={
+          email:form.email,
+          password:form.password,
+        }
+        this.authService.login(body).subscribe((data) => {
+          this.toastService.sucess('Inicio de sesión correctamente');
+          this.authService.setToken(data.access_token);
+          this.router.navigate(['/home']);
+        });
       });
     }
   }

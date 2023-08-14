@@ -1,13 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>titulos</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-navbar [NameRoute]="'Titulos'" [href]="'/home'" />
+
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">titulos</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-button type="button" [routerLink]="['/titulos-crear']" class="add">
+    <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+</ion-button>
+  <app-cards-titulos />
+  <app-cards-titulos />
+  <app-cards-titulos />
+  <app-cards-titulos />
 </ion-content>

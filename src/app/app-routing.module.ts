@@ -2,20 +2,13 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { PermissionGuard } from './core/shared/guards/permission.guard';
 import { AuthGuard } from './core/shared/guards/auth.guard';
-import { SignoVitalesComponent } from './core/shared/components/signo-vitales/signo-vitales.component';
 
 const routes: Routes = [
-
-    {
-      path: 'animacion',
-      component: SignoVitalesComponent
-    },
-
     {
       path: '',
       loadChildren: () =>
         import('./public/public.module').then((m) => m.PublicModule),
-      /* canActivate: [PermissionGuard], */
+       /* canActivate: [PermissionGuard], */
     },
 
     //Rutas Privadas
@@ -24,7 +17,7 @@ const routes: Routes = [
       path: '',
       loadChildren: () =>
         import('./private/private.module').then((m) => m.PrivateModule),
-      /* canActivate: [AuthGuard], */ /// Utiliza el guardia para proteger la ruta */
+       /* canActivate: [AuthGuard],  */ /// Utiliza el guardia para proteger la ruta */
     },
 
     //Error 404

@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { TitulosPageRoutingModule } from './titulos-routing.module';
 
 import { TitulosPage } from './titulos.page';
+import { CardsTitulosComponent } from './components/cards-titulos/cards-titulos.component';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TitulosPageRoutingModule
+    TitulosPageRoutingModule,CoreModule
   ],
-  declarations: [TitulosPage]
+  declarations: [TitulosPage,CardsTitulosComponent]
 })
 export class TitulosPageModule {}

@@ -1,13 +1,47 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>titulos-detalle</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-navbar [NameRoute]="'Detalle título'" [href]="'/titulos'" />
+
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">titulos-detalle</ion-title>
-    </ion-toolbar>
-  </ion-header>
+
+  <p class="title">Detalle título</p>
+
+  <ion-card>
+    <ion-card-header>
+       <p>Titulo</p>
+       <div class="icon-content">
+        <ion-icon (click)="edit()" class="icon-warp" name="create-outline"></ion-icon>
+        <ion-icon class="icon-warp" name="trash-outline"></ion-icon>
+       </div>
+    </ion-card-header>
+  </ion-card>
+
+
+  <ion-list *ngIf="editShow">
+
+    <form [formGroup]="FormularioTitulo" (submit)="CreateTitle(FormularioTitulo.value)">
+
+
+        <ion-item>
+            <ion-icon slot="start" name="library-outline"></ion-icon>
+            <ion-input formControlName="nombre" placeholder="Medico General" class="inputs" label="Nombre de Titulo" labelPlacement="floating" type="text"></ion-input>
+        </ion-item>
+
+        <!-- Validación de campo nombre requerido -->
+        <div class="mt-1" *ngIf="FormularioTitulo.get('nombre')?.invalid && FormularioTitulo.get('nombre')?.touched">
+        <ion-badge *ngIf="FormularioTitulo.get('nombre')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+        </div>
+
+         <!-- Validacion de campo para que solo sea letras -->
+         <ion-badge *ngIf="FormularioTitulo.get('nombre')?.hasError('pattern')" color="warning">Solo Se Permiten Letras</ion-badge>
+
+
+        <div class="boton">
+            <ion-button   color="success" type="submit" [disabled]="FormularioTitulo.invalid">
+                Editar Titulo
+                <ion-icon class="ion-icon-create" slot="end" name="checkmark-circle"></ion-icon>
+            </ion-button>
+        </div>
+    </form>
+
+</ion-list>
 </ion-content>

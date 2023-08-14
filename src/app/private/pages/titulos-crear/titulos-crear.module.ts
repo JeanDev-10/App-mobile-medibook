@@ -1,19 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
 import { TitulosCrearPageRoutingModule } from './titulos-crear-routing.module';
 
 import { TitulosCrearPage } from './titulos-crear.page';
+import { CoreModule } from 'src/app/core/core.module';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
 
+export function playerFactory() {
+  return player;
+}
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TitulosCrearPageRoutingModule
+    TitulosCrearPageRoutingModule,CoreModule,ReactiveFormsModule,
+    LottieModule.forRoot({ player: playerFactory }),
   ],
   declarations: [TitulosCrearPage]
 })

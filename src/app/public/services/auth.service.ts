@@ -14,6 +14,9 @@ export class AuthService {
   login(body: any): Observable<any> {
     return this.http.post<any>(`${this.api}login`, body);
   }
+  register(body: any): Observable<any> {
+    return this.http.post<any>(`${this.api}register`, body);
+  }
 
   userInformation(): Observable<any> {
     return this.http.get<any>(this.api + 'user-profile');

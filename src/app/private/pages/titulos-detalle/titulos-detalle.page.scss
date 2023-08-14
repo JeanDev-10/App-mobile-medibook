@@ -1,0 +1,31 @@
+ion-card {
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  background: #d1cdcd;
+}
+
+.title {
+  margin-top: 25px;
+  text-align: center;
+  font-weight: 700;
+}
+
+p {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: -5px;
+}
+
+.icon-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-warp {
+  width: 30px;
+  height:30px;
+  color: #28A061;
+}
