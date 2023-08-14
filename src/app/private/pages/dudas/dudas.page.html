@@ -2,7 +2,10 @@
   <app-navbar [NameRoute]="'Dudas'" [href]="''" />
 
   <p class="title">¡Tienes alguna duda!</p>
-  <app-card-duda/>
+  <ng-container *ngIf="dudas">
+
+    <app-card-duda [duda]="duda" *ngFor="let duda of dudas" />
+  </ng-container>
   <div class="container">
     <form class="ion-margin">
       <div class="all">

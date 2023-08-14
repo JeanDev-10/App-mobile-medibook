@@ -6,13 +6,12 @@
         alt="user"
         src="https://ionicframework.com/docs/img/demos/avatar.svg"
       />
-      <h3>Jorge</h3>
+      <h3 > {{duda?.paciente?.usuario?.nombre|titlecase}} </h3>
     </div>
-    <p>Paciente <span>25/10/2023</span></p>
+    <p>{{duda?.paciente?.usuario?.rol?.nombre|titlecase}} <span> {{duda?.fecha|date}} </span></p>
 
     <p class="content-data">
-      Here's a small text description for the card content. Nothing more,
-      nothing less.
+      {{duda?.contenido|titlecase}}
     </p>
 
     <ion-accordion-group class="ion-no-padding">
@@ -22,12 +21,9 @@
         toggleIconSlot="start"
       >
         <ion-item slot="header" color="light">
-          <ion-label><span>1</span> respuestas</ion-label>
+          <ion-label><span> {{duda.reply_duda.length}} </span> respuestas</ion-label>
         </ion-item>
-        <app-card-reply-duda slot="content"/>
-        <app-card-reply-duda slot="content"/>
-        <app-card-reply-duda slot="content"/>
-        <app-card-reply-duda slot="content"/>
+        <app-card-reply-duda slot="content" [duda]="replyduda"  *ngFor="let replyduda of duda.reply_duda"/>
       </ion-accordion>
     </ion-accordion-group>
   </ion-card-header>

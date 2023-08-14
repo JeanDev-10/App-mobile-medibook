@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DudasService } from '../../services/dudas.service';
 
 @Component({
   selector: 'app-dudas',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dudas.page.scss'],
 })
 export class DudasPage implements OnInit {
-
-  constructor() { }
+  dudas:any;
+  constructor(private dudaService:DudasService) {
+    this.dudaService.getDudas().subscribe((data:any)=>{
+      console.log(data)
+      this.dudas=data.dudas
+    })
+   }
 
   ngOnInit() {
   }
