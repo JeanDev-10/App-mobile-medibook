@@ -15,7 +15,10 @@ import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,HttpClientModule
+  imports: [BrowserModule, IonicModule.forRoot({
+    rippleEffect: false,
+    mode: 'md'
+  }), AppRoutingModule,HttpClientModule
   ,CoreModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, {
     provide: HTTP_INTERCEPTORS,
