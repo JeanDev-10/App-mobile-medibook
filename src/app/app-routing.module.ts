@@ -4,29 +4,29 @@ import { PermissionGuard } from './core/shared/guards/permission.guard';
 import { AuthGuard } from './core/shared/guards/auth.guard';
 
 const routes: Routes = [
-    {
-      path: '',
-      loadChildren: () =>
-        import('./public/public.module').then((m) => m.PublicModule),
-       /* canActivate: [PermissionGuard], */
-    },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./public/public.module').then((m) => m.PublicModule),
+    canActivate: [PermissionGuard],
+  },
 
-    //Rutas Privadas
+  //Rutas Privadas
 
-    {
-      path: '',
-      loadChildren: () =>
-        import('./private/private.module').then((m) => m.PrivateModule),
-       /* canActivate: [AuthGuard],  */ /// Utiliza el guardia para proteger la ruta */
-    },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./private/private.module').then((m) => m.PrivateModule),
+    canActivate: [AuthGuard], /// Utiliza el guardia para proteger la ruta */
+  },
 
-    //Error 404
-    { path: '**', redirectTo: '/', pathMatch: 'full' },
-  ];
+  //Error 404
+  { path: '**', redirectTo: '/', pathMatch: 'full' },
+];
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
