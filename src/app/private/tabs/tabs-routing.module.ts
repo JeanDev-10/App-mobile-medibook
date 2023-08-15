@@ -98,7 +98,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'medicamentos-detalle',
+        path: 'medicamentos-detalle/:id',
         loadChildren: () =>
           import(
             '../pages/medicamentos-detalle/medicamentos-detalle.module'
