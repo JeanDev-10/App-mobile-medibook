@@ -1,5 +1,6 @@
 import { MedicamentosService } from './../../services/medicamentos.service';
 import { Component, OnInit } from '@angular/core';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-medicamentos',
@@ -11,7 +12,7 @@ export class MedicamentosPage implements OnInit {
   idMedicamento!:number;
 
 
-  constructor(private medicamentosService:MedicamentosService) { 
+  constructor(private medicamentosService:MedicamentosService, private loadingCtrl:LoadingController) { 
 
   }
 
@@ -31,5 +32,13 @@ export class MedicamentosPage implements OnInit {
     })
   }
   
+  async showLoading() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Cargando...',
+      duration: 3000,
+    });
+
+    loading.present();
+  }
 
 }

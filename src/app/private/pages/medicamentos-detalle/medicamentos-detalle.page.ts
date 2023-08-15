@@ -108,4 +108,6 @@ export class MedicamentosDetallePage implements OnInit {
   EditMecament(Form:any){
     this.StateForm = true;
   }
+
+
 }
