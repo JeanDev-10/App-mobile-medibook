@@ -7,30 +7,32 @@
 
   <ion-card>
     <ion-card-header>
-       <div class="flex-warp">
+      <div *ngFor="let observacion of observacion">
+       <div class="flex-warp"  >
         <img class="rounded" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-        <h3>Jorge <span>Zambrano</span></h3>
-       </div>
-       <p>25/10/2023</p>
+        <h3>{{observacion.cita.paciente.usuario.nombre}} <span>{{observacion.cita.paciente.usuario.apellido}}</span></h3>
+        <p> {{observacion.cita.fecha}}</p>
+      </div>
+
 
       <ion-accordion-group class="ion-no-padding">
         <ion-accordion value="first" toggleIcon="caret-down-circle" toggleIconSlot="start">
           <ion-item slot="header" color="light">
-            <ion-label>Titulo cita <span>Estado cita</span></ion-label>
+            <ion-label>  <span>Estado cita</span></ion-label>
           </ion-item>
           <div class="ion-padding" slot="content">
 
-            <div class="flex-warp" [routerLink]="['/profile']" routerLinkActive="router-link-active" >
+            <div  class="flex-warp" [routerLink]="['/profile']" routerLinkActive="router-link-active" >
               <img class="rounded" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-              <h3>Carlos <span>Zambrano</span></h3>
+              <h3>{{observacion.cita.medico.usuario.nombre}} <span>{{observacion.cita.medico.usuario.apellido}}</span></h3>
             </div>
             <p>Doctor <span>25/10/2023</span></p>
-            <p class="content-data">Hora inico </p>
-            <p class="content-data">Hora fin</p>
+            <p class="content-data">Hora inicio: {{observacion.cita.hora_inicio}} </p>
+            <p class="content-data">Hora fin: {{observacion.cita.hora_fin}}</p>
           </div>
         </ion-accordion>
       </ion-accordion-group>
-
+    </div>
       <div class="ion-text-center ion-margin-top">
         <ion-button [routerLink]="['/observacion']" routerLinkActive="router-link-active" >
           Volver

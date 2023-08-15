@@ -175,7 +175,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'observacion-create',
+        path: 'observacion-create/:id',
         loadChildren: () =>
           import('../pages/observacion-crear/observacion-crear.module').then(
             (m) => m.ObservacionCrearPageModule
