@@ -49,7 +49,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'citas-medicas-crear',
+        path: 'citas-medicas-crear/:id',
         loadChildren: () =>
           import(
             '../pages/citas-medicas-crear/citas-medicas-crear.module'
@@ -63,7 +63,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'cita-medicas-detalle',
+        path: 'cita-medicas-detalle/:id',
         loadChildren: () =>
           import(
             '../pages/cita-medicas-detalle/cita-medicas-detalle.module'
@@ -154,14 +154,14 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'profile-medico',
+        path: 'profile-medico/:id',
         loadChildren: () =>
           import('../pages/profile-medico/profile-medico.module').then(
             (m) => m.ProfileMedicoPageModule
           ),
       },
       {
-        path: 'profile-paciente',
+        path: 'profile-paciente/:id',
         loadChildren: () =>
           import('../pages/profile-paciente/profile-paciente.module').then(
             (m) => m.ProfilePacientePageModule
@@ -236,7 +236,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'historial-medico',
+        path: 'historial-medico/:id',
         loadChildren: () =>
           import('../pages/historial-medico/historial-medico.module').then(
             (m) => m.HistorialMedicoPageModule

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { EventEmitterService } from '../../services/event-emitter.service';
 
 @Component({
   selector: 'app-card-duda',
@@ -7,8 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardDudaComponent  implements OnInit {
   @Input() duda!:any
-  constructor() { }
+  constructor(private readonly eventEmitterService:EventEmitterService) { }
 
   ngOnInit() {}
+  replyDuda(){
+    this.eventEmitterService.setEvent({
+      event:"REPLY_DUDA_CREATE",
+      id:this.duda.id,
+      contenido:this.duda.contenido
+    })
+  }
 
 }

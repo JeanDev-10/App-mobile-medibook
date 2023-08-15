@@ -1,21 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs';
 import { config } from 'src/config/config';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DudasService {
+export class EspecialiadesService {
   private readonly Api:string=config.apiUrl;
   constructor(private readonly httpClient:HttpClient) { }
-
-  getDudas(){
-    return this.httpClient.get(`${this.Api}dudas`);
-  }
-  create(body:any){
-    return this.httpClient.post(`${this.Api}dudas`,body);
-  }
-  replyDudaCreate(body:any){
-    return this.httpClient.post(`${this.Api}replydudas`,body);
+  getAllEspecialidades(){
+    return this.httpClient.get<any>(`${this.Api}especialidades`).pipe(map((res:any)=>res.especialidades));
   }
 }

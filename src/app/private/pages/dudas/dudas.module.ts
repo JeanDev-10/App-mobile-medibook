@@ -10,6 +10,7 @@ import { DudasPage } from './dudas.page';
 import { CoreModule } from 'src/app/core/core.module';
 import { CardDudaComponent } from './components/card-duda/card-duda.component';
 import { CardReplyDudaComponent } from './components/card-reply-duda/card-reply-duda.component';
+import { EventEmitterService } from './services/event-emitter.service';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { CardReplyDudaComponent } from './components/card-reply-duda/card-reply-
     DudasPageRoutingModule,CoreModule,
     ReactiveFormsModule
   ],
-  declarations: [DudasPage,CardDudaComponent,CardReplyDudaComponent]
+  declarations: [DudasPage,CardDudaComponent,CardReplyDudaComponent],
+  providers:[EventEmitterService]
 })
 export class DudasPageModule {}

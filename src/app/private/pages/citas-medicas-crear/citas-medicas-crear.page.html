@@ -42,16 +42,6 @@
 
             <!-- Input de Medico -->
 
-            <ion-item>
-              <ion-select formControlName="medico_id" label="Medico" label-placement="floating" fill="solid">
-                <ion-select-option value="1">Dr. Jandry Kun</ion-select-option>
-                <ion-select-option value="2">Dr. Juan Jesús</ion-select-option>
-                <ion-select-option value="3">Dr. Jean Pierre Zambrano</ion-select-option>
-              </ion-select>
-            </ion-item>
-            <div class="mt-1" *ngIf="FormularioCitasMedicas.get('medico_id')?.invalid && FormularioCitasMedicas.get('medico_id')?.touched">
-              <ion-badge *ngIf="FormularioCitasMedicas.get('medico_id')?.hasError('required')" color="warning">Campo Requerido</ion-badge>
-          </div>
             <ion-button color="medium" type="submit" [disabled]="FormularioCitasMedicas.invalid">
               Registrar
             <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
