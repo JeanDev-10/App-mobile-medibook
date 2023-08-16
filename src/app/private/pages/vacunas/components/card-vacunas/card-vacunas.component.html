@@ -1,5 +1,5 @@
 <div [routerLink]="['/vacunas-detalle', vacunas.id]" *ngFor="let vacunas of Todas_Vacunas">
   <ion-img class="icon-img" src="../../../../assets/img/vacuna.png"></ion-img>
-  <ion-label class="label-vacuna-1" color="tertiary">{{vacunas.nombre}}</ion-label>
-  <ion-badge class="label-fecha-1" color="success">Aplicada: {{vacunas.fecha}}</ion-badge>
+  <ion-label class="label-vacuna" color="tertiary">{{vacunas.nombre}}</ion-label> <br>
+  <ion-badge class="label-fecha" color="success">Aplicada: {{vacunas.fecha}}</ion-badge>
 </div>
