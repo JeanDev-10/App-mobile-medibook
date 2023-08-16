@@ -26,10 +26,11 @@
 
             <ion-item>
               <ion-select formControlName="comentario_id" label="Eliga el Comentario" label-placement="floating" fill="solid">
-                <ion-select-option value="1">Predeterminado 1
+                <ion-select-option value="1">Buena Atención 
                 </ion-select-option>
-                <ion-select-option value="2">Predeterminado 2</ion-select-option>
-                <ion-select-option value="3">Predeterminado 3</ion-select-option>
+                <ion-select-option value="2">Excelente Atención</ion-select-option>
+                <ion-select-option value="3">Mala Atención</ion-select-option>
+                <ion-select-option value="4">Pésima Atención</ion-select-option>
               </ion-select>
             </ion-item>
             <div class="mt-1" *ngIf="FormularioResenia.get('comentario_id')?.invalid && FormularioResenia.get('comentario_id')?.touched">

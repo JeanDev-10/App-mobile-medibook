@@ -77,7 +77,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'vacunas-detalle',
+        path: 'vacunas-detalle/:id',
         loadChildren: () =>
           import('../pages/vacunas-detalle/vacunas-detalle.module').then(
             (m) => m.VacunasDetallePageModule
@@ -119,7 +119,7 @@ const routes: Routes = [
           ).then((m) => m.ExamenesMedicosCrearPageModule),
       },
       {
-        path: 'examenes-medicos-detalle',
+        path: 'examenes-medicos-detalle/:id',
         loadChildren: () =>
           import(
             '../pages/examenes-medicos-detalle/examenes-medicos-detalle.module'
@@ -229,7 +229,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'resenia-crear',
+        path: 'resenia-crear/:id',
         loadChildren: () =>
           import('../pages/resenia-crear/resenia-crear.module').then(
             (m) => m.ReseniaCrearPageModule

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AnimationOptions } from 'ngx-lottie';
 import { ToastService } from 'src/app/core/shared/services/toast.service';
+import { VacunasService } from '../../services/vacunas.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vacunas-crear',
@@ -17,7 +19,7 @@ export class VacunasCrearPage implements OnInit {
     path: '/assets/anim/vacune_animacion.json',
   };
 
-  constructor(private formBuilder:FormBuilder,private notificacion:ToastService) {
+  constructor(private formBuilder:FormBuilder,private notificacion:ToastService, private vacunasService:VacunasService, private router:Router) {
 
    }
 
@@ -32,12 +34,12 @@ export class VacunasCrearPage implements OnInit {
     this.buildForm();
   }
 
-  // Métodos para crear una vacuna y lo uso para mostrar los datos del formulario por consola
+  // Métodos para crear una vacuna
   CreateVacuna(Form:any){
-    console.log(Form);
-    if(this.FormularioVacuna.invalid){
-      this.notificacion.error("Error al ingresar vacuna");
-
-    }
+    this.vacunasService.Crear_Vacuna(Form).subscribe({
+      next: (s) =>{
+        this.router.navigate(['/vacunas']);
+      }
+    })
   }
 }

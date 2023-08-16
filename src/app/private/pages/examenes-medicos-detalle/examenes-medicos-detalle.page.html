@@ -8,18 +8,23 @@
 
 
 
-        <h2>Hemograma</h2>
+        <h2>{{ExamenMedicoDetalle?.nombre}}</h2>
 
-        <div class="datos">
+        <br>
 
-            <ion-badge class="label-estado label-estado-3" color="success">12/08/2023</ion-badge>
-            <br>
-            <ion-badge class="label-estado label-estado-3" color="success">Positivo</ion-badge>
-        </div>
+        <ion-badge class="label-fecha" color="success">Publicado: {{ExamenMedicoDetalle?.fecha}}</ion-badge>
 
+        <br>
 
+        <ion-text class="text-resultado" color="dark">
+           <ion-badge class="text-resultado_badge" color="warning">
+            Resultado
+           </ion-badge> <br> <span>
+            {{ExamenMedicoDetalle?.resultado}}
+           </span>
 
-        <div class="acciones">
+        </ion-text>
+
             <ion-fab class="edit">
                 <ion-fab-button (click)=" ChangeStateForm()" color="warning">
                     <ion-icon name="create"></ion-icon>
@@ -34,11 +39,7 @@
 
         </div>
 
-
-    </div>
-
-
-    <form *ngIf="StateForm" [formGroup]="FormularioExamenMedicoDetalle" (ngSubmit)="EditExamen(FormularioExamenMedicoDetalle.value)">
+    <form *ngIf="StateForm" [formGroup]="FormularioExamenMedicoDetalle" (ngSubmit)="UpdateExamenMedico(FormularioExamenMedicoDetalle.value)">
         <ion-item>
             <ion-icon name="eyedrop-outline"></ion-icon>
             <ion-input formControlName="nombre" class="inputs" label="Nombre" labelPlacement="floating" placeholder=""></ion-input>
@@ -83,7 +84,7 @@
 
 
         <ion-button [disabled]="FormularioExamenMedicoDetalle.invalid" color="medium" type="submit">
-            Actualizar
+            Actualizar Examen Medico
             <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
         </ion-button>
 

@@ -4,8 +4,8 @@
 <ion-content [fullscreen]="true">
   <div class="container-div">
     <ion-img class="icon-img" src="../../../../assets/img/medicaments.png"></ion-img>
-    <ion-label class="label-vacuna" color="tertiary">Pfizer</ion-label>
-    <ion-badge class="label-fecha" color="success">Fecha de Aplicación: 12/08/2023</ion-badge>
+    <ion-label class="label-vacuna" color="tertiary">{{VacunaDetalle?.vacunas.nombre}}</ion-label> <br>
+    <ion-badge class="label-fecha" color="success">Fecha de Aplicación: {{VacunaDetalle?.vacunas.fecha}}</ion-badge>
 
     <ion-fab class="edit">
       <ion-fab-button (click)=" EditVacuna()" color="warning">
@@ -39,7 +39,7 @@
     <div class="mt-1" *ngIf="FormularioVacuna.get('fecha')?.invalid && FormularioVacuna.get('fecha')?.touched">
       <ion-badge *ngIf="FormularioVacuna.get('fecha')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
   </div>
-    <ion-button color="medium" type="submit" [disabled]="FormularioVacuna.invalid">
+    <ion-button  color="medium" type="submit" [disabled]="FormularioVacuna.invalid">
       Actualizar
     <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
     </ion-button>
