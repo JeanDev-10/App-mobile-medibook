@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { AnimationOptions } from 'ngx-lottie';
+import { VacunasService } from '../../services/vacunas.service';
 
 @Component({
   selector: 'app-vacunas-detalle',
@@ -15,13 +16,17 @@ export class VacunasDetallePage implements OnInit {
 
   FormularioVacuna!:FormGroup;
 
+  VacunaDetalle:any;
+
   options: AnimationOptions = {
     path: '/assets/anim/vacune_animacion.json',
   };
 
+  idVacuna:any;
 
 
-  constructor(private formBuilder:FormBuilder, private router:Router, private toastController:ToastController) {
+
+  constructor(private formBuilder:FormBuilder, private router:Router, private toastController:ToastController, private vacunasService:VacunasService, private activatedRouter:ActivatedRoute) {
 
    }
 
@@ -34,6 +39,8 @@ export class VacunasDetallePage implements OnInit {
   }
   ngOnInit() {
     this.buildForm();
+    this.idVacuna =  Number(this.activatedRouter.snapshot.paramMap.get('id'));
+    this.Ver_Vacuna();
   }
   // Método para Crear una vacuna por el momento lo estoy usando para ver los datos por consola
 
@@ -50,9 +57,13 @@ export class VacunasDetallePage implements OnInit {
 
   // Método creado para hacer el delete del medicamento
   DeleteMedicament(){
-    this.router.navigate(['vacunas'])
-    // Toast de ionic
-    this.presentToast('bottom');
+    this.vacunasService.Eliminar_Vacuna(this.idVacuna).subscribe({
+      next: (s) =>{
+        this.router.navigate(['vacunas'])
+        // Toast de ionic
+        this.presentToast('bottom');
+      }
+    })
   }
 
 
@@ -60,7 +71,7 @@ export class VacunasDetallePage implements OnInit {
 
   async presentToast(position: 'top' | 'middle' | 'bottom') {
     const toast = await this.toastController.create({
-      message: 'Medicamento, Eliminado Correctamente!',
+      message: 'Vacuna, Eliminado Correctamente!',
       duration: 1500,
       position: position,
     });
@@ -70,7 +81,26 @@ export class VacunasDetallePage implements OnInit {
 
   // Método para actualizar la vacuna
   UpdateMedicament(form:any){
-    console.log(form);
+    this.vacunasService.Actualizar_Vacuna(this.idVacuna,form).subscribe({
+      next: (s) =>{
+        this.router.navigate(['/vacunas'])
+      }
+    })
   }
+
+  // Método para ver vacuna
+
+  Ver_Vacuna(){
+    this.vacunasService.Ver_Vacuna(this.idVacuna).subscribe({
+      next: (s) =>{
+        this.VacunaDetalle = s;
+        this.FormularioVacuna.patchValue({
+          nombre: this.VacunaDetalle.vacunas.nombre,
+          fecha: this.VacunaDetalle.vacunas.fecha,
+        });
+      }
+    })
+  }
+
 
 }
