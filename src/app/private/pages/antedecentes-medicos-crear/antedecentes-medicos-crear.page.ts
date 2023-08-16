@@ -72,19 +72,5 @@ export class AntedecentesMedicosCrearPage implements OnInit {
     this.antecedente_id=null;
     })
   }
-  findMedicoFillForm(id: any) {
-    this.antecedenteService.obtenerUno(id).subscribe((data) => {
-      this.antecedente_id=id;
-      const antecedente=data.antecedentes_medicos
-      console.log(antecedente)
-      this.FormularioAntecedentes.setValue({
-        condicionMedica:antecedente.condicion_medica,
-        alergias:antecedente.alergias,
-        cirugiasPrevias:antecedente.cirugias_previas,
-        tipoSangre:antecedente.tipo_sangre,
-        otrosDatos:antecedente.otros_datos,
-      });
-    });
-  }
 
 }

@@ -1,11 +1,11 @@
-<div >
+<div>
   <ion-img class="icon-img" src="../../../../assets/img/cita-medica.png"></ion-img>
   <ion-label class="label-titulo" color="tertiary">Titulo</ion-label>
   <ion-badge class="label-fecha-final" color="success">Finaliza: 12/01/2020</ion-badge>
   <ion-button [routerLink]="['/cita-medicas-detalle']">
     <ion-icon slot="icon-only" name="eye"></ion-icon>
   </ion-button>
-  <button [routerLink]="['/observacion-create']">Añadir Observacion</button>
+  <button [routerLink]="['/observacion-create/',cita.id]">Añadir Observacion</button>
   <button >Añadir Reseta</button>
 
 </div>

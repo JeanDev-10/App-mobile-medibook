@@ -31,7 +31,7 @@
             </ion-fab>
 
             <ion-fab class="close">
-                <ion-fab-button (click)="deleteAntecedentes()" color="danger">
+                <ion-fab-button (click)="Delete()" color="danger">
                     <ion-icon name="close"></ion-icon>
                 </ion-fab-button>
             </ion-fab>
@@ -43,7 +43,7 @@
     </div>
 
 
-    <form *ngIf="StateForm" [formGroup]="FormAntecedentesDetalle" (ngSubmit)="EditAntecedentes(FormAntecedentesDetalle.value)">
+    <form *ngIf="StateForm" [formGroup]="FormAntecedentesDetalle" (ngSubmit)="Update(FormAntecedentesDetalle.value)">
 
 
         <!-- Input de Condicion Medica -->

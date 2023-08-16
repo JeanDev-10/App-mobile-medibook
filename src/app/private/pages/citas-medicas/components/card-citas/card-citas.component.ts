@@ -10,5 +10,6 @@ export class CardCitasComponent  implements OnInit {
   constructor() { }
 
   ngOnInit() {}
+  cita!:any;
 
 }
