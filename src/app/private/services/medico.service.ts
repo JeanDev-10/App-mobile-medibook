@@ -17,7 +17,7 @@ export class MedicoService {
   }
   getMedicoInformation(id:any){
 
-    return this.httpClient.get<any>(`${this.Api}medicos-information/${id}`).pipe(map((res:any)=>res.usuario));
+    return this.httpClient.get<any>(`${this.Api}medicos-information/${id}`).pipe(map((res:any)=>res.medico));
   }
 
   obtenerMedico(){

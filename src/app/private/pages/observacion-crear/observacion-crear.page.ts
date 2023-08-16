@@ -4,6 +4,9 @@ import { AnimationOptions } from 'ngx-lottie';
 import { ToastService } from 'src/app/core/shared/services/toast.service';
 import { ObservacionService } from '../../services/observacion.service';
 import { AuthService } from 'src/app/public/services/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs';
+import { CitasService } from '../../services/citas.service';
 
 @Component({
   selector: 'app-observacion-crear',
@@ -17,11 +20,19 @@ export class ObservacionCrearPage implements OnInit {
   };
   FormularioObservacion!:FormGroup;
   user!:any;
-  constructor(private formBuilder:FormBuilder,private notificacion:ToastService,private observacionService:ObservacionService,private authService:AuthService) {
+  id!:any;
+  constructor(private formBuilder:FormBuilder,private notificacion:ToastService,private observacionService:ObservacionService,private authService:AuthService,private activatedRoute:ActivatedRoute,private cita:CitasService,private router:Router) {
     this.FormularioObservacion = this.formBuilder.group({
       observacion: ['', [Validators.required]],
 
    })
+
+   this.activatedRoute.params.subscribe((params) => {
+    this.id = params['id']; // Aquí obtienes el valor del parámetro :id de la URL
+    // Puedes usar this.id como quieras en tu componente
+
+  });
+
    this.getObservacion();
    this.authService.userInformation().subscribe((data)=>{
 
@@ -39,6 +50,7 @@ export class ObservacionCrearPage implements OnInit {
 
   }
   observacion!:any;
+  observacion_id!:any;
   Observacion(form:any){
     if(this.FormularioObservacion.invalid){
       this.notificacion.error('El proceso es incorrecto...');
@@ -46,13 +58,14 @@ export class ObservacionCrearPage implements OnInit {
 
       const observacionData = {
         contenido: form.observacion,
-        
-
+        cita_id:this.id
       };
         this.observacionService.create(observacionData).subscribe((data)=>{
         this.notificacion.sucess('Especialidad creada');
         this.getObservacion();
         this.FormularioObservacion.reset();
+        this.router.navigate(['/observacion']);
+
       })
     }
   }

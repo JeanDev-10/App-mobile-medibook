@@ -140,7 +140,7 @@ const routes: Routes = [
           ).then((m) => m.AntedecentesMedicosCrearPageModule),
       },
       {
-        path: 'antedecentes-medicos-detalle',
+        path: 'antedecentes-medicos-detalle/:id',
         loadChildren: () =>
           import(
             '../pages/antedecentes-medicos-detalle/antedecentes-medicos-detalle.module'
@@ -182,7 +182,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'observacion-detalle',
+        path: 'observacion-detalle/:id',
         loadChildren: () =>
           import(
             '../pages/observacion-detalle/observacion-detalle.module'

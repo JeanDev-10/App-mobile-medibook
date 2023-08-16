@@ -1,16 +1,19 @@
 <ion-card-header>
+  <div *ngFor="let observacion of observaciones">
+
   <div class="flex-warp">
     <img class="rounded" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-    <h3>Jorge <span>Zambrano</span></h3>
+    <h3>De:  {{observacion?.cita?.medico?.usuario?.nombre}} <span>{{ observacion?.cita?.medico?.usuario?.apellido}} </span></h3>
    </div>
-   <p>Paciente <span>25/10/2023</span></p>
-
+   <p>Para: {{observacion?.cita?.paciente?.usuario?.nombre}}  {{observacion?.cita?.paciente?.usuario?.apellido}}
+   </p>
    <p class="content-data">
-    Here's a small text description for the card content. Nothing more, nothing less.
+   {{observacion?.contenido}}
   </p>
   <div class="ion-text-center">
-    <ion-button [routerLink]="['/observacion-detalle']" routerLinkActive="router-link-active" >
+    <ion-button [routerLink]="['/observacion-detalle/'+observacion.id]" routerLinkActive="router-link-active" >
       Ver detalle
     </ion-button>
   </div>
+</div>
 </ion-card-header>

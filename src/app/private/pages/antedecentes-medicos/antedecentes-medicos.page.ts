@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AntecedenteMedicoService } from '../../services/antecedente-medico.service';
 
 @Component({
   selector: 'app-antedecentes-medicos',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AntedecentesMedicosPage implements OnInit {
 
-  constructor() { }
+  constructor(private antecedenteService:AntecedenteMedicoService ) {
+    
+  }
 
   ngOnInit() {
+
   }
 
 }

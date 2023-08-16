@@ -1,4 +1,4 @@
-<div [routerLink]="['/antedecentes-medicos-detalle']" *ngFor="let antecedente of antecedente">
+<div [routerLink]="['/antedecentes-medicos-detalle/'+antecedente.id]" *ngFor="let antecedente of antecedente">
   <ion-img class="icon-img" src="../../../../assets/img/antecedentes.png"></ion-img>
   <ion-label class="label-cita" color="tertiary">{{antecedente.alergias}}
       <nav></nav>

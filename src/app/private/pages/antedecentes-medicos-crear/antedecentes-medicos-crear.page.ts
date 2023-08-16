@@ -4,6 +4,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AnimationOptions } from 'ngx-lottie';
 import { ToastService } from 'src/app/core/shared/services/toast.service';
 import { AntecedenteMedicoService } from '../../services/antecedente-medico.service';
+import {  Router } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class AntedecentesMedicosCrearPage implements OnInit {
     path: '/assets/anim/medicina-crear.json',
   };
 
-  constructor(private formBuilder:FormBuilder,private notificacion:ToastService,private antecedenteService:AntecedenteMedicoService) {
+  constructor(private formBuilder:FormBuilder,private notificacion:ToastService,private antecedenteService:AntecedenteMedicoService,private router:Router) {
     this.FormularioAntecedentes = this.formBuilder.group({
       'condicionMedica' : new FormControl('',[Validators.required,Validators.minLength(3)]),
       'alergias' : new FormControl('',[Validators.required,Validators.minLength(3)]),
@@ -54,6 +55,8 @@ export class AntedecentesMedicosCrearPage implements OnInit {
           this.notificacion.sucess('Antecedente Médico creado');
           this.getAntecedente();
           this.FormularioAntecedentes.reset();
+          this.router.navigate(['antedecentes-medicos']);
+
         });
     }
   }

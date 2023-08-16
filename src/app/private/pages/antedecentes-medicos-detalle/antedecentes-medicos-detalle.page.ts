@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { AntecedenteMedicoService } from '../../services/antecedente-medico.service';
 import { ToastService } from 'src/app/core/shared/services/toast.service';
+import { map } from 'rxjs';
 
 
 @Component({
@@ -18,7 +19,9 @@ export class AntedecentesMedicosDetallePage implements OnInit {
   // Atributo para el estado del formulario
 
   StateForm:boolean = false;
-
+  id: any;
+  antecedente!:any;
+  antecedente_id!:any;
   constructor(private formBuilder:FormBuilder, private router:Router, private toastController:ToastService,private antecedenteService:AntecedenteMedicoService,private activatedRoute:ActivatedRoute) {
     this.FormAntecedentesDetalle = this.formBuilder.group({
 
@@ -29,34 +32,58 @@ export class AntedecentesMedicosDetallePage implements OnInit {
       'otrosDatos' : new FormControl('',[Validators.required,Validators.minLength(3)])
 
     })
-
+    this.activatedRoute.params.subscribe((params) => {
+      this.id = params['id']; // Aquí obtienes el valor del parámetro :id de la URL
+      // Puedes usar this.id como quieras en tu componente
+      this.antecedenteService
+        .obtenerUno(this.id)
+        .pipe(map((res: any) => res.antecedentes_medicos))
+        .subscribe((data) => {
+          console.log(data);
+          this.antecedente_id = data.paciente_id;
+          this.FormAntecedentesDetalle.setValue({
+            condicionMedica: data.condicion_medica,
+            alergias: data.alergias,
+            cirugiasPrevias: data.cirugias_previas,
+            tipoSangre: data.tipo_sangre,
+            otrosDatos: data.otros_datos,
+          });
+          this.antecedente = data;
+        });
+    });
 
   }
 
   ngOnInit() {
-    this.antecedente_id =  Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.Ver_Antecedente();
-
   }
-  antecedente!:any;
 
 
-  Ver_Antecedente() {
-    this.antecedenteService.obtenerUno(this.antecedente_id).subscribe({
-      next : (s:any) =>{
-        this.antecedente = s.antecedentes_medicos;
-        this.FormAntecedentesDetalle.patchValue({
-          condicionMedica: this.antecedente.condicion_medica,
-          alergias: this.antecedente.alergias,
-          cirugiasPrevias: this.antecedente.cirugias_previas,
-          tipoSangre: this.antecedente.tipo_sangre,
-          otrosDatos: this.antecedente.otros_datos,
 
-        });
-        console.log(this.antecedente);
-      }
+  Delete() {
+    this.antecedenteService.delete(this.id).subscribe((data)=>{
+      this.toastController.sucess('Antecedente cancelada correctamente!');
+      this.router.navigate(['/antecedentes-medicos']);
+    })
+    // Toast de ionic
+  }
+
+  Update(Form: any) {
+    console.log(Form);
+    const body={
+      condicion_medica:Form.condicionMedica,
+      alergias:Form.alergias,
+      cirugias_previas:Form.cirugiasPrevias,
+      tipo_sangre:Form.tipoSangre,
+      otros_datos:Form.otrosDatos,
+      paciente_id:this.antecedente_id
+    }
+    this.antecedenteService.update(body,this.id).subscribe((data)=>{
+      this.toastController.sucess('Antecedente Editada correctamente!');
+      this.router.navigate(['/antecedentes-medicos']);
+      this.FormAntecedentesDetalle.reset();
     })
   }
+
   // Se podría mejorar el toast con un diseño mejor
 
 
@@ -73,31 +100,6 @@ export class AntedecentesMedicosDetallePage implements OnInit {
 
     }
 
-    antecedente_id!:any;
-    Update(Form:any){
-      debugger;
-      this.antecedenteService.update(this.antecedente_id,Form).subscribe({
-        next : (s) =>{
-          this.toastController.sucess('Se actualizo antecedentes-Medico');
-          this.router.navigate(['antecedentes-medicos']);
-
-        }
-      })
-    }
-
-    // Método creado para hacer el delete del medicamento
-    Delete(){
-      this.antecedenteService.delete(this.antecedente_id).
-      subscribe({
-        next: (s) =>{
-          debugger;
-          this.router.navigate(['antecedentes-medicos'])
-          // Toast de ionic
-          this.toastController.sucess('Se Elimino antecedentes-Medico');
-
-        }
-      })
-    }
 
 
 

@@ -5,10 +5,13 @@
 
   <ion-card>
     <ion-card-header>
-      <app-card-observaciones />
-      <app-card-observaciones />
-      <app-card-observaciones />
-      <app-card-observaciones />
+
+        <ng-container *ngFor="let cita of medico?.cita">
+          <app-card-observaciones *ngIf="medico" [observaciones]="cita.cita_observacion" />
+        </ng-container>
+        <ng-container *ngFor="let cita of paciente?.cita">
+          <app-card-observaciones *ngIf="paciente" [observaciones]="cita.cita_observacion"/>
+        </ng-container>
     </ion-card-header>
   </ion-card>
 </ion-content>

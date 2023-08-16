@@ -4,3 +4,4 @@
     <ion-badge class="label-fecha-final" color="success">Finaliza: {{cita.fecha|date}} </ion-badge>
 </div>
 
+<button [routerLink]="['/observacion-create/'+cita.id]" routerLinkActive="router-link-active" >Observacion</button>

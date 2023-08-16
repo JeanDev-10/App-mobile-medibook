@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ObservacionService } from 'src/app/private/services/observacion.service';
 
 @Component({
   selector: 'app-card-observaciones',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardObservacionesComponent  implements OnInit {
 
-  constructor() { }
+  constructor(private observacionService:ObservacionService) {
 
+  }
+  @Input() observaciones!:any
   ngOnInit() {}
 
 }
