@@ -229,7 +229,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'resenia-crear',
+        path: 'resenia-crear/:id',
         loadChildren: () =>
           import('../pages/resenia-crear/resenia-crear.module').then(
             (m) => m.ReseniaCrearPageModule
