@@ -1,10 +1,5 @@
 <app-navbar [NameRoute]="'Citas'" [href]="'/home'" />
 
 <ion-content [fullscreen]="true">
-    <ion-button type="button" [routerLink]="['/citas-medicas-crear']" class="add">
-        <ion-icon slot="icon-only" name="add-outline"></ion-icon>
-    </ion-button>
-    <app-card-citas />
-    <app-card-citas />
-    <app-card-citas />
+    <app-card-citas [cita]="cita" *ngFor="let cita of citas" />
 </ion-content>

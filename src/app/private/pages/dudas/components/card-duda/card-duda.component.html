@@ -1,20 +1,22 @@
 <ion-card>
   <ion-card-header>
-    <div class="flex-warp">
+    <div class="flex-warp" [routerLink]="['/profile-paciente/'+duda?.paciente?.id]">
       <img
         class="rounded"
         alt="user"
         src="https://ionicframework.com/docs/img/demos/avatar.svg"
       />
       <h3 > {{duda?.paciente?.usuario?.nombre|titlecase}} </h3>
+
     </div>
     <p>{{duda?.paciente?.usuario?.rol?.nombre|titlecase}} <span> {{duda?.fecha|date}} </span></p>
 
     <p class="content-data">
       {{duda?.contenido|titlecase}}
     </p>
-
     <ion-accordion-group class="ion-no-padding">
+    <ion-icon (click)="replyDuda()"  size="large" color="primary" name="arrow-redo-outline"></ion-icon>
+
       <ion-accordion
         value="first"
         toggleIcon="caret-down-circle"

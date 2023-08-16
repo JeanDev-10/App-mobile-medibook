@@ -2,14 +2,15 @@
 
 
 <ion-content [fullscreen]="true">
-  <div class="container-div">
+  <div class="container-div" *ngIf="cita">
     <ion-img class="icon-img" src="../../../../assets/img/cita-medica.png"></ion-img>
-    <ion-label class="label-titulo" color="tertiary">Titulo</ion-label>
-    <ion-badge class="label-doctor label-estado-1" color="success">Nombre de Doctor</ion-badge>
+    <ion-label class="label-titulo" color="tertiary">Titulo: {{cita.titulo|titlecase}} </ion-label>
+    <ion-badge class="label-doctor label-estado-1" color="success">Nombre de Doctor: {{cita.medico.usuario.nombre|titlecase}} </ion-badge>
+    <ion-badge class="label-doctor label-estado-1" color="success">Especialidad: {{cita.medico.especialidad.nombre|titlecase}} </ion-badge>
     <br>
-    <ion-label class="label-lapso" color="dark">Hora Inicio</ion-label>
+    <ion-label class="label-lapso" color="dark">Hora Inicio: {{cita.hora_inicio}} </ion-label>
     <br>
-    <ion-label class="label-duracion" color="dark">Hora Fin</ion-label>
+    <ion-label class="label-duracion" color="dark">Hora Fin: {{cita.hora_fin}} </ion-label>
 
     <ion-fab class="edit">
         <ion-fab-button (click)=" EditMecament()" color="warning">
@@ -58,14 +59,6 @@
   </div>
 
     <!-- Input medico_id -->
-
-    <ion-item>
-      <ion-select formControlName="medico_id" label="Medico" label-placement="floating" fill="solid">
-        <ion-select-option value="1">Dr. Jandry Kun</ion-select-option>
-        <ion-select-option value="2">Dr. Juan Jesús</ion-select-option>
-        <ion-select-option value="3">Dr. Jean Pierre Zambrano</ion-select-option>
-      </ion-select>
-    </ion-item>
     <div class="mt-1" *ngIf="FormCitasMedicasEditar.get('medico_id')?.invalid && FormCitasMedicasEditar.get('medico_id')?.touched">
       <ion-badge *ngIf="FormCitasMedicasEditar.get('medico_id')?.hasError('required')" color="warning">Campo Requerido</ion-badge>
   </div>

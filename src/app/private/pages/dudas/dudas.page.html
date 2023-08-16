@@ -1,24 +1,52 @@
 <ion-content [fullscreen]="true">
   <app-navbar [NameRoute]="'Dudas'" [href]="''" />
 
-  <p class="title">¡Tienes alguna duda!</p>
-  <ng-container *ngIf="dudas">
+  <p class="title">¿Tienes alguna duda?</p>
 
-    <app-card-duda [duda]="duda" *ngFor="let duda of dudas" />
+  <ng-container *ngIf="dudas">
+    <app-card-duda [duda]="duda"  *ngFor="let duda of dudas"  />
   </ng-container>
+
+
+</ion-content>
+<ion-footer>
+  <ion-item *ngIf="contenido!==null">
+    <i>
+      <ion-textarea [readonly]="true" [label]="contenido"></ion-textarea>
+    </i>
+    <ion-button (click)="cancelReply()">
+      <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+  </ion-item>
   <div class="container">
-    <form class="ion-margin">
+    <form
+      class="ion-margin"
+      [formGroup]="FormularioObservacion"
+
+    >
       <div class="all">
         <ion-input
           fill="outline"
           placeholder="Ingresa tu duda"
-          >
+          formControlName="contenido"
+        >
         </ion-input>
-        <ion-fab-button >
-          <ion-icon name="send-outline"></ion-icon>
+
+        <ion-fab-button>
+          <ion-icon (click)="create(FormularioObservacion.value)" name="send-outline"></ion-icon>
         </ion-fab-button>
       </div>
+      <div
+          class="mt-1"
+          *ngIf="FormularioObservacion.get('contenido')?.invalid && FormularioObservacion.get('contenido')?.touched"
+        >
+          <ion-badge
+
+            *ngIf="FormularioObservacion.get('contenido')?.hasError('required')"
+            color="warning"
+            >Campo Requerido</ion-badge
+          >
+        </div>
     </form>
   </div>
-
-</ion-content>
+</ion-footer>

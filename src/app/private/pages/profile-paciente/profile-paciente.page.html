@@ -1,109 +1,117 @@
-<app-navbar [NameRoute]="'Perfil paciente'" [href]="'/citas-medicas'" />
-
+<app-navbar [NameRoute]="'Perfil paciente'" [href]="'/home'" />
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-card-header>
-       <div class="flex-warp">
-        <p class="title">Perfil paciente</p>
-        <img class="img-profile" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-        <h3>Jose Cralos <span>Ramierz Briones</span></h3>
-        <p>jorge@gmail.com</p>
-       </div>
-
-       <div class="flex-warp-content">
-        <div class="data-content">
-          <ion-icon name="sparkles-outline"></ion-icon>
-          <div class="subtitle">Miembro desde <span>Agosto 10, 2023</span></div>
+  <ng-container *ngIf="paciente"
+    ><ion-card>
+      <ion-card-header>
+        <div class="flex-warp">
+          <p class="title">Perfil paciente</p>
+          <img
+            class="img-profile"
+            alt="user"
+            src="https://ionicframework.com/docs/img/demos/avatar.svg"
+          />
+          <h3> {{paciente.usuario.nombre |titlecase}}  <span> {{paciente.usuario.apellido|titlecase}} </span></h3>
+          <p> {{paciente.usuario.email}} </p>
         </div>
 
-        <div class="data-content">
-          <ion-icon name="location-outline"></ion-icon>
-          <div class="subtitle">Manabi, <span>Bolívar</span></div>
+        <div class="flex-warp-content">
+
+
+          <div class="data-content">
+            <ion-icon name="location-outline"></ion-icon>
+            <div class="subtitle"> {{paciente.usuario.ubicacion.provincia|titlecase}}-<span>{{paciente.usuario.ubicacion.canton|titlecase}} </span></div>
+          </div>
+
+          <div class="data-content">
+            <ion-icon name="calendar-number-outline"></ion-icon>
+            <div class="subtitle"> {{paciente.usuario.datos_personale.fecha|date}} </div>
+          </div>
+
+          <div class="data-content">
+            <ion-icon name="call-outline"></ion-icon>
+            <div class="subtitle"> {{paciente.usuario.datos_personale.telefono}} </div>
+          </div>
         </div>
+      </ion-card-header>
+    </ion-card>
 
-        <div class="data-content">
-          <ion-icon name="calendar-number-outline"></ion-icon>
-          <div class="subtitle">Agosto 16, 2000</div>
-        </div>
+    <ion-card>
+      <ion-card-header *ngIf="paciente.antecedentes_medico.length>0">
+        <ion-accordion-group>
+          <ion-accordion
+            value="second"
+            toggleIcon="caret-down-circle"
+            toggleIconSlot="start"
+          >
+            <ion-item slot="header" color="light">
+              <div class="subtitle">Antedentes médicos</div>
+            </ion-item>
+            <div slot="content">
+              <h5>Condicion medica: {{paciente.antecedentes_medico[0].condicion_medica}} </h5>
+              <h5>Alergias: {{paciente.antecedentes_medico[0].alergias}} </h5>
+              <h5>Tipo sangre: {{paciente.antecedentes_medico[0].tipo_sangre}}</h5>
+              <h5>Otros datos: {{paciente.antecedentes_medico[0].otros_datos}} </h5>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </ion-card-header>
 
-        <div class="data-content">
-          <ion-icon name="call-outline"></ion-icon>
-          <div class="subtitle">096 880 8810</div>
-        </div>
+      <ion-card-header>
+        <ion-accordion-group>
+          <ion-accordion
+            value="second"
+            toggleIcon="caret-down-circle"
+            toggleIconSlot="start"
+          >
+            <ion-item slot="header" color="light">
+              <div class="subtitle">Medicamentos</div>
+            </ion-item>
+            <div slot="content">
+              <h5>Tienes <span> {{paciente.medicamento.length}} </span> <span> Medicamentos</span></h5>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </ion-card-header>
 
-       </div>
-    </ion-card-header>
-  </ion-card>
+      <ion-card-header>
+        <ion-accordion-group>
+          <ion-accordion
+            value="second"
+            toggleIcon="caret-down-circle"
+            toggleIconSlot="start"
+          >
+            <ion-item slot="header" color="light">
+              <div class="subtitle">Vacunas</div>
+            </ion-item>
+            <div slot="content">
+              <h5>Tiene <span> {{paciente.vacuna.length}} </span> <span> vacunas</span></h5>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </ion-card-header>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-accordion-group>
-        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
-          <ion-item slot="header" color="light">
-            <div class="subtitle">Antedentes médicos</div>
-          </ion-item>
-          <div slot="content">
-            <h5>Condicion medica</h5>
-            <h5>Alergias</h5>
-            <h5>Tipo sangre</h5>
-            <h5>Otros datos</h5>
-         </div>
-        </ion-accordion>
-      </ion-accordion-group>
-    </ion-card-header>
+      <ion-card-header>
+        <ion-accordion-group>
+          <ion-accordion
+            value="second"
+            toggleIcon="caret-down-circle"
+            toggleIconSlot="start"
+          >
+            <ion-item slot="header" color="light">
+              <div class="subtitle">Examenes</div>
+            </ion-item>
+            <div slot="content">
+              <h5>Tiene <span> {{paciente.examenes_medico.length}} </span> <span> examenes medicos</span></h5>
 
-    <ion-card-header>
-      <ion-accordion-group>
-        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
-          <ion-item slot="header" color="light">
-            <div class="subtitle">Medicamentos</div>
-          </ion-item>
-          <div slot="content">
-            <h5>Tienes <span>20</span> <span> medicamentos</span></h5>
-            <h5>Desde <span>20/08/2022</span></h5>
-            <h5>Hasta <span>20/08/2023</span></h5>
-         </div>
-        </ion-accordion>
-      </ion-accordion-group>
-    </ion-card-header>
+            </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </ion-card-header>
 
-    <ion-card-header>
-      <ion-accordion-group>
-        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
-          <ion-item slot="header" color="light">
-            <div class="subtitle">Vacunas</div>
-          </ion-item>
-          <div slot="content">
-            <h5>Tienes <span>10</span> <span> vacunas</span></h5>
-            <h5>Desde <span>20/08/2022</span></h5>
-            <h5>Hasta <span>20/08/2023</span></h5>
-         </div>
-        </ion-accordion>
-      </ion-accordion-group>
-    </ion-card-header>
-
-    <ion-card-header>
-      <ion-accordion-group>
-        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
-          <ion-item slot="header" color="light">
-            <div class="subtitle">Examenes</div>
-          </ion-item>
-          <div slot="content">
-            <h5>Tienes <span>50</span> <span> examnes</span></h5>
-            <h5>Desde <span>20/08/2022</span></h5>
-            <h5>Hasta <span>20/08/2023</span></h5>
-         </div>
-        </ion-accordion>
-      </ion-accordion-group>
-    </ion-card-header>
-
-    <div class="ion-text-center ion-margin-vertical">
-      <ion-button>
-        Ver historial
-      </ion-button>
-    </div>
-
-  </ion-card>
+      <div class="ion-text-center ion-margin-vertical" [routerLink]="['/historial-medico/'+paciente.id]" routerLinkActive="router-link-active" >
+        <ion-button> Ver historial medico </ion-button>
+      </div>
+    </ion-card></ng-container
+  >
 </ion-content>
-
