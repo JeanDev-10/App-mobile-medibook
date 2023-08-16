@@ -119,7 +119,7 @@ const routes: Routes = [
           ).then((m) => m.ExamenesMedicosCrearPageModule),
       },
       {
-        path: 'examenes-medicos-detalle',
+        path: 'examenes-medicos-detalle/:id',
         loadChildren: () =>
           import(
             '../pages/examenes-medicos-detalle/examenes-medicos-detalle.module'
