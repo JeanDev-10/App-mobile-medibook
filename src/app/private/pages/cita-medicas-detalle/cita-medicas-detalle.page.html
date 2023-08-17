@@ -11,7 +11,7 @@
     <ion-label class="label-lapso" color="dark">Hora Inicio: {{cita.hora_inicio}} </ion-label>
     <br>
     <ion-label class="label-duracion" color="dark">Hora Fin: {{cita.hora_fin}} </ion-label>
-    <br><br><br>	
+    <br><br><br>
     <ion-label color="dark" *ngFor="let recetas of cita.receta">Receta: {{recetas.nombre_medicamento}}</ion-label>
     <br>
     <ion-label color="dark" *ngFor="let recetas of cita.cita_observacion">Observación: {{recetas.contenido}}</ion-label>
@@ -68,9 +68,28 @@
   </div>
 
     <!-- Input medico_id -->
-    <div class="mt-1" *ngIf="FormCitasMedicasEditar.get('medico_id')?.invalid && FormCitasMedicasEditar.get('medico_id')?.touched">
-      <ion-badge *ngIf="FormCitasMedicasEditar.get('medico_id')?.hasError('required')" color="warning">Campo Requerido</ion-badge>
-  </div>
+    <ion-item>
+      <ion-icon name="alarm-outline"></ion-icon>
+      <ion-input
+        formControlName="fecha"
+        class="inputs"
+        label="Fecha"
+        labelPlacement="floating"
+        placeholder="10/11/2023"
+        type="date"
+      ></ion-input>
+    </ion-item>
+    <div
+      class="mt-1"
+      *ngIf="FormCitasMedicasEditar.get('fecha')?.invalid && FormCitasMedicasEditar.get('hora_fin')?.touched"
+    >
+      <ion-badge
+        *ngIf="FormCitasMedicasEditar.get('fecha')?.hasError('required')"
+        color="warning"
+        >Campo Requerido</ion-badge
+      >
+    </div>
+
 
     <ion-button  color="medium" type="submit" [disabled]="FormCitasMedicasEditar.invalid">
         Actualizar

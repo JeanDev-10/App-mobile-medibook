@@ -1,14 +1,37 @@
 <app-navbar [NameRoute]="'Home'" [href]="''" />
 
-
 <ion-content [fullscreen]="true">
-
   <p class="title">¡Bienvenido!</p>
-  <app-cards-items [icon]="'trophy-outline'" [title]="'Títulos'" [href]="'/titulos'" />
-  <app-cards-items [icon]="'folder-outline'" [title]="'Exámenes'" [href]="'/examenes-medicos'" />
-  <app-cards-items [icon]="'medical-outline'" [title]="'Vacunas'" [href]="'/vacunas'" />
-  <app-cards-items [icon]="'reader-outline'" [title]="'Citas'" [href]="'/citas-medicas'" />
-  <app-cards-items [icon]="'reader-outline'" [title]="'Medicamentos'" [href]="'/medicamentos'" />
-  <app-cards-items [icon]="'reader-outline'" [title]="'Antecedentes medicos'" [href]="'/antedecentes-medicos'" />
-
+  <ng-container *ngIf="user">
+    <app-cards-items *ngIf="user.rol.name==='Medico'"
+      [icon]="'trophy-outline'"
+      [title]="'Títulos'"
+      [href]="'/titulos'"
+    />
+    <app-cards-items *ngIf="user.rol.name==='Paciente'"
+      [icon]="'folder-outline'"
+      [title]="'Exámenes'"
+      [href]="'/examenes-medicos'"
+    />
+    <app-cards-items *ngIf="user.rol.name==='Paciente'"
+      [icon]="'medical-outline'"
+      [title]="'Vacunas'"
+      [href]="'/vacunas'"
+    />
+    <app-cards-items
+      [icon]="'reader-outline'"
+      [title]="'Citas'"
+      [href]="'/citas-medicas'"
+    />
+    <app-cards-items *ngIf="user.rol.name==='Paciente'"
+      [icon]="'reader-outline'"
+      [title]="'Medicamentos'"
+      [href]="'/medicamentos'"
+    />
+    <app-cards-items *ngIf="user.rol.name==='Paciente'"
+      [icon]="'reader-outline'"
+      [title]="'Antecedentes medicos'"
+      [href]="'/antedecentes-medicos'"
+    />
+  </ng-container>
 </ion-content>

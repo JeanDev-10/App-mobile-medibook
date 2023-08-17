@@ -1,57 +1,122 @@
 <app-navbar [NameRoute]="'Crear cita'" [href]="'/citas-medicas'" />
 
-
 <ion-content [fullscreen]="true">
-      <!-- Animación -->
-      <div class="anim">
-        <ng-lottie [options]="options"></ng-lottie>
+  <!-- Animación -->
+  <div class="anim">
+    <ng-lottie [options]="options"></ng-lottie>
+  </div>
+
+  <ion-list>
+    <form
+      [formGroup]="FormularioCitasMedicas"
+      (ngSubmit)="CreateCitaMedica(FormularioCitasMedicas.value)"
+    >
+      <!-- Input de titulo -->
+      <ion-item>
+        <ion-icon name="leaf"></ion-icon>
+        <ion-input
+          formControlName="titulo"
+          class="inputs"
+          label="Titulo de la Cita"
+          labelPlacement="floating"
+          placeholder="Problemas Respiratorio"
+        ></ion-input>
+      </ion-item>
+      <div
+        class="mt-1"
+        *ngIf="FormularioCitasMedicas.get('titulo')?.invalid && FormularioCitasMedicas.get('titulo')?.touched"
+      >
+        <ion-badge
+          *ngIf="FormularioCitasMedicas.get('titulo')?.hasError('required')"
+          color="warning"
+          >Campo Requerido</ion-badge
+        >
       </div>
 
-    <ion-list>
+      <!-- Input de hora de inicio -->
 
-        <form [formGroup]="FormularioCitasMedicas" (ngSubmit)="CreateCitaMedica(FormularioCitasMedicas.value)">
+      <ion-item>
+        <ion-icon name="time"></ion-icon>
+        <ion-input
+          formControlName="hora_inicio"
+          class="inputs"
+          label="Hora Llegada"
+          labelPlacement="floating"
+          placeholder="2:30 PM"
+          type="time"
+        ></ion-input>
+      </ion-item>
+      <div
+        class="mt-1"
+        *ngIf="FormularioCitasMedicas.get('hora_inicio')?.invalid && FormularioCitasMedicas.get('hora_inicio')?.touched"
+      >
+        <ion-badge
+          *ngIf="FormularioCitasMedicas.get('hora_inicio')?.hasError('required')"
+          color="warning"
+          >Campo Requerido</ion-badge
+        >
+      </div>
 
-          <!-- Input de titulo -->
-            <ion-item>
-                <ion-icon name="leaf"></ion-icon>
-                <ion-input formControlName="titulo" class="inputs" label="Titulo de la Cita" labelPlacement="floating" placeholder="Problemas Respiratorio"></ion-input>
-            </ion-item>
-            <div class="mt-1" *ngIf="FormularioCitasMedicas.get('titulo')?.invalid && FormularioCitasMedicas.get('titulo')?.touched">
-              <ion-badge *ngIf="FormularioCitasMedicas.get('titulo')?.hasError('required')" color="warning">Campo Requerido</ion-badge>
-          </div>
+      <!-- Input de hora de fin -->
 
-            <!-- Input de hora de inicio -->
+      <ion-item>
+        <ion-icon name="alarm-outline"></ion-icon>
+        <ion-input
+          formControlName="hora_fin"
+          class="inputs"
+          label="Hora Salida"
+          labelPlacement="floating"
+          placeholder="17:00 PM"
+          type="time"
+        ></ion-input>
+      </ion-item>
+      <div
+        class="mt-1"
+        *ngIf="FormularioCitasMedicas.get('hora_fin')?.invalid && FormularioCitasMedicas.get('hora_fin')?.touched"
+      >
+        <ion-badge
+          *ngIf="FormularioCitasMedicas.get('hora_fin')?.hasError('required')"
+          color="warning"
+          >Campo Requerido</ion-badge
+        >
+      </div>
 
-            <ion-item>
-                <ion-icon name="time"></ion-icon>
-                <ion-input formControlName="hora_inicio" class="inputs" label="Hora Llegada" labelPlacement="floating" placeholder="2:30 PM" type="time"></ion-input>
-            </ion-item>
-            <div class="mt-1" *ngIf="FormularioCitasMedicas.get('hora_inicio')?.invalid && FormularioCitasMedicas.get('hora_inicio')?.touched">
-              <ion-badge *ngIf="FormularioCitasMedicas.get('hora_inicio')?.hasError('required')" color="warning">Campo Requerido</ion-badge>
-          </div>
+      <!-- Input de Medico -->
+      <ion-item>
+        <ion-icon name="alarm-outline"></ion-icon>
+        <ion-input
+          formControlName="fecha"
+          class="inputs"
+          label="Fecha"
+          labelPlacement="floating"
+          placeholder="10/11/2023"
+          type="date"
+        ></ion-input>
+      </ion-item>
+      <div
+        class="mt-1"
+        *ngIf="FormularioCitasMedicas.get('fecha')?.invalid && FormularioCitasMedicas.get('hora_fin')?.touched"
+      >
+        <ion-badge
+          *ngIf="FormularioCitasMedicas.get('fecha')?.hasError('required')"
+          color="warning"
+          >Campo Requerido</ion-badge
+        >
+      </div>
 
-            <!-- Input de hora de fin -->
+      <ion-button
+        color="medium"
+        type="submit"
+        [disabled]="FormularioCitasMedicas.invalid"
+      >
+        Registrar
+        <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
+      </ion-button>
+    </form>
+  </ion-list>
 
-            <ion-item>
-                <ion-icon name="alarm-outline"></ion-icon>
-                <ion-input formControlName="hora_fin" class="inputs" label="Hora Salida" labelPlacement="floating" placeholder="17:00 PM" type="time"></ion-input>
-            </ion-item>
-            <div class="mt-1" *ngIf="FormularioCitasMedicas.get('hora_fin')?.invalid && FormularioCitasMedicas.get('hora_fin')?.touched">
-              <ion-badge *ngIf="FormularioCitasMedicas.get('hora_fin')?.hasError('required')" color="warning">Campo Requerido</ion-badge>
-          </div>
-
-            <!-- Input de Medico -->
-
-            <ion-button color="medium" type="submit" [disabled]="FormularioCitasMedicas.invalid">
-              Registrar
-            <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
-            </ion-button>
-        </form>
-
-    </ion-list>
-
-    <!-- Para regresar atrás -->
-   <!--  <ion-fab [routerLink]="['/citas-medicas']" slot="fixed" horizontal="end" vertical="bottom">
+  <!-- Para regresar atrás -->
+  <!--  <ion-fab [routerLink]="['/citas-medicas']" slot="fixed" horizontal="end" vertical="bottom">
         <ion-fab-button color="dark">
             <ion-icon name="chevron-back"></ion-icon>
         </ion-fab-button>

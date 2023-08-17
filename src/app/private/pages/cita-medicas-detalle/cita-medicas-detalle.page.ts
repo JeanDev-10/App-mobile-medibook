@@ -43,6 +43,7 @@ export class CitaMedicasDetallePage implements OnInit {
           this.medico_id = data.medico_id;
           this.FormCitasMedicasEditar.setValue({
             titulo: data.titulo,
+            fecha:data.fecha,
             hora_inicio: data.hora_inicio,
             hora_fin: data.hora_fin,
           });
@@ -54,6 +55,7 @@ export class CitaMedicasDetallePage implements OnInit {
   buildForm() {
     this.FormCitasMedicasEditar = this.formBuilder.group({
       titulo: ['', [Validators.required]],
+      fecha: ['', [Validators.required]],
       hora_inicio: ['', [Validators.required]],
       hora_fin: ['', [Validators.required]],
     });
@@ -86,39 +88,48 @@ export class CitaMedicasDetallePage implements OnInit {
   }
 
   // Método para Actualizar la cita medica por el momento solo se envia los datos por la consola del formulario
-  
+
   UpdateMedicament(Form: any) {
     console.log(Form);
-  
-    const currentDate = new Date();
-  
-    const horaInicioParts = Form.hora_inicio.split(":");
-    const horaInicioDate = new Date(currentDate);
-    horaInicioDate.setHours(Number(horaInicioParts[0]));
-    horaInicioDate.setMinutes(Number(horaInicioParts[1]));
-    horaInicioDate.setSeconds(0);
-    horaInicioDate.setMilliseconds(0);
-  
-    const horaFinParts = Form.hora_fin.split(":");
-    const horaFinDate = new Date(currentDate);
-    horaFinDate.setHours(Number(horaFinParts[0]));
-    horaFinDate.setMinutes(Number(horaFinParts[1]));
-    horaFinDate.setSeconds(0);
-    horaFinDate.setMilliseconds(0);
-  
+
+   const formattedTimeStart = this.convertTimeStringToTimeObject(
+      this.FormCitasMedicasEditar.get('hora_inicio')?.value
+    );
+    const formattedTimeEnd = this.convertTimeStringToTimeObject(
+      this.FormCitasMedicasEditar.get('hora_fin')?.value
+    );
+      const horai = this.convertISOToTimeString(formattedTimeStart);
+    const horaf = this.convertISOToTimeString(formattedTimeEnd);
+
     const body = {
       titulo: Form.titulo,
-      hora_inicio: horaInicioDate,
-      hora_fin: horaFinDate,
+      fecha:Form.fecha,
+      hora_inicio: horai,
+      hora_fin: horaf,
       medico_id: this.medico_id
     };
-  
+
     this.citaService.update(body, this.id).subscribe((data) => {
       this.toastService.sucess('Cita Editada correctamente!');
       this.router.navigate(['/citas-medicas']);
       this.FormCitasMedicasEditar.reset();
     });
   }
-  
-  
+   private convertTimeStringToTimeObject(inputTimeString: any): Date {
+    const [hours, minutes] = inputTimeString.split(':');
+    const dateObj = new Date();
+    dateObj.setHours(Number(hours));
+    dateObj.setMinutes(Number(minutes));
+    dateObj.setSeconds(0);
+    return dateObj;
+}
+
+private convertISOToTimeString(inputTimeISO: any): string {
+    const dateObj = new Date(inputTimeISO);
+    const hours = dateObj.getHours().toString().padStart(2, '0');
+    const minutes = dateObj.getMinutes().toString().padStart(2, '0');
+    const formattedTime = `${hours}:${minutes}`;
+    return formattedTime;
+}
+
 }

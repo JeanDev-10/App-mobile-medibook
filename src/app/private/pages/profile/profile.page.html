@@ -1,34 +1,51 @@
 <app-navbar [NameRoute]="'Profile'" [href]="''" />
 
-
 <ion-content [fullscreen]="true">
-
   <ion-card *ngIf="paciente||medico">
     <ion-card-header>
-       <div class="flex-warp">
-        <p class="title">Perfil <span> {{rol==3?'Paciente':'Medico'}} </span></p>
-        <img class="img-profile" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-        <h3> {{medico?.usuario.nombre |titlecase}}  <span> {{medico?.usuario.apellido|titlecase}} </span></h3>
-        <h3> {{paciente?.usuario.nombre |titlecase}}  <span> {{paciente?.usuario.apellido|titlecase}} </span></h3>
-        <p> {{medico?.usuario.email}} </p>
-        <p> {{paciente?.usuario.email}} </p>
-       </div>
+      <div class="flex-warp">
+        <p class="title">
+          Perfil <span> {{rol==3?'Paciente':'Medico'}} </span>
+        </p>
+        <img
+          class="img-profile"
+          alt="user"
+          src="https://ionicframework.com/docs/img/demos/avatar.svg"
+        />
+        <h3>
+          {{medico?.usuario.nombre |titlecase}}
+          <span> {{medico?.usuario.apellido|titlecase}} </span>
+        </h3>
+        <h3>
+          {{paciente?.usuario.nombre |titlecase}}
+          <span> {{paciente?.usuario.apellido|titlecase}} </span>
+        </h3>
+        <p>{{medico?.usuario.email}}</p>
+        <p>{{paciente?.usuario.email}}</p>
+      </div>
 
-       <div class="flex-warp-content">
-
+      <div class="flex-warp-content">
         <div class="data-content">
           <ion-icon name="location-outline"></ion-icon>
-          <div class="subtitle">{{medico?.usuario.ubicacion.provincia|titlecase}}-<span> {{medico?.usuario.ubicacion.canton|titlecase}} </span></div>
-          <div class="subtitle">{{paciente?.usuario.ubicacion.provincia|titlecase}}-<span> {{paciente?.usuario.ubicacion.canton|titlecase}} </span></div>
+          <div class="subtitle">
+            {{medico?.usuario.ubicacion.provincia|titlecase}}-<span>
+              {{medico?.usuario.ubicacion.canton|titlecase}}
+            </span>
+          </div>
+          <div class="subtitle">
+            {{paciente?.usuario.ubicacion.provincia|titlecase}}-<span>
+              {{paciente?.usuario.ubicacion.canton|titlecase}}
+            </span>
+          </div>
         </div>
 
         <div class="data-content" *ngIf="rol===2">
           <ion-icon name="calendar-outline"></ion-icon>
-          <div class="subtitle">Especialidad: {{medico.especialidad.nombre}} </div>
+          <div class="subtitle">
+            Especialidad: {{medico.especialidad.nombre}}
+          </div>
         </div>
-
-       </div>
-
+      </div>
     </ion-card-header>
   </ion-card>
   <app-card-items-titulo *ngIf="rol===2" [titulos]="medico.titulo" />
@@ -56,25 +73,45 @@
               </div>
             </div>
           </div>
-
         </ion-accordion>
       </ion-accordion-group>
     </ion-accordion-group>
   </ion-card-header>
-  <app-card-items-antecedentes *ngIf="rol===3" />
-  <app-card-items [Number]="paciente?.cita?.length" [Nombre]="'Citas'" *ngIf="paciente" />
-  <app-card-items [Number]="medico?.cita?.length" [Nombre]="'Citas'" *ngIf="medico" />
-  <app-card-items [Number]="paciente?.vacuna?.length" [Nombre]="'Vacunas'" *ngIf="rol===3" />
-  <app-card-items [Number]="paciente?.medicamento?.length" [Nombre]="'Medicamentos'" *ngIf="rol===3" />
-  <app-card-items [Number]="paciente?.examenes_medico?.length" [Nombre]="'Examenes'"  *ngIf="rol===3" />
+  <app-card-items-antecedentes
+    [antecedentes]="paciente.antecedentes_medico"
+    *ngIf="rol===3"
+  />
+  <app-card-items
+    [Number]="paciente?.cita?.length"
+    [Nombre]="'Citas'"
+    *ngIf="paciente"
+  />
+  <app-card-items
+    [Number]="medico?.cita?.length"
+    [Nombre]="'Citas'"
+    *ngIf="medico"
+  />
+  <app-card-items
+    [Number]="paciente?.vacuna?.length"
+    [Nombre]="'Vacunas'"
+    *ngIf="rol===3"
+  />
+  <app-card-items
+    [Number]="paciente?.medicamento?.length"
+    [Nombre]="'Medicamentos'"
+    *ngIf="rol===3"
+  />
+  <app-card-items
+    [Number]="paciente?.examenes_medico?.length"
+    [Nombre]="'Examenes'"
+    *ngIf="rol===3"
+  />
   <div class="ion-text-center ion-margin-top">
     <ion-button [routerLink]="['/cambiar-password']" color="primary">
       Cambiar contraseña
     </ion-button>
   </div>
   <div class="ion-text-center ion-margin-top">
-    <ion-button (click)="logout()" color="danger">
-      Cerrar seción
-    </ion-button>
+    <ion-button (click)="logout()" color="danger"> Cerrar seción </ion-button>
   </div>
 </ion-content>

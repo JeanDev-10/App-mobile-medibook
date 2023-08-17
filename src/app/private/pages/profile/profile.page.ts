@@ -16,6 +16,8 @@ export class ProfilePage implements OnInit {
   paciente:any=null;
 
   constructor(private authService: AuthService,private toastService: ToastService,private router:Router,private medicoService:MedicoService,private pacienteService:PacienteService) {
+    console.log("constrtuctor profile")
+
     this.authService.userInformation().subscribe((data)=>{
       console.log(data)
       this.rol=data.rol.id;
@@ -31,13 +33,16 @@ export class ProfilePage implements OnInit {
         })
       }
     })
-    
+
   }
 
   ngOnInit() {
+    console.log("oninit profile")
   }
   logout(){
     this.authService.logout().subscribe(data=>{
+      localStorage.removeItem('rol');
+
       this.authService.deleteToken();
       this.router.navigate(['/login']);
       this.toastService.sucess('Has finalizado la sesión');

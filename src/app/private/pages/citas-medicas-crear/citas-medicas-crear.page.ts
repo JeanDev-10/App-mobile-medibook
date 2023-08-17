@@ -36,7 +36,7 @@ export class CitasMedicasCrearPage implements OnInit {
       titulo: ['', [Validators.required]],
       hora_inicio: ['', [Validators.required]],
       hora_fin: ['', [Validators.required]],
-
+      fecha:['',[Validators.required]]
     });
   }
   ngOnInit() {
@@ -54,6 +54,7 @@ export class CitasMedicasCrearPage implements OnInit {
       console.log(Form);
       const body={
         titulo:Form.titulo,
+        fecha:Form.fecha,
         hora_inicio:Form.hora_inicio,
         hora_fin:Form.hora_fin,
         medico_id:this.cita_medica_id

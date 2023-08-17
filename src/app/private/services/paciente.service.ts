@@ -17,7 +17,7 @@ export class PacienteService {
   }
   getPacienteInformation(id:any){
 
-    return this.httpClient.get<any>(`${this.Api}pacientes-information/${id}`).pipe(map((res:any)=>res.paciente));
+    return this.httpClient.get<any>(`${this.Api}pacientes-information/${id}`).pipe(map((res:any)=>res.usuario));
   }
   obtenerPaciente(){
     return this.httpClient.get(`${this.Api}paciente-information`).pipe(map((res:any)=>res.Informacion));
