@@ -17,11 +17,6 @@
       [title]="'Vacunas'"
       [href]="'/vacunas'"
     />
-    <app-cards-items
-      [icon]="'reader-outline'"
-      [title]="'Citas'"
-      [href]="'/citas-medicas'"
-    />
     <app-cards-items *ngIf="user.rol.name==='Paciente'"
       [icon]="'reader-outline'"
       [title]="'Medicamentos'"
