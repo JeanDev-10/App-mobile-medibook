@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-titulos',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./titulos.page.scss'],
 })
 export class TitulosPage implements OnInit {
-
+  @Input() medico!:any;
+  cita!:any;
   constructor() { }
 
   ngOnInit() {

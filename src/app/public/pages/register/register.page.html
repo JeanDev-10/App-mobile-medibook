@@ -144,7 +144,7 @@
             <div
               *ngIf="formRegister.get('apellido')?.invalid && formRegister.get('apellido')?.touched"
             >
-              <div *ngIf="formRegister.get('nombre')?.hasError('required')">
+              <div *ngIf="formRegister.get('apellido')?.hasError('required')">
                 <p class="error-message">Campo requerido</p>
               </div>
 

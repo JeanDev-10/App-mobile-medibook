@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { TituloService } from 'src/app/private/services/titulo.service';
 
 @Component({
   selector: 'app-cards-titulos',
@@ -7,8 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardsTitulosComponent  implements OnInit {
 
-  constructor() { }
+
+  constructor(private tituloService:TituloService ) {
+    this.getTitulo();
+  }
 
   ngOnInit() {}
-
+  title!:any;
+  getTitulo(){
+    this.tituloService.obtenerTodos().subscribe((data) => {
+      console.log(data);
+      this.title = data.titulos;
+  })
+  }
 }

@@ -18,7 +18,7 @@
 
   <ion-list *ngIf="editShow">
 
-    <form [formGroup]="FormularioTitulo" (submit)="CreateTitle(FormularioTitulo.value)">
+    <form [formGroup]="FormularioTitulo" (submit)="Update(FormularioTitulo.value)">
 
 
         <ion-item>
@@ -34,7 +34,13 @@
          <!-- Validacion de campo para que solo sea letras -->
          <ion-badge *ngIf="FormularioTitulo.get('nombre')?.hasError('pattern')" color="warning">Solo Se Permiten Letras</ion-badge>
 
-
+         <ion-item>
+          <ion-icon name="calendar-outline"></ion-icon>
+          <ion-input formControlName="fecha" class="inputs" label="Hora Salida" labelPlacement="floating" placeholder="" type="date"></ion-input>
+          </ion-item>
+       <div class="mt-1" *ngIf="FormularioTitulo.get('fecha')?.invalid && FormularioTitulo.get('fecha')?.touched">
+        <ion-badge *ngIf="FormularioTitulo.get('fecha')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+        </div>
         <div class="boton">
             <ion-button   color="success" type="submit" [disabled]="FormularioTitulo.invalid">
                 Editar Titulo

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AnimationOptions } from 'ngx-lottie';
+import { ToastService } from 'src/app/core/shared/services/toast.service';
+import { TituloService } from '../../services/titulo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-titulos-crear',
@@ -16,11 +19,12 @@ export class TitulosCrearPage implements OnInit {
   };
 
 
-  constructor(private formBuid:FormBuilder) {
+  constructor(private formBuid:FormBuilder,private notificacion:ToastService,private tituloService:TituloService,private router:Router) {
     this.FormularioTitulo = this.formBuid.group({
-      'nombre' : new FormControl('',[Validators.required,Validators.pattern(/^[A-Za-z\s]+$/)]),
-      'fecha' : new FormControl('13/08/2023'),
+      nombre: ['', [Validators.required,Validators.pattern(/^[A-Za-z\s]+$/)]],
+      fecha: ['', [Validators.required]],
     })
+    this.getTitulo();
    }
 
   ngOnInit() {
@@ -30,8 +34,29 @@ export class TitulosCrearPage implements OnInit {
   CreateTitle(Form:any){
     console.log(Form);
     if (this.FormularioTitulo.invalid) {
+      this.notificacion.error('El proceso es incorrecto...');
+    }else {
 
+        const TituloData = {
+          nombre:Form.nombre,
+          fecha:Form.fecha,
+        };
+        this.tituloService.create(TituloData).subscribe((data) => {
+          this.notificacion.sucess('Antecedente Médico creado');
+          this.getTitulo();
+          this.FormularioTitulo.reset();
+          this.router.navigate(['']);
+
+        });
     }
   }
+  title!:any;
+  getTitulo(){
+    this.tituloService.obtenerTodos().subscribe((data) => {
+      console.log(data);
+      this.title = data.titulos;
+  })
+  }
+
 
 }

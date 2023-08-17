@@ -29,7 +29,7 @@ export class AntedecentesMedicosCrearPage implements OnInit {
       'otrosDatos' : new FormControl('',[Validators.required,Validators.minLength(3)])
 
     })
-    this.getAntecedente()
+    this.getAntecedente();
    }
 
   ngOnInit() {
