@@ -67,7 +67,7 @@
   <app-card-items [Number]="paciente?.vacuna?.length" [Nombre]="'Vacunas'" *ngIf="rol===3" />
   <app-card-items [Number]="paciente?.medicamento?.length" [Nombre]="'Medicamentos'" *ngIf="rol===3" />
   <app-card-items [Number]="paciente?.examenes_medico?.length" [Nombre]="'Examenes'"  *ngIf="rol===3" />
-  <div class="ion-text-center ion-margin-top">
+  <!-- <div class="ion-text-center ion-margin-top">
     <ion-button [routerLink]="['/cambiar-password']" color="primary">
       Cambiar contraseña
     </ion-button>
@@ -76,5 +76,30 @@
     <ion-button (click)="logout()" color="danger">
       Cerrar seción
     </ion-button>
+  </div> -->
+
+  <div class="boton">
+    <ion-button
+    shape="round"
+    expand="full"
+    class="btn"
+    color="warning"
+    fill="solid"
+    type="submit"
+  >
+    Logearse
+  </ion-button>
+
+  <ion-button
+    shape="round"
+    [routerLink]="['/register']"
+    routerLinkActive="router-link-active"
+    class="btn"
+    expand="full"
+    color="success"
+    fill="solid"
+  >
+    Registrarse
+  </ion-button>
   </div>
 </ion-content>
