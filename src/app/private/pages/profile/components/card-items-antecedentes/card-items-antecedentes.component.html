@@ -1,12 +1,12 @@
 <ion-card *ngIf="antecedentes"
 >
   <ion-card-header>
-    <ion-accordion-group>
+    <ion-accordion-group [multiple]="false" [value]="['first']">
       <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
-        <ion-item slot="header" color="light">
+        <ion-item slot="header" color="medium">
           <div class="subtitle">Antedentes médicos  </div>
         </ion-item>
-        <div slot="content">
+        <div slot="content" class="informacion-paciente">
           <h5>Condicion medica: {{antecedentes[0].condicion_medica}} </h5>
           <h5>Cirugias previas: {{antecedentes[0].cirugias_previas}} </h5>
           <h5>Alergias: {{antecedentes[0].alergias}} </h5>

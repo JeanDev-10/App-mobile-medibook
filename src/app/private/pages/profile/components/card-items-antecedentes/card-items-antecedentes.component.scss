@@ -1,5 +1,6 @@
 ion-card {
   border-radius: 16px;
+  box-shadow: none;
 }
 
 .title {
@@ -59,4 +60,26 @@ ion-icon {
   font-size: 16px;
   font-weight: 600;
   margin-left: 8px;
+}
+
+.informacion-paciente{
+  margin-left: 10px;
+}
+
+ion-accordion-group{
+  width: 330px;
+  margin-left: 10px;
+}
+
+/* Estilo para los encabezados de los acordeones */
+ion-item[slot="header"] {
+  border-radius: 20px;
+  border-bottom: 1px solid #ccc;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+/* Estilo para los encabezados de los acordeones cerrados */
+ion-accordion:not([expanded]) ion-item[slot="header"] {
+  border-bottom: none;
 }
