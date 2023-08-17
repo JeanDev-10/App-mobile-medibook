@@ -67,3 +67,21 @@ ion-icon{
 ion-accordion{
   margin: 20px;
 }
+
+/* Estilo para los encabezados de los acordeones */
+ion-item[slot="header"] {
+  border-radius: 20px;
+  border-bottom: 1px solid #ccc;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+/* Estilo para los encabezados de los acordeones cerrados */
+ion-accordion:not([expanded]) ion-item[slot="header"] {
+  border-bottom: none;
+}
+
+ion-accordion-group {
+  width: 330px;
+  margin-top: -60px;
+}

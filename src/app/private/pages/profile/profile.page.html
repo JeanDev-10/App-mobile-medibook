@@ -33,14 +33,14 @@
   </ion-card>
   <app-card-items-titulo *ngIf="rol===2" [titulos]="medico.titulo" />
   <ion-card-header *ngIf="rol===2">
-    <ion-accordion-group>
+    <ion-accordion-group [multiple]="false" [value]="['first']">
       <ion-accordion-group>
         <ion-accordion
           value="second"
           toggleIcon="caret-down-circle"
           toggleIconSlot="start"
         >
-          <ion-item class="dias-laborables" slot="header" color="light">
+          <ion-item class="dias-laborables" slot="header" color="medium">
             <div class="subtitle">
               <span>Días Laborables: </span>{{medico.horario.length}}
             </div>
@@ -67,16 +67,6 @@
   <app-card-items [Number]="paciente?.vacuna?.length" [Nombre]="'Vacunas'" *ngIf="rol===3" />
   <app-card-items [Number]="paciente?.medicamento?.length" [Nombre]="'Medicamentos'" *ngIf="rol===3" />
   <app-card-items [Number]="paciente?.examenes_medico?.length" [Nombre]="'Examenes'"  *ngIf="rol===3" />
-  <!-- <div class="ion-text-center ion-margin-top">
-    <ion-button [routerLink]="['/cambiar-password']" color="primary">
-      Cambiar contraseña
-    </ion-button>
-  </div>
-  <div class="ion-text-center ion-margin-top">
-    <ion-button (click)="logout()" color="danger">
-      Cerrar seción
-    </ion-button>
-  </div> -->
 
   <div class="boton">
     <ion-button
