@@ -2,13 +2,18 @@
 
 
 <ion-content [fullscreen]="true">
+  <br>
+  <app-cards-items [icon]="'trophy-outline'" [title]="'Títulos'" [content]="'Profesional de la medicina dedicado al bienestar'" [href]="'/titulos'" />
 
-  <p class="title">¡Bienvenido!</p>
-  <app-cards-items [icon]="'trophy-outline'" [title]="'Títulos'" [href]="'/titulos'" />
-  <app-cards-items [icon]="'folder-outline'" [title]="'Exámenes'" [href]="'/examenes-medicos'" />
-  <app-cards-items [icon]="'medical-outline'" [title]="'Vacunas'" [href]="'/vacunas'" />
-  <app-cards-items [icon]="'reader-outline'" [title]="'Citas'" [href]="'/citas-medicas'" />
-  <app-cards-items [icon]="'reader-outline'" [title]="'Medicamentos'" [href]="'/medicamentos'" />
-  <app-cards-items [icon]="'reader-outline'" [title]="'Antecedentes medicos'" [href]="'/antedecentes-medicos'" />
+  <app-cards-items [icon]="'folder-outline'" [title]="'Exámenes'" [content]="'Pruebas para detectar enfermedades a tiempo'" [href]="'/examenes-medicos'" />
+
+  <app-cards-items [icon]="'medical-outline'" [title]="'Vacunas'" [content]="'Inyecciones que previenen enfermedades y protegen la salud'" [href]="'/vacunas'" />
+
+  <app-cards-items [icon]="'reader-outline'" [title]="'Citas'" [content]="'Reuniones programadas con un médico para recibir atención'" [href]="'/citas-medicas'" />
+
+  <app-cards-items [icon]="'receipt-outline'" [title]="'Medicamentos'" [content]="'Sustancias que se utilizan para tratar enfermedades'" [href]="'/medicamentos'" />
+
+  <app-cards-items [icon]="'accessibility-outline'" [title]="'Antecedentes medicos'" [content]="'Información sobre la salud previa de un paciente'" [href]="'/antedecentes-medicos'" />
 
 </ion-content>
+
