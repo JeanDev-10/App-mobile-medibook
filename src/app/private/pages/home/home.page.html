@@ -1,8 +1,6 @@
 <app-navbar [NameRoute]="'Home'" [href]="''" />
 
 <ion-content [fullscreen]="true">
-<<<<<<< HEAD
-  <p class="title">¡Bienvenido!</p>
   <ng-container *ngIf="user">
     <app-cards-items *ngIf="user.rol.name==='Medico'"
       [icon]="'trophy-outline'"
@@ -35,8 +33,7 @@
       [href]="'/antedecentes-medicos'"
     />
   </ng-container>
-=======
-  <br>
+
   <app-cards-items [icon]="'trophy-outline'" [title]="'Títulos'" [content]="'Profesional de la medicina dedicado al bienestar'" [href]="'/titulos'" />
 
   <app-cards-items [icon]="'folder-outline'" [title]="'Exámenes'" [content]="'Pruebas para detectar enfermedades a tiempo'" [href]="'/examenes-medicos'" />
@@ -49,6 +46,5 @@
 
   <app-cards-items [icon]="'accessibility-outline'" [title]="'Antecedentes medicos'" [content]="'Información sobre la salud previa de un paciente'" [href]="'/antedecentes-medicos'" />
 
->>>>>>> test-local
 </ion-content>
 
