@@ -1,55 +1,63 @@
 ion-card {
-  margin-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin: 20px;
   border-radius: 12px;
-  background-color: #8EC5FC;
-  background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+  background: #e9e6e6;
+}
+
+.grid {
+  grid-template-columns: 2fr auto;
+  display: flex;
+  gap: 15px;
 }
 
 .title {
-  margin-top: 25px;
-  text-align: center;
-  font-weight: bold;
-  font-size: 24px;
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: -5px;
 }
 
-.icon-warp {
-  width: 30px;
-  height: 30px;
-  padding: 10px;
-  border: 2px solid #242424;
-  border-radius: 12px;
-  color: #28A061;
+.description {
+  font-weight: 500;
+  font-size: 15px;
+  margin-top: -12px;
+  color: black;
 }
 
 .flex-warp {
   display: flex;
   align-items: center;
-  gap: 10px;
+}
+
+.icon-warp {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 8px;
+  color: #F39C12
+}
+
+.line {
+  min-width: 3px;
+  background: #F39C12;
+  border-radius: 8px;
+}
+
+.block-warp-2 {
+  display: block;
+  padding: 10px 10px 10px 0px;
 }
 
 .btn {
   display: flex;
   align-items: center;
   gap: 5px;
-  padding: 7px 20px 7px 20px;
-  width: 130px;
-  border-radius: 12px;
-  border: 2px solid black;
   font-weight: 700;
-  font-size: 16px;
-  background: transparent;
-  margin-top: 10px;
-}
-
-.btn:hover {
-  background: #28A061;
-  border: 2px solid #28A061;
-  transition-duration: 500ms;
-  transition: all;
+  font-size: 14px;
+  color: #F39C12;
+  background: #e9e6e6;
+  margin-top: -6px;
 }
 
 .icon-view {
-  font-size: 24px;
+  font-size: 20px;
 }

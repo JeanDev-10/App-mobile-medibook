@@ -1,6 +1,7 @@
 <app-navbar [NameRoute]="'Home'" [href]="''" />
 
 <ion-content [fullscreen]="true">
+<<<<<<< HEAD
   <p class="title">¡Bienvenido!</p>
   <ng-container *ngIf="user">
     <app-cards-items *ngIf="user.rol.name==='Medico'"
@@ -34,4 +35,20 @@
       [href]="'/antedecentes-medicos'"
     />
   </ng-container>
+=======
+  <br>
+  <app-cards-items [icon]="'trophy-outline'" [title]="'Títulos'" [content]="'Profesional de la medicina dedicado al bienestar'" [href]="'/titulos'" />
+
+  <app-cards-items [icon]="'folder-outline'" [title]="'Exámenes'" [content]="'Pruebas para detectar enfermedades a tiempo'" [href]="'/examenes-medicos'" />
+
+  <app-cards-items [icon]="'medical-outline'" [title]="'Vacunas'" [content]="'Inyecciones que previenen enfermedades y protegen la salud'" [href]="'/vacunas'" />
+
+  <app-cards-items [icon]="'reader-outline'" [title]="'Citas'" [content]="'Reuniones programadas con un médico para recibir atención'" [href]="'/citas-medicas'" />
+
+  <app-cards-items [icon]="'receipt-outline'" [title]="'Medicamentos'" [content]="'Sustancias que se utilizan para tratar enfermedades'" [href]="'/medicamentos'" />
+
+  <app-cards-items [icon]="'accessibility-outline'" [title]="'Antecedentes medicos'" [content]="'Información sobre la salud previa de un paciente'" [href]="'/antedecentes-medicos'" />
+
+>>>>>>> test-local
 </ion-content>
+
