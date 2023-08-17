@@ -7,10 +7,10 @@
     <ion-card-header>
        <div class="flex-warp">
         <p class="title">Perfil <span> {{rol==3?'Paciente':'Medico'}} </span></p>
-        <img class="img-profile" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        <img class="img-profile" alt="user" src="../../../../assets/img/doctor-profile.png" />
         <h3> {{medico?.usuario.nombre |titlecase}}  <span> {{medico?.usuario.apellido|titlecase}} </span></h3>
         <h3> {{paciente?.usuario.nombre |titlecase}}  <span> {{paciente?.usuario.apellido|titlecase}} </span></h3>
-        <p> {{medico?.usuario.email}} </p>
+        <p class="medico-email"> {{medico?.usuario.email}} </p>
         <p> {{paciente?.usuario.email}} </p>
        </div>
 

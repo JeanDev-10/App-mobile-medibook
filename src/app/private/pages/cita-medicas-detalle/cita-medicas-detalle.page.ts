@@ -10,7 +10,7 @@ import { ToastController } from '@ionic/angular';
 import { CitasService } from '../../services/citas.service';
 import { map } from 'rxjs';
 import { ToastService } from 'src/app/core/shared/services/toast.service';
-import { DatePipe } from '@angular/common';
+import { DatePipe, Time } from '@angular/common';
 
 @Component({
   selector: 'app-cita-medicas-detalle',
@@ -90,26 +90,22 @@ export class CitaMedicasDetallePage implements OnInit {
   UpdateMedicament(Form: any) {
     console.log(Form);
   
-    const currentDate = new Date();
-  
     const horaInicioParts = Form.hora_inicio.split(":");
-    const horaInicioDate = new Date(currentDate);
-    horaInicioDate.setHours(Number(horaInicioParts[0]));
-    horaInicioDate.setMinutes(Number(horaInicioParts[1]));
-    horaInicioDate.setSeconds(0);
-    horaInicioDate.setMilliseconds(0);
+    const horaInicioTime: Time = {
+      hours: Number(horaInicioParts[0]),
+      minutes: Number(horaInicioParts[1])
+    };
   
     const horaFinParts = Form.hora_fin.split(":");
-    const horaFinDate = new Date(currentDate);
-    horaFinDate.setHours(Number(horaFinParts[0]));
-    horaFinDate.setMinutes(Number(horaFinParts[1]));
-    horaFinDate.setSeconds(0);
-    horaFinDate.setMilliseconds(0);
+    const horaFinTime: Time = {
+      hours: Number(horaFinParts[0]),
+      minutes: Number(horaFinParts[1])
+    };
   
     const body = {
       titulo: Form.titulo,
-      hora_inicio: horaInicioDate,
-      hora_fin: horaFinDate,
+      hora_inicio: horaInicioTime,
+      hora_fin:  horaFinTime,
       medico_id: this.medico_id
     };
   
@@ -119,6 +115,5 @@ export class CitaMedicasDetallePage implements OnInit {
       this.FormCitasMedicasEditar.reset();
     });
   }
-  
   
 }
