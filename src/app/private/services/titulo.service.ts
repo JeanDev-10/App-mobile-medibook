@@ -14,6 +14,7 @@ export class TituloService {
     return this.http.get<any>(`${this.api}titulos`);
   }
 
+
   obtenerUno(id:any): Observable<any> {
     return this.http.get<any>(`${this.api}titulos/${id}`);
   }

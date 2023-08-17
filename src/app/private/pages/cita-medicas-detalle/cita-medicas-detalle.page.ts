@@ -10,6 +10,7 @@ import { ToastController } from '@ionic/angular';
 import { CitasService } from '../../services/citas.service';
 import { map } from 'rxjs';
 import { ToastService } from 'src/app/core/shared/services/toast.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-cita-medicas-detalle',
@@ -85,19 +86,39 @@ export class CitaMedicasDetallePage implements OnInit {
   }
 
   // Método para Actualizar la cita medica por el momento solo se envia los datos por la consola del formulario
-
+  
   UpdateMedicament(Form: any) {
     console.log(Form);
-    const body={
-      titulo:Form.titulo,
-      hora_inicio:Form.hora_inicio,
-      hora_fin:Form.hora_fin,
-      medico_id:this.medico_id
-    }
-    this.citaService.update(body,this.id).subscribe((data)=>{
+  
+    const currentDate = new Date();
+  
+    const horaInicioParts = Form.hora_inicio.split(":");
+    const horaInicioDate = new Date(currentDate);
+    horaInicioDate.setHours(Number(horaInicioParts[0]));
+    horaInicioDate.setMinutes(Number(horaInicioParts[1]));
+    horaInicioDate.setSeconds(0);
+    horaInicioDate.setMilliseconds(0);
+  
+    const horaFinParts = Form.hora_fin.split(":");
+    const horaFinDate = new Date(currentDate);
+    horaFinDate.setHours(Number(horaFinParts[0]));
+    horaFinDate.setMinutes(Number(horaFinParts[1]));
+    horaFinDate.setSeconds(0);
+    horaFinDate.setMilliseconds(0);
+  
+    const body = {
+      titulo: Form.titulo,
+      hora_inicio: horaInicioDate,
+      hora_fin: horaFinDate,
+      medico_id: this.medico_id
+    };
+  
+    this.citaService.update(body, this.id).subscribe((data) => {
       this.toastService.sucess('Cita Editada correctamente!');
       this.router.navigate(['/citas-medicas']);
       this.FormCitasMedicasEditar.reset();
-    })
+    });
   }
+  
+  
 }

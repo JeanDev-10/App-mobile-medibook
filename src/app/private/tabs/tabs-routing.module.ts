@@ -215,7 +215,7 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'recetas-crear',
+        path: 'recetas-crear/:id',
         loadChildren: () =>
           import('../pages/receta-crear/receta-crear.module').then(
             (m) => m.RecetaCrearPageModule

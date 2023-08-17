@@ -11,7 +11,14 @@
     <ion-label class="label-lapso" color="dark">Hora Inicio: {{cita.hora_inicio}} </ion-label>
     <br>
     <ion-label class="label-duracion" color="dark">Hora Fin: {{cita.hora_fin}} </ion-label>
-
+    <br><br><br>	
+    <ion-label color="dark" *ngFor="let recetas of cita.receta">Receta: {{recetas.nombre_medicamento}}</ion-label>
+    <br>
+    <ion-label color="dark" *ngFor="let recetas of cita.cita_observacion">Observación: {{recetas.contenido}}</ion-label>
+    <br><br><br><br>
+    <ion-label color="dark">Estado: {{cita.estado_cita.nombre}}</ion-label>
+    <br><br>
+    <ion-label color="dark" *ngFor="let resenia of cita.resenia">Calificación: {{resenia.calificacion}}</ion-label>
     <ion-fab class="edit">
         <ion-fab-button (click)=" EditMecament()" color="warning">
             <ion-icon name="create"></ion-icon>
