@@ -3,7 +3,6 @@
 <ion-content [fullscreen]="true">
   <ion-card *ngIf="paciente||medico">
     <ion-card-header>
-<<<<<<< HEAD
       <div class="flex-warp">
         <p class="title">
           Perfil <span> {{rol==3?'Paciente':'Medico'}} </span>
@@ -24,18 +23,6 @@
         <p>{{medico?.usuario.email}}</p>
         <p>{{paciente?.usuario.email}}</p>
       </div>
-=======
-       <div class="flex-warp">
-        <p class="title">Perfil <span> {{rol==3?'Paciente':'Medico'}} </span></p>
-        <img class="img-profile" alt="user" src="../../../../assets/img/doctor-profile.png" />
-        <h3> {{medico?.usuario.nombre |titlecase}}  <span> {{medico?.usuario.apellido|titlecase}} </span></h3>
-        <h3> {{paciente?.usuario.nombre |titlecase}}  <span> {{paciente?.usuario.apellido|titlecase}} </span></h3>
-        <p class="medico-email"> {{medico?.usuario.email}} </p>
-        <p> {{paciente?.usuario.email}} </p>
-       </div>
-
-       <div class="flex-warp-content">
->>>>>>> df141b9e95b43452554e42dfa2433a1c6b45e008
 
       <div class="flex-warp-content">
         <div class="data-content">
@@ -90,7 +77,6 @@
       </ion-accordion-group>
     </ion-accordion-group>
   </ion-card-header>
-<<<<<<< HEAD
   <app-card-items-antecedentes
     [antecedentes]="paciente.antecedentes_medico"
     *ngIf="rol===3"
@@ -127,38 +113,5 @@
   </div>
   <div class="ion-text-center ion-margin-top">
     <ion-button (click)="logout()" color="danger"> Cerrar seción </ion-button>
-=======
-  <app-card-items-antecedentes *ngIf="rol===3" />
-  <app-card-items [Number]="paciente?.cita?.length" [Nombre]="'Citas'" *ngIf="paciente" />
-  <app-card-items [Number]="medico?.cita?.length" [Nombre]="'Citas'" *ngIf="medico" />
-  <app-card-items [Number]="paciente?.vacuna?.length" [Nombre]="'Vacunas'" *ngIf="rol===3" />
-  <app-card-items [Number]="paciente?.medicamento?.length" [Nombre]="'Medicamentos'" *ngIf="rol===3" />
-  <app-card-items [Number]="paciente?.examenes_medico?.length" [Nombre]="'Examenes'"  *ngIf="rol===3" />
-
-  <div class="boton">
-    <ion-button
-    shape="round"
-    expand="full"
-    class="btn"
-    [routerLink]="['/cambiar-password']"
-    color="warning"
-    fill="solid"
-    type="submit"
-  >
-    Cambiar Contraseña
-  </ion-button>
-
-  <ion-button
-    shape="round"
-    (click)="logout()"
-    routerLinkActive="router-link-active"
-    class="btn"
-    expand="full"
-    color="danger"
-    fill="solid"
-  >
-    Cerrar Sesión
-  </ion-button>
->>>>>>> df141b9e95b43452554e42dfa2433a1c6b45e008
   </div>
 </ion-content>
