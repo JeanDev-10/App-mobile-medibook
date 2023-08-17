@@ -3,7 +3,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AnimationOptions } from 'ngx-lottie';
 import { TituloService } from '../../services/titulo.service';
 import { ToastService } from 'src/app/core/shared/services/toast.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-titulos-detalle',
@@ -17,15 +18,30 @@ export class TitulosDetallePage implements OnInit {
   options: AnimationOptions = {
     path: '/assets/anim/animacion_titulo.json',
   };
-
-
-  constructor(private formBuid:FormBuilder,private tituloService:TituloService,private notificacion:ToastService,private router:Router) {
+medico_id!:any;
+titulo!:any;
+  constructor(private formBuid:FormBuilder,private tituloService:TituloService,private notificacion:ToastService,private router:Router,private activatedRoute:ActivatedRoute) {
     this.FormularioTitulo = this.formBuid.group({
       nombre : new FormControl('',[Validators.required,Validators.pattern(/^[A-Za-z\s]+$/)]),
       fecha: ['', [Validators.required]],
     })
-   }
-
+    this.activatedRoute.params.subscribe((params) => {
+      this.id = params['id']; // Aquí obtienes el valor del parámetro :id de la URL
+      // Puedes usar this.id como quieras en tu componente
+      this.tituloService
+      .obtenerUno(this.id)
+      .pipe(map((res: any) => res.titulos))
+      .subscribe((data) => {
+        console.log(data);
+        this.medico_id = data.medico_id;
+        this.FormularioTitulo.setValue({
+          nombre: data.nombre,
+          fecha: data.fecha,
+        });
+        this.titulo = data;
+      });
+   })
+  }
 
   // Método para llamar al servicio y crear un titulo
   CreateTitle(Form:any){

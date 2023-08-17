@@ -251,7 +251,7 @@ const routes: Routes = [
         loadChildren: () => import('../pages/titulos-crear/titulos-crear.module').then( m => m.TitulosCrearPageModule)
       },
       {
-        path: 'titulos-detalle',
+        path: 'titulos-detalle/:id',
         loadChildren: () => import('../pages/titulos-detalle/titulos-detalle.module').then( m => m.TitulosDetallePageModule)
       },
 

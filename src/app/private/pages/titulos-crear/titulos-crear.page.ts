@@ -3,7 +3,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AnimationOptions } from 'ngx-lottie';
 import { ToastService } from 'src/app/core/shared/services/toast.service';
 import { TituloService } from '../../services/titulo.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs';
+import { AuthService } from 'src/app/public/services/auth.service';
+import { MedicoService } from '../../services/medico.service';
 
 @Component({
   selector: 'app-titulos-crear',
@@ -17,13 +20,19 @@ export class TitulosCrearPage implements OnInit {
   options: AnimationOptions = {
     path: '/assets/anim/animacion_titulo.json',
   };
-
-
-  constructor(private formBuid:FormBuilder,private notificacion:ToastService,private tituloService:TituloService,private router:Router) {
+id!:any;
+medico_id!:any;
+titulo!:any;
+  constructor(private formBuid:FormBuilder,private notificacion:ToastService,private tituloService:TituloService,private router:Router,private activatedRoute:ActivatedRoute,private medicoService:MedicoService) {
     this.FormularioTitulo = this.formBuid.group({
       nombre: ['', [Validators.required,Validators.pattern(/^[A-Za-z\s]+$/)]],
       fecha: ['', [Validators.required]],
     })
+this.medicoService.obtenerMedico().subscribe((data=>{
+console.log(data);
+this.medico_id=data.id
+}))
+
     this.getTitulo();
    }
 
@@ -40,12 +49,13 @@ export class TitulosCrearPage implements OnInit {
         const TituloData = {
           nombre:Form.nombre,
           fecha:Form.fecha,
+          medico_id:this.medico_id
         };
         this.tituloService.create(TituloData).subscribe((data) => {
           this.notificacion.sucess('Antecedente Médico creado');
           this.getTitulo();
           this.FormularioTitulo.reset();
-          this.router.navigate(['']);
+          this.router.navigate(['titulos']);
 
         });
     }
