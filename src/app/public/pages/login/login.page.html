@@ -1,21 +1,25 @@
-<ion-content [fullscreen]="true">
-  <app-progress-bar />
+<ion-content [fullscreen]="true" >
+  <app-progress-bar/>
 
   <ion-card class="ion-no-margin">
-    <ion-img src="../../../../assets/header.png" />
-    <ion-card-header>
-      <ion-card-title class="ion-text-center"> MediBook </ion-card-title>
-    </ion-card-header>
+    <ion-img src="https://res.cloudinary.com/duhm7ousd/image/upload/v1692247282/Imagenes-MediBook/img/login_banner_m2xenr.png" />
   </ion-card>
 
-  <ion-title>Unirse hoy</ion-title>
+  <div class="texto-animado">
+    <div class="primer-txt">
+      <h1 class="primero">
+        Bienvenido
+      </h1>
+    </div>
+    <div class="primer-txt">
+      <h1 class="segundo">
+        al Login
+      </h1>
+    </div>
+  </div>
 
   <ion-card-content>
-    <form
-      [formGroup]="formLogin"
-      (submit)="Login(formLogin.value)"
-      class="ion-margin"
-    >
+    <form [formGroup]="formLogin" (submit)="Login(formLogin.value)" class="ion-margin">
       <ion-input
         label="Email"
         label-placement="floating"
@@ -25,9 +29,7 @@
       >
       </ion-input>
 
-      <div
-        *ngIf="formLogin.get('email')?.invalid && formLogin.get('email')?.touched"
-      >
+      <div *ngIf="formLogin.get('email')?.invalid && formLogin.get('email')?.touched">
         <div *ngIf="formLogin.get('email')?.hasError('required')">
           <p class="error-message">Email requerido</p>
         </div>
@@ -36,14 +38,9 @@
           <p class="error-message">Email invalido</p>
         </div>
       </div>
-      <ion-item class="ion-credenciales">
-        <ion-icon
-          [name]="isSeePassword?'eye-outline':'eye-off-outline'"
-          slot="end"
-          (click)="seePassword()"
-        ></ion-icon>
-        <ion-input
-          class="ion-margin-top"
+
+      <ion-input
+          class="ion-margin-top ion-credenciales"
           label="Contraseña"
           label-placement="floating"
           fill="outline"
@@ -51,8 +48,13 @@
           [type]="isSeePassword?'text':'password'"
           formControlName="password"
         >
-        </ion-input>
-      </ion-item>
+        <ion-icon
+          [name]="isSeePassword?'eye-outline':'eye-off-outline'"
+          slot="end"
+          (click)="seePassword()"
+        ></ion-icon>
+      </ion-input>
+
       <div
         *ngIf="formLogin.get('password')?.invalid && formLogin.get('password')?.touched"
       >
@@ -74,11 +76,13 @@
           10 caracteres máximo
         </div>
       </div>
-      <br />
 
-      <ion-button
+      <div class="boton">
+        <ion-button
+        shape="round"
         expand="full"
-        color="medium"
+        class="btn"
+        color="warning"
         fill="solid"
         [disabled]="formLogin.invalid"
         type="submit"
@@ -87,15 +91,18 @@
       </ion-button>
 
       <ion-button
+        shape="round"
         [routerLink]="['/register']"
         routerLinkActive="router-link-active"
         class="btn"
         expand="full"
-        color="medium"
+        color="success"
         fill="solid"
       >
         Registrarse
       </ion-button>
+      </div>
+
     </form>
   </ion-card-content>
 </ion-content>

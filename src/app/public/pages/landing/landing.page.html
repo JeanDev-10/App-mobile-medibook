@@ -1,24 +1,42 @@
 <ion-content [fullscreen]="true">
+  <div class="container">
+    <ion-card class="ion-no-margin">
+      <ion-img src="https://res.cloudinary.com/duhm7ousd/image/upload/v1692244683/Imagenes-MediBook/img/banner_w7kkjb.png" />
+    </ion-card>
 
-  <ion-card class="ion-no-margin">
-    <ion-img src="../../../../assets/header1.png" />
-    <ion-card-header>
-      <ion-card-title class="ion-text-center">
-        MediBook
-      </ion-card-title>
-    
-    </ion-card-header>
-  </ion-card>
+    <div class="img-banner">
+      <img class="banner" src="https://res.cloudinary.com/duhm7ousd/image/upload/v1691509232/Imagenes-MediBook/Imagotipo-800ppp_h1biao.png" alt="">
+    </div>
 
-  <p class="subtitle">Hola, somos tu aliado en salud. 
-    Con nuestra app podrás acceder a citas y diagnósticos online de forma fácil y segura.
-  </p>
+    <div class="texto-animado">
+      <div class="primer-txt">
+        <h1 class="primero">
+          Medi
+        </h1>
+      </div>
+      <div class="primer-txt">
+        <h1 class="segundo">
+          Book
+        </h1>
+      </div>
+    </div>
 
-  <ion-card-content>
-     <div class="btn">
-      <ion-button [routerLink]="['/login']" routerLinkActive="router-link-active" color="medium" fill="solid">
-        Empezar
-      </ion-button>
-     </div>
-  </ion-card-content>
+
+    <p class="subtitle">
+      Hola, somos tu aliado en salud.
+      Con nuestra app podrás acceder a citas y diagnósticos online de forma fácil y segura.
+    </p>
+
+    <ion-card-content>
+
+      <div class="btn">
+        <ion-button [routerLink]="['/login']" routerLinkActive="router-link-active" color="medium" fill="solid" shape="round">
+          Empezar
+        </ion-button>
+      </div>
+
+    </ion-card-content>
+  </div>
 </ion-content>
+
+
