@@ -43,15 +43,7 @@
             <div class="mt-1" *ngIf="FormReceta.get('lapso_tiempo')?.invalid && FormReceta.get('lapso_tiempo')?.touched">
               <ion-badge *ngIf="FormReceta.get('lapso_tiempo')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
             </div>
-
-            <!-- Input Cita -->
-            <ion-item>
-              <ion-select formControlName="cita_id" label="Cita" label-placement="floating" fill="solid">
-                <ion-select-option value="1">Cita 1</ion-select-option>
-                <ion-select-option value="2">Cita 2</ion-select-option>
-                <ion-select-option value="3">Cita 3</ion-select-option>
-              </ion-select>
-            </ion-item>
+            
             <div class="mt-1" *ngIf="FormReceta.get('cita_id')?.invalid && FormReceta.get('cita_id')?.touched">
               <ion-badge *ngIf="FormReceta.get('cita_id')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
             </div>
