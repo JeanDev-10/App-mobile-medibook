@@ -1,4 +1,4 @@
-<app-navbar [NameRoute]="'Profile'" [href]="''" />
+<app-navbar [NameRoute]="'Perfil'" [href]="''" />
 
 
 <ion-content [fullscreen]="true">
@@ -40,9 +40,9 @@
           toggleIcon="caret-down-circle"
           toggleIconSlot="start"
         >
-          <ion-item slot="header" color="light">
+          <ion-item class="dias-laborables" slot="header" color="light">
             <div class="subtitle">
-              {{medico.horario.length}} <span>días trabaja</span>
+              <span>Días Laborables: </span>{{medico.horario.length}}
             </div>
           </ion-item>
 
@@ -83,23 +83,24 @@
     shape="round"
     expand="full"
     class="btn"
+    [routerLink]="['/cambiar-password']"
     color="warning"
     fill="solid"
     type="submit"
   >
-    Logearse
+    Cambiar Contraseña
   </ion-button>
 
   <ion-button
     shape="round"
-    [routerLink]="['/register']"
+    (click)="logout()"
     routerLinkActive="router-link-active"
     class="btn"
     expand="full"
-    color="success"
+    color="danger"
     fill="solid"
   >
-    Registrarse
+    Cerrar Sesión
   </ion-button>
   </div>
 </ion-content>
