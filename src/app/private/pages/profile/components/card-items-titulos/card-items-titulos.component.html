@@ -1,11 +1,11 @@
 <ion-card-header>
-  <ion-accordion-group>
+  <ion-accordion-group [multiple]="false" [value]="['first']">
     <ion-accordion
       value="second"
       toggleIcon="caret-down-circle"
       toggleIconSlot="start"
     >
-      <ion-item slot="header" color="light">
+      <ion-item slot="header" color="medium">
         <div class="subtitle">
           <span> Titulos </span>
         </div>

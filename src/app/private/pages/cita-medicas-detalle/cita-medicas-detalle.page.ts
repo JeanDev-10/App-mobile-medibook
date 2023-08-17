@@ -10,7 +10,7 @@ import { ToastController } from '@ionic/angular';
 import { CitasService } from '../../services/citas.service';
 import { map } from 'rxjs';
 import { ToastService } from 'src/app/core/shared/services/toast.service';
-import { DatePipe } from '@angular/common';
+import { DatePipe, Time } from '@angular/common';
 
 @Component({
   selector: 'app-cita-medicas-detalle',

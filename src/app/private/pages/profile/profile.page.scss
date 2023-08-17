@@ -1,5 +1,11 @@
 ion-card {
   border-radius: 16px;
+  padding: 15px;
+  box-shadow: none;
+}
+
+app-card-items {
+  padding: 15px;
 }
 
 .title {
@@ -19,7 +25,7 @@ ion-card {
   display: block;
   text-align: center;
   align-items: center;
-  background: #d1cdcd;
+  background: #e5e4e4;
   border-radius: 16px;
   width: 100%;
 }
@@ -27,6 +33,7 @@ ion-card {
 h3 {
   font-weight: 20px;
   font-weight: 500;
+  font-weight: 900;
 }
 
 p {
@@ -46,6 +53,7 @@ p {
   display: flex;
   align-items: center;
   padding-top: 10px;
+  padding-left: 25px;
   padding-bottom: 10px;
 }
 
@@ -55,8 +63,37 @@ ion-icon {
   color: green;
 }
 
+ion-button{
+  padding: 15px 50px;
+}
+
 .subtitle {
   font-size: 16px;
   font-weight: 600;
   margin-left: 8px;
+}
+
+.dias-laborables{
+  margin: 20px;
+}
+
+.medico-email{
+  font-size: 15px;
+}
+
+/* Estilo para los encabezados de los acordeones */
+ion-item[slot="header"] {
+  border-radius: 20px;
+  border-bottom: 1px solid #ccc;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+/* Estilo para los encabezados de los acordeones cerrados */
+ion-accordion:not([expanded]) ion-item[slot="header"] {
+  border-bottom: none;
+}
+
+ion-accordion-group{
+  margin-top: -20px;
 }
