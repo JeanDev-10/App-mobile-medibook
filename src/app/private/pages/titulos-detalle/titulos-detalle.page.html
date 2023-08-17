@@ -7,7 +7,8 @@
 
   <ion-card>
     <ion-card-header>
-       <p>Titulo</p>
+       <p>{{titulo.nombre}}</p>
+       <ion-badge color="success">{{titulo.fecha}}</ion-badge>
        <div class="icon-content">
         <ion-icon (click)="edit()" class="icon-warp" name="create-outline"></ion-icon>
         <ion-icon (click)="Delete()" class="icon-warp" name="trash-outline"></ion-icon>

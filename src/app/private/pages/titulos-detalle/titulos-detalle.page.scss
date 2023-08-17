@@ -22,10 +22,16 @@ p {
   display: flex;
   align-items: center;
   gap: 10px;
+  margin-top: 10px;
 }
 
 .icon-warp {
   width: 30px;
   height:30px;
   color: #28A061;
+}
+
+ion-badge{
+  width: 100px;
+  margin-top: -15px;
 }
