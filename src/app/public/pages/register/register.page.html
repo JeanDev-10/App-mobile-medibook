@@ -2,18 +2,25 @@
   <app-progress-bar />
 
   <ion-card class="ion-no-margin">
-    <ion-img src="../../../../assets/header.png" />
-    <ion-card-header>
-      <ion-card-title class="ion-text-center"> MediBook </ion-card-title>
-    </ion-card-header>
-    <ion-toolbar>
-      <ion-buttons class="ion-margin" slot="start">
-        <ion-back-button default-href=""></ion-back-button>
-      </ion-buttons>
-    </ion-toolbar>
+    <ion-img
+      src="https://res.cloudinary.com/duhm7ousd/image/upload/v1692247282/Imagenes-MediBook/img/login_banner_m2xenr.png"
+    />
   </ion-card>
 
-  <ion-title>Unirse hoy</ion-title>
+  <div class="texto-animado">
+    <div class="primer-txt">
+      <h1 class="primero">Registrate</h1>
+    </div>
+    <div class="primer-txt">
+      <h1 class="segundo">en MediBook</h1>
+    </div>
+  </div>
+
+  <ion-toolbar class="btn-regresar">
+    <ion-buttons slot="start">
+      <ion-back-button default-href=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
 
   <ion-card-content>
     <form
@@ -22,12 +29,13 @@
       class="ion-margin"
     >
       <ion-accordion-group [multiple]="false" [value]="['first']">
+
         <ion-accordion
           value="first"
           toggleIcon="caret-down-circle"
           toggleIconSlot="start"
         >
-          <ion-item slot="header" color="light">
+          <ion-item slot="header" color="secondary">
             <ion-label>Correo y Contraseña</ion-label>
           </ion-item>
 
@@ -53,23 +61,22 @@
                 <p class="error-message">Email invalido</p>
               </div>
             </div>
-            <ion-item class="ion-credenciales">
+
+            <ion-input
+              class="ion-margin-top ion-credenciales"
+              label="Contraseña"
+              label-placement="floating"
+              fill="outline"
+              placeholder="Ingrese Contraseña"
+              [type]="isSeePassword?'text':'password'"
+              formControlName="password"
+            >
               <ion-icon
                 [name]="isSeePassword?'eye-outline':'eye-off-outline'"
                 slot="end"
                 (click)="seePassword()"
               ></ion-icon>
-              <ion-input
-                class="ion-margin-top"
-                label="Contraseña"
-                label-placement="floating"
-                fill="outline"
-                [type]="isSeePassword?'text':'password'"
-                placeholder="Ingrese Contraseña"
-                formControlName="password"
-              >
-              </ion-input>
-            </ion-item>
+            </ion-input>
 
             <div
               *ngIf="formRegister.get('password')?.invalid && formRegister.get('password')?.touched"
@@ -92,6 +99,7 @@
                 10 caracteres máximo
               </div>
             </div>
+
             <br />
           </div>
         </ion-accordion>
@@ -101,7 +109,7 @@
           toggleIcon="caret-down-circle"
           toggleIconSlot="start"
         >
-          <ion-item slot="header" color="light">
+          <ion-item slot="header" color="secondary">
             <ion-label>Datos Personales</ion-label>
           </ion-item>
 
@@ -238,8 +246,10 @@
               >
             </div>
             <div
-            *ngIf="formRegister.get('telefono')?.hasError('minlength')" style="color: red;">
-            10 Caracteres como Minimo.
+              *ngIf="formRegister.get('telefono')?.hasError('minlength')"
+              style="color: red"
+            >
+              10 Caracteres como Minimo.
             </div>
             <div
               *ngIf="formRegister.get('telefono')?.hasError('maxlength')"
@@ -262,7 +272,7 @@
           toggleIcon="caret-down-circle"
           toggleIconSlot="start"
         >
-          <ion-item slot="header" color="light">
+          <ion-item slot="header" color="secondary">
             <ion-label>Ubicacion</ion-label>
           </ion-item>
 
@@ -274,8 +284,8 @@
                 <ion-select-option
                   *ngFor="let item of provincias"
                   [value]="item.id"
-                  >{{ item.label }}</ion-select-option
-                >
+                  >{{ item.label }}
+                </ion-select-option>
               </ion-select>
             </ion-item>
 
@@ -291,18 +301,25 @@
             </ion-item>
           </div>
         </ion-accordion>
-      </ion-accordion-group>
-      <br />
 
-      <ion-button
-        type="submit"
+      </ion-accordion-group>
+      <br/>
+
+      <div class="boton">
+        <ion-button
+        shape="round"
         expand="full"
-        color="medium"
+        class="btn"
+        color="success"
         fill="solid"
         [disabled]="formRegister.invalid"
+        type="submit"
       >
         Registrarse
       </ion-button>
+
+      </div>
+
     </form>
   </ion-card-content>
 </ion-content>
