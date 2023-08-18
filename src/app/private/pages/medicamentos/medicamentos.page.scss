@@ -1,3 +1,13 @@
+ion-content::part(background) {
+    background-image: url('https://res.cloudinary.com/duhm7ousd/image/upload/v1692322450/Imagenes-MediBook/img/fondo_movil_oto4cx.jpg');
+    background-size: cover;
+    background-position: start;
+    background-repeat: no-repeat;
+  
+    /* Agrega un color de fondo con opacidad utilizando rgba() */
+    background-color: rgba(255, 255, 255, 0.9); /* El último valor (0.5) controla la opacidad */
+}
+
 .add {
     position: relative;
     left: 180px;
@@ -14,7 +24,7 @@ div {
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
-    margin-left: 15px;
+    margin-left: 35px;
     margin-top: 20px;
 }
 
@@ -51,3 +61,4 @@ div {
     top: -50px;
     font-size: 23px;
 }
+
