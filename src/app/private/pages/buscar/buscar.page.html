@@ -4,7 +4,7 @@
 <ion-content [fullscreen]="true">
     <app-progress-bar/>
 
-    <ion-searchbar [(ngModel)]="searchTerm" placeholder="Buscar" show-clear-button="always" clear-icon="trash-bin"></ion-searchbar>
+    <ion-searchbar color="medium" [(ngModel)]="searchTerm" placeholder="Buscar" show-clear-button="always" clear-icon="trash-bin"></ion-searchbar>
 
 
     <ion-item *ngIf="especialidades|async as especialidades">
