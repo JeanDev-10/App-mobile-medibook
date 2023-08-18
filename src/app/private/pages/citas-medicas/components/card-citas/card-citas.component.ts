@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/public/services/auth.service';
 
 @Component({
   selector: 'app-card-citas',
@@ -7,7 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardCitasComponent  implements OnInit {
   @Input() cita!:any;
-  constructor() { }
+  user:any
+  constructor(private authService:AuthService)
+  {
+    this.authService.userInformation().subscribe((data)=>{
+      this.user=data
+    })
+   }
 
   ngOnInit() {}
 

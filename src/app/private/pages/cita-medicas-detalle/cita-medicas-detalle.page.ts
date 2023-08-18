@@ -11,6 +11,7 @@ import { CitasService } from '../../services/citas.service';
 import { map } from 'rxjs';
 import { ToastService } from 'src/app/core/shared/services/toast.service';
 import { DatePipe, Time } from '@angular/common';
+import { AuthService } from 'src/app/public/services/auth.service';
 
 @Component({
   selector: 'app-cita-medicas-detalle',
@@ -19,7 +20,7 @@ import { DatePipe, Time } from '@angular/common';
 })
 export class CitaMedicasDetallePage implements OnInit {
   FormCitasMedicasEditar!: FormGroup;
-
+  user!:any
   StateForm = false;
   id: any;
   medico_id!: any;
@@ -31,6 +32,7 @@ export class CitaMedicasDetallePage implements OnInit {
     private route: ActivatedRoute,
     private citaService: CitasService,
     private toastService:ToastService,
+    private authService:AuthService
   ) {
     this.route.params.subscribe((params) => {
       this.id = params['id']; // Aquí obtienes el valor del parámetro :id de la URL
@@ -49,6 +51,10 @@ export class CitaMedicasDetallePage implements OnInit {
           });
           this.cita = data;
         });
+        this.authService.userInformation().subscribe((data)=>{
+          console.log(data)
+          this.user=data;
+        })
     });
   }
 

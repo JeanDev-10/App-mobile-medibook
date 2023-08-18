@@ -16,7 +16,7 @@
       </h1>
     </div>
 
-    <div class="descripcion">
+    <div class="descripcion" [routerLink]="['/profile-medico/'+cita.medico.id]">
       <h2 style="width: 50%; text-align: end; margin-right: 6px; color: #3498DB;">
         Nombre de Doctor:
       </h2>
@@ -24,7 +24,14 @@
         {{cita.medico.usuario.nombre|titlecase}}
       </h2>
     </div>
-
+    <div class="descripcion" [routerLink]="['/profile-paciente/'+cita.paciente.id]" routerLinkActive="router-link-active" >
+      <h2 style="width: 50%; text-align: end; margin-right: 6px; color: #3498DB;">
+        Nombre de Paciente:
+      </h2>
+      <h2 style="width: 50%; text-align: start; margin-left: 6px;">
+        {{cita.paciente.usuario.nombre|titlecase}}
+      </h2>
+    </div>
     <div class="descripcion">
       <h2 style="width: 50%; text-align: end; margin-right: 6px; color: #3498DB;">
         Especialidad:
@@ -116,16 +123,16 @@
     </ion-accordion-group>
 
     <div class="btn">
-      <ion-button color="primary" [routerLink]="['/resenia-crear',id]" shape="round">
+      <ion-button color="primary" *ngIf="user.rol.nombre==='Paciente'" [routerLink]="['/resenia-crear',id]" shape="round">
         Crear Reseña
       </ion-button>
-      <ion-button (click)=" EditMecament()" color="warning" shape="round">
+      <ion-button (click)=" EditMecament()" *ngIf="user.rol.nombre==='Paciente'" color="warning" shape="round">
         Editar Cita
       </ion-button>
     </div>
 
     <ion-fab class="close">
-      <ion-fab-button (click)="DeleteMedicament()" color="danger">
+      <ion-fab-button (click)="DeleteMedicament()" *ngIf="user.rol.nombre==='Paciente'" color="danger">
         <ion-icon name="close"></ion-icon>
       </ion-fab-button>
     </ion-fab>
