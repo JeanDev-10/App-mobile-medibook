@@ -52,7 +52,7 @@ export class AntedecentesMedicosCrearPage implements OnInit {
         };
 
         this.antecedenteService.create(antecedenteData).subscribe((data) => {
-          this.notificacion.sucess('Antecedente Médico creado');
+          this.notificacion.sucess('Antecedente Médico Creado');
           this.getAntecedente();
           this.FormularioAntecedentes.reset();
           this.router.navigate(['antedecentes-medicos']);

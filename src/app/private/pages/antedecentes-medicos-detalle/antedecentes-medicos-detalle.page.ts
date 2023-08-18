@@ -61,7 +61,7 @@ export class AntedecentesMedicosDetallePage implements OnInit {
 
   Delete() {
     this.antecedenteService.delete(this.id).subscribe((data)=>{
-      this.toastController.sucess('Antecedente cancelada correctamente!');
+      this.toastController.sucess('Antecedente Cancelada Correctamente!');
       this.router.navigate(['/antecedentes-medicos']);
     })
     // Toast de ionic
@@ -78,7 +78,7 @@ export class AntedecentesMedicosDetallePage implements OnInit {
       paciente_id:this.antecedente_id
     }
     this.antecedenteService.update(body,this.id).subscribe((data)=>{
-      this.toastController.sucess('Antecedente Editada correctamente!');
+      this.toastController.sucess('Antecedente Editada Correctamente!');
       this.router.navigate(['/antecedentes-medicos']);
       this.FormAntecedentesDetalle.reset();
     })
