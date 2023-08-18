@@ -1,17 +1,19 @@
 <app-navbar [NameRoute]="'Observacion'" [href]="'/home'" />
 
 <ion-content [fullscreen]="true">
+
   <p class="title">Todas las observaciones</p>
 
-  <ion-card>
-    <ion-card-header>
+  <ion-card-header style="padding: 0;">
 
-        <ng-container *ngFor="let cita of medico?.cita">
-          <app-card-observaciones *ngIf="medico" [observaciones]="cita.cita_observacion" />
-        </ng-container>
-        <ng-container *ngFor="let cita of paciente?.cita">
-          <app-card-observaciones *ngIf="paciente" [observaciones]="cita.cita_observacion"/>
-        </ng-container>
-    </ion-card-header>
-  </ion-card>
+    <ng-container *ngFor="let cita of medico?.cita">
+      <app-card-observaciones *ngIf="medico" [observaciones]="cita.cita_observacion" />
+    </ng-container>
+
+    <ng-container *ngFor="let cita of paciente?.cita">
+      <app-card-observaciones *ngIf="paciente" [observaciones]="cita.cita_observacion"/>
+    </ng-container>
+
+  </ion-card-header>
+
 </ion-content>

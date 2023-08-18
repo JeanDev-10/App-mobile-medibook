@@ -1,43 +1,75 @@
 <app-navbar [NameRoute]="'Detalle de observacion'" [href]="'/observacion'" />
 
-
 <ion-content [fullscreen]="true">
-
   <p class="title">Detalle observación</p>
 
   <ion-card>
     <ion-card-header>
-      <div *ngIf="observacion">
-       <div class="flex-warp"  >
-        <img class="rounded" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-        <h3>{{observacion?.cita?.paciente?.usuario?.nombre}} <span>{{observacion?.cita?.paciente?.usuario?.apellido}}</span></h3>
-        <p> {{observacion?.cita?.fecha}}</p>
-      </div>
-      <ion-accordion-group class="ion-no-padding">
-        <ion-accordion value="first" toggleIcon="caret-down-circle" toggleIconSlot="start">
-          <ion-item slot="header" color="light">
-            <ion-label><span>Estado cita</span></ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content">
+      <div style="position: relative;" *ngIf="observacion">
+        <div class="flex-warp">
+          <img
+            class="rounded"
+            alt="user"
+            src="https://res.cloudinary.com/duhm7ousd/image/upload/v1692346886/Imagenes-MediBook/img/perfil_r1ascp.png"
+          />
+          <h3>
+            {{observacion?.cita?.paciente?.usuario?.nombre}}
+            <span>{{observacion?.cita?.paciente?.usuario?.apellido}}</span>
+          </h3>
+        </div>
+        <div class="fecha">
+          <p>{{observacion?.cita?.fecha}}</p>
+        </div>
 
-            <div  class="flex-warp" [routerLink]="['/profile']" routerLinkActive="router-link-active" >
-              <img class="rounded" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-              <h3>{{observacion?.cita?.medico?.usuario?.nombre}} <span>{{observacion?.cita?.medico?.usuario?.apellido}}</span></h3>
+
+        <ion-accordion-group class="ion-no-padding">
+          <ion-accordion
+            value="first"
+            toggleIcon="caret-down-circle"
+            toggleIconSlot="start"
+            class="accordion"
+          >
+            <ion-item  slot="header" color="light">
+              <ion-label><span>Estado cita</span></ion-label>
+            </ion-item>
+            <div class="ion-padding" slot="content">
+              <div
+                class="flex-warp"
+                [routerLink]="['/profile']"
+                routerLinkActive="router-link-active"
+              >
+                <img
+                  class="rounded"
+                  alt="user"
+                  src="https://res.cloudinary.com/duhm7ousd/image/upload/v1691509229/Imagenes-MediBook/Iconos/doctor-celeste_m7izbr.png"
+                />
+                <h3>
+                  {{observacion?.cita?.medico?.usuario?.nombre}}
+                  <span>{{observacion?.cita?.medico?.usuario?.apellido}}</span>
+                </h3>
+              </div>
+              <p>{{observacion?.cita?.medico?.especialidad?.nombre}}</p>
+              <p class="content-data">
+                Hora inicio: {{observacion?.cita?.hora_inicio}}
+              </p>
+              <p class="content-data">
+                Hora fin: {{observacion?.cita?.hora_fin}}
+              </p>
             </div>
-            <p>{{observacion?.cita?.medico?.especialidad?.nombre}}</p>
-            <p class="content-data">Hora inicio: {{observacion?.cita?.hora_inicio}} </p>
-            <p class="content-data">Hora fin: {{observacion?.cita?.hora_fin}}</p>
-          </div>
-        </ion-accordion>
-      </ion-accordion-group>
-    </div>
+          </ion-accordion>
+        </ion-accordion-group>
+      </div>
+
       <div class="ion-text-center ion-margin-top">
-        <ion-button [routerLink]="['/observacion']" routerLinkActive="router-link-active" >
-          Volver
+        <ion-button color="warning" shape="round"
+          [routerLink]="['/observacion']"
+          routerLinkActive="router-link-active"
+        >
+         <b>Volver</b>
         </ion-button>
       </div>
 
+
     </ion-card-header>
   </ion-card>
-
 </ion-content>

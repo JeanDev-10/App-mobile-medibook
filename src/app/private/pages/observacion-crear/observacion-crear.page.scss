@@ -1,3 +1,13 @@
+ion-content::part(background) {
+  background-image: url('https://res.cloudinary.com/duhm7ousd/image/upload/v1692322450/Imagenes-MediBook/img/fondo_movil_oto4cx.jpg');
+  background-size: cover;
+  background-position: start;
+  background-repeat: no-repeat;
+
+  /* Agrega un color de fondo con opacidad utilizando rgba() */
+  background-color: rgba(255, 255, 255, 0.9); /* El último valor (0.5) controla la opacidad */
+}
+
 .anim{
   width: 250px;
   height: 250px;
@@ -23,4 +33,19 @@ ion-icon-create{
 
 ion-button{
   margin-left: 15px;
+}
+
+span{
+  color: red;
+  font-size: 10pt;
+  margin-left: 75px;
+}
+
+
+.btn{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin-top: 30px;
 }
