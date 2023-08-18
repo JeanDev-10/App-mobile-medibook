@@ -6,6 +6,7 @@ import { AnimationOptions } from 'ngx-lottie';
 import { MedicamentosService } from '../../services/medicamentos.service';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { ToastService } from 'src/app/core/shared/services/toast.service';
 
 @Component({
   selector: 'app-medicamentos-crear',
@@ -20,7 +21,7 @@ export class MedicamentosCrearPage implements OnInit {
     path: '/assets/anim/medicina-crear.json',
   };
 
-  constructor(private formBuilder:FormBuilder, private medicamentosService:MedicamentosService, private toastController:ToastController, private router:Router) {
+  constructor(private formBuilder:FormBuilder, private medicamentosService:MedicamentosService, private toastService:ToastService, private router:Router) {
     this.FormularioMedicamentos = this.formBuilder.group({
       'nombre' : new FormControl('',[Validators.required,Validators.minLength(3)]),
       'dosis' : new FormControl('',[Validators.required,Validators.minLength(3)]),
@@ -37,22 +38,10 @@ export class MedicamentosCrearPage implements OnInit {
   CreateMedicament(Form:any){
     this.medicamentosService.Crear_Medicamento(Form).subscribe({
       next : (s)=>{
-        this.presentToast('bottom');
+        this.toastService.sucess("Medicamentos Creados Correctamente.");
         this.router.navigate(['/medicamentos']);
       }
     })
   }
 
-
-    // Se podría mejorar el toast con un diseño mejor
-
-    async presentToast(position: 'top' | 'middle' | 'bottom') {
-      const toast = await this.toastController.create({
-        message: 'Medicamento, Registrado Correctamente!',
-        duration: 2000,
-        position: position,
-      });
-  
-      await toast.present();
-    }
 }

@@ -72,17 +72,6 @@ export class VacunasDetallePage implements OnInit {
   }
 
 
-  // Se podría mejorar el toast con un diseño mejor
-
-  async presentToast(position: 'top' | 'middle' | 'bottom') {
-    const toast = await this.toastController.create({
-      message: 'Vacuna, Eliminado Correctamente!',
-      duration: 1500,
-      position: position,
-    });
-
-    await toast.present();
-  }
 
   // Método para actualizar la vacuna
   UpdateMedicament(form:any){

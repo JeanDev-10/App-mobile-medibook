@@ -56,18 +56,6 @@ export class ExamenesMedicosDetallePage implements OnInit {
   }
 
 
-  // Se podría mejorar el toast con un diseño mejor
-
-  async presentToast(position: 'top' | 'middle' | 'bottom') {
-    const toast = await this.toastController.create({
-      message: 'Examen Médico, Eliminado Correctamente!',
-      duration: 1500,
-      position: position,
-    });
-
-    await toast.present();
-  }
-
   // Cambiar el estado del formulario
 
   ChangeStateForm(){

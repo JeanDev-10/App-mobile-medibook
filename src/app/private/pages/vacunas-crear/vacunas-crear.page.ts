@@ -43,6 +43,7 @@ export class VacunasCrearPage implements OnInit {
           event:'LOAD_VACUNAS'
         })
         this.router.navigate(['/vacunas']);
+        this.notificacion.sucess('Vacuna Creada Exitosamente.');
       }
     })
   }
