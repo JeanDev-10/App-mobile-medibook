@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
 import { AuthService } from 'src/app/public/services/auth.service';
 import { MedicoService } from '../../services/medico.service';
+import { EventEmitterService } from '../dudas/services/event-emitter.service';
 
 @Component({
   selector: 'app-titulos-crear',
@@ -23,7 +24,7 @@ export class TitulosCrearPage implements OnInit {
 id!:any;
 medico_id!:any;
 titulo!:any;
-  constructor(private formBuid:FormBuilder,private notificacion:ToastService,private tituloService:TituloService,private router:Router,private activatedRoute:ActivatedRoute,private medicoService:MedicoService) {
+  constructor(private formBuid:FormBuilder,private notificacion:ToastService,private tituloService:TituloService,private router:Router,private activatedRoute:ActivatedRoute,private medicoService:MedicoService,private eventEmitterService:EventEmitterService) {
     this.FormularioTitulo = this.formBuid.group({
       nombre: ['', [Validators.required,Validators.pattern(/^[A-Za-z\s]+$/)]],
       fecha: ['', [Validators.required]],
@@ -52,10 +53,13 @@ this.medico_id=data.id
           medico_id:this.medico_id
         };
         this.tituloService.create(TituloData).subscribe((data) => {
+          this.router.navigate(['/titulos']);
           this.notificacion.sucess('Antecedente Médico creado');
           this.getTitulo();
+          this.eventEmitterService.setEvent({
+            event: 'LOAD_TITULOS',
+          });
           this.FormularioTitulo.reset();
-          this.router.navigate(['titulos']);
 
         });
     }

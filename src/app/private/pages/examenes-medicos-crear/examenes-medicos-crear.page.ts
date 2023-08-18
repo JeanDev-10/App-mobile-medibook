@@ -4,6 +4,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AnimationOptions } from 'ngx-lottie';
 import { ExamenesMedicoService } from '../../services/examenes-medico.service';
 import { Router } from '@angular/router';
+import { EventEmitterService } from '../dudas/services/event-emitter.service';
+import { ToastService } from 'src/app/core/shared/services/toast.service';
 
 
 @Component({
@@ -19,13 +21,14 @@ export class ExamenesMedicosCrearPage implements OnInit {
     path: '/assets/anim/medicina-crear.json',
   };
 
-  constructor(private formBuilder:FormBuilder,private examenesMedicosService:ExamenesMedicoService, private router:Router) {
+  constructor(private formBuilder:FormBuilder,private examenesMedicosService:ExamenesMedicoService, private router:Router,private eventEmitterService:EventEmitterService,private toastService:ToastService) {
     this.FormularioExamenes = this.formBuilder.group({
       'nombre' : new FormControl('',[Validators.required,Validators.minLength(3)]),
       'fecha' : new FormControl('',[Validators.required,Validators.minLength(3)]),
       'resultado' : new FormControl('',[Validators.required,Validators.minLength(3)]),
       
     })
+    
    }
 
   ngOnInit() {
@@ -36,7 +39,11 @@ export class ExamenesMedicosCrearPage implements OnInit {
   CreateExamen(Form:any){
     this.examenesMedicosService.Crear_ExamenMedico(Form).subscribe({
       next : (s) =>{
-        this.router.navigate(['examenes-medicos']);
+        this.toastService.sucess('Examen medico creada exitosamente!');
+        this.eventEmitterService.setEvent({
+          event:'LOAD_EXAMENES'
+        });
+        this.router.navigate(['/examenes-medicos']);
       }
     })
   }

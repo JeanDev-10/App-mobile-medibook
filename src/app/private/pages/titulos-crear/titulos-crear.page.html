@@ -19,20 +19,20 @@
 
             <!-- Validación de campo nombre requerido -->
             <div class="mt-1" *ngIf="FormularioTitulo.get('nombre')?.invalid && FormularioTitulo.get('nombre')?.touched">
-            <ion-badge *ngIf="FormularioTitulo.get('nombre')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+                <ion-badge *ngIf="FormularioTitulo.get('nombre')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
             </div>
 
-             <!-- Validacion de campo para que solo sea letras -->
-             <ion-badge *ngIf="FormularioTitulo.get('nombre')?.hasError('pattern')" color="warning">Solo Se Permiten Letras</ion-badge>
-             <ion-item>
-              <ion-icon name="calendar-outline"></ion-icon>
-              <ion-input formControlName="fecha" class="inputs" label="Hora Salida" labelPlacement="floating" placeholder="" type="date"></ion-input>
-              </ion-item>
-           <div class="mt-1" *ngIf="FormularioTitulo.get('fecha')?.invalid && FormularioTitulo.get('fecha')?.touched">
-            <ion-badge *ngIf="FormularioTitulo.get('fecha')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            <!-- Validacion de campo para que solo sea letras -->
+            <ion-badge *ngIf="FormularioTitulo.get('nombre')?.hasError('pattern')" color="warning">Solo Se Permiten Letras</ion-badge>
+            <ion-item>
+                <ion-icon name="calendar-outline"></ion-icon>
+                <ion-input formControlName="fecha" class="inputs" label="Fecha" labelPlacement="floating" placeholder="" type="date"></ion-input>
+            </ion-item>
+            <div class="mt-1" *ngIf="FormularioTitulo.get('fecha')?.invalid && FormularioTitulo.get('fecha')?.touched">
+                <ion-badge *ngIf="FormularioTitulo.get('fecha')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
             </div>
             <div class="boton">
-                <ion-button   color="success" type="submit" [disabled]="FormularioTitulo.invalid">
+                <ion-button color="success" type="submit" [disabled]="FormularioTitulo.invalid">
                     Registrar Titulo
                     <ion-icon class="ion-icon-create" slot="end" name="checkmark-circle"></ion-icon>
                 </ion-button>
@@ -41,4 +41,4 @@
 
     </ion-list>
 
-  </ion-content>
+</ion-content>

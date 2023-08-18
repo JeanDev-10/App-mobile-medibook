@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VacunasService } from 'src/app/private/services/vacunas.service';
+import { EventEmitterService } from '../../../dudas/services/event-emitter.service';
 
 
 @Component({
@@ -9,7 +10,13 @@ import { VacunasService } from 'src/app/private/services/vacunas.service';
 })
 export class CardVacunasComponent  implements OnInit {
 
-  constructor(private vacunasService:VacunasService) { }
+  constructor(private vacunasService:VacunasService,private eventEmitterService:EventEmitterService) {
+    this.eventEmitterService.getEvent().subscribe((event)=>{
+      if(event.event==='LOAD_VACUNAS'){
+        this.Obtener_Vacunas()
+      }
+    })
+   }
 
   ngOnInit() {
     this.Obtener_Vacunas();

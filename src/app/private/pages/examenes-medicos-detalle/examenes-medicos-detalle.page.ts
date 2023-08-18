@@ -3,6 +3,8 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { ExamenesMedicoService } from '../../services/examenes-medico.service';
+import { ToastService } from 'src/app/core/shared/services/toast.service';
+import { EventEmitterService } from '../dudas/services/event-emitter.service';
 
 
 @Component({
@@ -22,7 +24,7 @@ export class ExamenesMedicosDetallePage implements OnInit {
 
   StateForm:boolean = false;
 
-  constructor(private formBuilder:FormBuilder, private router:Router, private toastController:ToastController, private activatedRouter:ActivatedRoute,private  examenesMedicoService:ExamenesMedicoService) { 
+  constructor(private formBuilder:FormBuilder, private router:Router, private toastController:ToastController, private activatedRouter:ActivatedRoute,private  examenesMedicoService:ExamenesMedicoService,private toastService:ToastService,private eventEmitterService:EventEmitterService) { 
     this.FormularioExamenMedicoDetalle = this.formBuilder.group({
       
       'nombre' : new FormControl('',[Validators.required,Validators.minLength(3)]),
@@ -30,6 +32,7 @@ export class ExamenesMedicosDetallePage implements OnInit {
       'resultado' : new FormControl('',[Validators.required,Validators.minLength(3)]),
       
     })
+    
   }
 
   ngOnInit() {
@@ -42,9 +45,12 @@ export class ExamenesMedicosDetallePage implements OnInit {
   deleteExamen(){
     this.examenesMedicoService.Eliminar_ExamenMedico(this.idExamenMedicamento).subscribe({
       next: (s) =>{
-        this.router.navigate(['examenes-medicos'])
+        this.router.navigate(['/examenes-medicos'])
         // Toast de ionic
-        this.presentToast('bottom');
+        this.toastService.sucess('Esamen medico eliminado!');
+        this.eventEmitterService.setEvent({
+          event:'LOAD_EXAMENES'
+        })
       }
     })
   }
@@ -72,7 +78,11 @@ export class ExamenesMedicosDetallePage implements OnInit {
   UpdateExamenMedico(Form:any){
     this.examenesMedicoService.Actualizar_ExamenMedico(this.idExamenMedicamento,Form).subscribe({
       next: (s) =>{
-        this.router.navigate(['examenes-medicos'])
+        this.router.navigate(['/examenes-medicos'])
+        this.toastService.sucess('Esamen medico editado!');
+        this.eventEmitterService.setEvent({
+          event:'LOAD_EXAMENES'
+        })
       }
     })
   }
