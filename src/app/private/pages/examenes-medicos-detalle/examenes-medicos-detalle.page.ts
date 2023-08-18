@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { ExamenesMedicoService } from '../../services/examenes-medico.service';
+import { ToastService } from 'src/app/core/shared/services/toast.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class ExamenesMedicosDetallePage implements OnInit {
 
   StateForm:boolean = false;
 
-  constructor(private formBuilder:FormBuilder, private router:Router, private toastController:ToastController, private activatedRouter:ActivatedRoute,private  examenesMedicoService:ExamenesMedicoService) { 
+  constructor(private formBuilder:FormBuilder, private router:Router, private toastService:ToastService, private activatedRouter:ActivatedRoute,private  examenesMedicoService:ExamenesMedicoService) { 
     this.FormularioExamenMedicoDetalle = this.formBuilder.group({
       
       'nombre' : new FormControl('',[Validators.required,Validators.minLength(3)]),
@@ -42,25 +43,12 @@ export class ExamenesMedicosDetallePage implements OnInit {
   deleteExamen(){
     this.examenesMedicoService.Eliminar_ExamenMedico(this.idExamenMedicamento).subscribe({
       next: (s) =>{
-        this.router.navigate(['examenes-medicos'])
-        // Toast de ionic
-        this.presentToast('bottom');
+        this.router.navigate(['examenes-medicos']);
+        this.toastService.sucess('Examenes Eliminadosa Correctamente.');
       }
     })
   }
 
-
-  // Se podría mejorar el toast con un diseño mejor
-
-  async presentToast(position: 'top' | 'middle' | 'bottom') {
-    const toast = await this.toastController.create({
-      message: 'Examen Médico, Eliminado Correctamente!',
-      duration: 1500,
-      position: position,
-    });
-
-    await toast.present();
-  }
 
   // Cambiar el estado del formulario
 
@@ -72,7 +60,8 @@ export class ExamenesMedicosDetallePage implements OnInit {
   UpdateExamenMedico(Form:any){
     this.examenesMedicoService.Actualizar_ExamenMedico(this.idExamenMedicamento,Form).subscribe({
       next: (s) =>{
-        this.router.navigate(['examenes-medicos'])
+        this.router.navigate(['examenes-medicos']);
+        this.toastService.sucess("Examenes Actualizados Correctamente.");
       }
     })
   }
