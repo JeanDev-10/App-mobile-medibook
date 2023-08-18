@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { MedicamentosService } from '../../services/medicamentos.service';
 import { ToastService } from 'src/app/core/shared/services/toast.service';
+import { EventEmitterService } from '../dudas/services/event-emitter.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class MedicamentosDetallePage implements OnInit {
 
   StateForm:boolean = false;
 
-  constructor(private formBuilder:FormBuilder, private activatedRoute:ActivatedRoute, private toastService:ToastService,private router:Router, private medicamentoServicio:MedicamentosService) { 
+  constructor(private formBuilder:FormBuilder, private activatedRoute:ActivatedRoute, private toastService:ToastService,private router:Router, private medicamentoServicio:MedicamentosService,private eventEmitterService:EventEmitterService) {
     this.FormularioMedicamentoDetalle = this.formBuilder.group({
       'nombre' : new FormControl('',[Validators.required,Validators.minLength(3)]),
       'dosis' : new FormControl('',[Validators.required,Validators.minLength(3)]),
@@ -54,11 +55,13 @@ export class MedicamentosDetallePage implements OnInit {
   // Método para actualizar medicamento
 
   UpdateMedicament(Form:any){
-    debugger;
     this.medicamentoServicio.Actualizar_Medicamento(this.idMedicamento,Form).subscribe({
       next : (s) =>{
+        this.eventEmitterService.setEvent({
+          event:'LOAD_MEDICAMENTOS'
+        })
         this.toastService.sucess('Medicamentos Actualizados Correctamente.');
-        this.router.navigate(['medicamentos']);
+        this.router.navigate(['/medicamentos']);
       }
     })
   }
@@ -68,7 +71,9 @@ export class MedicamentosDetallePage implements OnInit {
     this.medicamentoServicio.Eliminar_Medicamento(this.idMedicamento).
     subscribe({
       next: (s) =>{
-        debugger;
+        this.eventEmitterService.setEvent({
+          event:'LOAD_MEDICAMENTOS'
+        })
         this.router.navigate(['/medicamentos'])
         this.toastService.sucess("Medicamento Eliminado Correctamente.");
       }

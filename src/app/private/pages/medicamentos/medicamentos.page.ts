@@ -1,6 +1,7 @@
 import { MedicamentosService } from './../../services/medicamentos.service';
 import { Component, OnInit } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
+import { EventEmitterService } from '../dudas/services/event-emitter.service';
 
 @Component({
   selector: 'app-medicamentos',
@@ -12,8 +13,13 @@ export class MedicamentosPage implements OnInit {
   idMedicamento!:number;
 
 
-  constructor(private medicamentosService:MedicamentosService, private loadingCtrl:LoadingController) { 
-
+  constructor(private medicamentosService:MedicamentosService,private eventEmmiterService:EventEmitterService) {
+    this.eventEmmiterService.getEvent().subscribe((event:any)=>{
+      console.log(event);
+      if(event.event==='LOAD_MEDICAMENTOS'){
+        this.Obtener_Todos_Medicamentos()
+      }
+    })
   }
 
   ngOnInit() {
@@ -31,14 +37,7 @@ export class MedicamentosPage implements OnInit {
       }
     })
   }
-  
-  async showLoading() {
-    const loading = await this.loadingCtrl.create({
-      message: 'Cargando...',
-      duration: 3000,
-    });
 
-    loading.present();
-  }
+
 
 }

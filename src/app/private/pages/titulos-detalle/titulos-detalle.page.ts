@@ -75,6 +75,7 @@ export class TitulosDetallePage implements OnInit {
       this.eventEmitterService.setEvent({
         event: 'LOAD_TITULOS',
       });
+
     });
     // Toast de ionic
   }
@@ -92,6 +93,7 @@ export class TitulosDetallePage implements OnInit {
         event: 'LOAD_TITULOS',
       });
       this.FormularioTitulo.reset();
+      this.editShow=false;
     });
   }
   ngOnInit() {}

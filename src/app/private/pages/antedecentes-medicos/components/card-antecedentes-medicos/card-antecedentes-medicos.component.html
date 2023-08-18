@@ -1,8 +1,10 @@
-<div [routerLink]="['/antedecentes-medicos-detalle/'+antecedente.id]" *ngFor="let antecedente of antecedente">
-  <ion-img class="icon-img" src="../../../../assets/img/antecedentes.png"></ion-img>
-  <ion-label class="label-cita" color="tertiary">{{antecedente?.alergias}}
-      <nav></nav>
-  </ion-label>
-  <ion-badge class="label-estado label-estado-3" color="success">{{antecedente?.tipo_sangre
-  }}</ion-badge>
-</div>
+<ng-container *ngIf="antecedente">
+  <div [routerLink]="['/antedecentes-medicos-detalle/'+antecedente.id]" *ngFor="let antecedente of antecedente">
+    <ion-img class="icon-img" src="../../../../assets/img/antecedentes.png"></ion-img>
+    <ion-label class="label-cita" color="tertiary">{{antecedente?.alergias}}
+        <nav></nav>
+    </ion-label>
+    <ion-badge class="label-estado label-estado-3" color="success">{{antecedente?.tipo_sangre
+    }}</ion-badge>
+  </div>
+</ng-container>

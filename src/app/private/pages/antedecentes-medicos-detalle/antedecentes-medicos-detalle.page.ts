@@ -5,6 +5,7 @@ import { ToastController } from '@ionic/angular';
 import { AntecedenteMedicoService } from '../../services/antecedente-medico.service';
 import { ToastService } from 'src/app/core/shared/services/toast.service';
 import { map } from 'rxjs';
+import { EventEmitterService } from '../dudas/services/event-emitter.service';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class AntedecentesMedicosDetallePage implements OnInit {
   id: any;
   antecedente!:any;
   antecedente_id!:any;
-  constructor(private formBuilder:FormBuilder, private router:Router, private toastController:ToastService,private antecedenteService:AntecedenteMedicoService,private activatedRoute:ActivatedRoute) {
+  constructor(private formBuilder:FormBuilder, private router:Router, private toastController:ToastService,private antecedenteService:AntecedenteMedicoService,private activatedRoute:ActivatedRoute,private eventEmitterService:EventEmitterService,private toastService:ToastService) {
     this.FormAntecedentesDetalle = this.formBuilder.group({
 
       'condicionMedica' : new FormControl('',[Validators.required,Validators.minLength(3)]),
@@ -61,8 +62,12 @@ export class AntedecentesMedicosDetallePage implements OnInit {
 
   Delete() {
     this.antecedenteService.delete(this.id).subscribe((data)=>{
-      this.toastController.sucess('Antecedente Cancelada Correctamente!');
-      this.router.navigate(['/antecedentes-medicos']);
+      this.eventEmitterService.setEvent({
+        event:'LOAD_ANTECEDENTES'
+      })
+      this.toastService.sucess('Antecedente medico eliminado correctamente!')
+      this.router.navigate(['/antedecentes-medicos']);
+
     })
     // Toast de ionic
   }
@@ -78,8 +83,12 @@ export class AntedecentesMedicosDetallePage implements OnInit {
       paciente_id:this.antecedente_id
     }
     this.antecedenteService.update(body,this.id).subscribe((data)=>{
-      this.toastController.sucess('Antecedente Editada Correctamente!');
-      this.router.navigate(['/antecedentes-medicos']);
+
+      this.eventEmitterService.setEvent({
+        event:'LOAD_ANTECEDENTES'
+      })
+      this.toastService.sucess('Antecedente medico actualizado correctamente!')
+      this.router.navigate(['/antedecentes-medicos']);
       this.FormAntecedentesDetalle.reset();
     })
   }

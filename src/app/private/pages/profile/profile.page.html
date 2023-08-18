@@ -1,6 +1,9 @@
 <app-navbar [NameRoute]="'Perfil'" [href]="''" />
 
 <ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ion-card *ngIf="paciente||medico">
     <ion-card-header>
       <div class="flex-warp">
@@ -33,7 +36,7 @@
             </span>
           </div>
           <div class="subtitle">
-            {{paciente?.usuario?.ubicacion?.provincia|titlecase}}-<span>
+            {{paciente?.usuario?.ubicacion?.provincia|titlecase}}<span>
               {{paciente?.usuario?.ubicacion?.canton|titlecase}}
             </span>
           </div>
@@ -48,7 +51,10 @@
       </div>
     </ion-card-header>
   </ion-card>
-  <app-card-items-titulo *ngIf="rol===2" [titulos]="medico?.horario?.length>0" />
+  <ng-container *ngIf="medico?.titulo.length>0">
+  <app-card-items-titulo *ngIf="rol===2" [titulos]="medico?.titulo" />
+
+  </ng-container>
   <ion-card-header *ngIf="rol===2">
     <ion-accordion-group [multiple]="false" [value]="['first']">
       <ion-accordion-group>
@@ -63,7 +69,7 @@
             </div>
           </ion-item>
 
-          <div slot="content" *ngIf="medico?.horario?.length>0"> 
+          <div slot="content" *ngIf="medico?.horario?.length>0">
             <div class="data-content" *ngFor="let horario of medico.horario">
               <ion-icon name="alarm-outline"></ion-icon>
               <div class="subtitle">
@@ -91,7 +97,7 @@
     *ngIf="paciente"
     />
   </ng-container>
-  <ng-container 
+  <ng-container
   *ngIf="medico?.cita?.length>0"
   >
   <app-card-items
@@ -129,6 +135,6 @@
     </ion-button>
   </div>
   <div class="ion-text-center ion-margin-top">
-    <ion-button (click)="logout()" color="danger"> Cerrar seción </ion-button>
+    <ion-button (click)="logout()" color="danger"> Cerrar sesión </ion-button>
   </div>
 </ion-content>

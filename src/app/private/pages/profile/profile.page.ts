@@ -16,7 +16,6 @@ export class ProfilePage implements OnInit {
   paciente:any=null;
   constructor(private authService: AuthService,private toastService: ToastService,private router:Router,private medicoService:MedicoService,private pacienteService:PacienteService) {
     console.log("constrtuctor profile")
-
     this.authService.userInformation().subscribe((data)=>{
       console.log(data)
       this.rol=data.rol.id;
@@ -33,6 +32,7 @@ export class ProfilePage implements OnInit {
       }
     })
 
+
   }
 
   ngOnInit() {
@@ -46,5 +46,27 @@ export class ProfilePage implements OnInit {
       this.router.navigate(['/login']);
       this.toastService.sucess('Has finalizado la sesión');
     });
+  }
+  handleRefresh(event:any){
+    this.userInformation(event)
+  }
+  userInformation(event:any){
+    this.authService.userInformation().subscribe((data)=>{
+      console.log(data)
+      this.rol=data.rol.id;
+      if(this.rol===3){
+        this.pacienteService.getPacienteInformation(data.id).subscribe((data)=>{
+          console.log(data)
+          event.target.complete();
+          this.paciente=data;
+        })
+      }else if(this.rol==2){
+        this.medicoService.getMedicoInformation(data.id).subscribe((data)=>{
+          console.log(data)
+          event.target.complete();
+          this.medico=data;
+        })
+      }
+    })
   }
 }

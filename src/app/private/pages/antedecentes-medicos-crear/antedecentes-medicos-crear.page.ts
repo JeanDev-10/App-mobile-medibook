@@ -5,6 +5,7 @@ import { AnimationOptions } from 'ngx-lottie';
 import { ToastService } from 'src/app/core/shared/services/toast.service';
 import { AntecedenteMedicoService } from '../../services/antecedente-medico.service';
 import {  Router } from '@angular/router';
+import { EventEmitterService } from '../dudas/services/event-emitter.service';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class AntedecentesMedicosCrearPage implements OnInit {
     path: '/assets/anim/medicina-crear.json',
   };
 
-  constructor(private formBuilder:FormBuilder,private notificacion:ToastService,private antecedenteService:AntecedenteMedicoService,private router:Router) {
+  constructor(private formBuilder:FormBuilder,private notificacion:ToastService,private antecedenteService:AntecedenteMedicoService,private router:Router,private eventEmmiterService:EventEmitterService) {
     this.FormularioAntecedentes = this.formBuilder.group({
       'condicionMedica' : new FormControl('',[Validators.required,Validators.minLength(3)]),
       'alergias' : new FormControl('',[Validators.required,Validators.minLength(3)]),
@@ -30,6 +31,7 @@ export class AntedecentesMedicosCrearPage implements OnInit {
 
     })
     this.getAntecedente();
+
    }
 
   ngOnInit() {
@@ -54,8 +56,11 @@ export class AntedecentesMedicosCrearPage implements OnInit {
         this.antecedenteService.create(antecedenteData).subscribe((data) => {
           this.notificacion.sucess('Antecedente Médico Creado');
           this.getAntecedente();
+          this.eventEmmiterService.setEvent({
+            event:'LOAD_ANTECEDENTES'
+          })
           this.FormularioAntecedentes.reset();
-          this.router.navigate(['antedecentes-medicos']);
+          this.router.navigate(['/antedecentes-medicos']);
 
         });
     }
@@ -71,6 +76,9 @@ export class AntedecentesMedicosCrearPage implements OnInit {
   EditAntecedentes(Form:any){
     this.antecedenteService.update(Form,this.antecedente_id).subscribe((data)=>{
     this.notificacion.sucess('Se actualizo el antecedente');
+    this.eventEmmiterService.setEvent({
+      event:'LOAD_ANTECEDENTES'
+    })
     this.FormularioAntecedentes.reset();
     this.antecedente_id=null;
     })

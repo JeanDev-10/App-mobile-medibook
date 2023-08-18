@@ -2,7 +2,7 @@
 
 
 <ion-content [fullscreen]="true">
-    <div class="container-div">
+    <div class="container-div" *ngIf="antecedente">
         <ion-img class="icon-img" src="../../../../assets/img/ante-detalles.png"></ion-img>
 
         <div class="datos">
@@ -18,7 +18,7 @@
             <ion-label *ngIf="antecedente.cirujias_previas" class="label-lapso" color="dark"><span>Cirujia Previa:</span> {{antecedente.cirujias_previas}}</ion-label>
             <ion-label *ngIf="!antecedente.cirujias_previas" class="label-lapso" color="dark"><span class="cirujias_previas-text">No hay Cirujias Previas.</span> {{antecedente.cirujias_previas}}</ion-label>
             <br>
-            <ion-label *ngIf="!antecedente.otros_datos"  class="label-lapso" color="dark"><span>Otros Datos:</span> {{antecedente.otros_datos}}</ion-label>  
+            <ion-label *ngIf="!antecedente.otros_datos"  class="label-lapso" color="dark"><span>Otros Datos:</span> {{antecedente.otros_datos}}</ion-label>
             <ion-label *ngIf="!antecedente.otros_datos" class="label-lapso" color="dark"><span class="cirujias_previas-text">No hay Otros Datos.</span> {{antecedente.cirujias_previas}}</ion-label>
         </div>
 

@@ -7,6 +7,7 @@ import { MedicamentosService } from '../../services/medicamentos.service';
 import { ToastController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { ToastService } from 'src/app/core/shared/services/toast.service';
+import { EventEmitterService } from '../dudas/services/event-emitter.service';
 
 @Component({
   selector: 'app-medicamentos-crear',
@@ -21,13 +22,14 @@ export class MedicamentosCrearPage implements OnInit {
     path: '/assets/anim/medicina-crear.json',
   };
 
-  constructor(private formBuilder:FormBuilder, private medicamentosService:MedicamentosService, private toastService:ToastService, private router:Router) {
+  constructor(private formBuilder:FormBuilder, private medicamentosService:MedicamentosService, private toastService:ToastService, private router:Router,private eventEmitterService:EventEmitterService                           ) {
     this.FormularioMedicamentos = this.formBuilder.group({
       'nombre' : new FormControl('',[Validators.required,Validators.minLength(3)]),
       'dosis' : new FormControl('',[Validators.required,Validators.minLength(3)]),
       'lapso' : new FormControl('',[Validators.required,Validators.minLength(3)]),
       'duracion' : new FormControl('',[Validators.required,Validators.minLength(3)])
     })
+
    }
 
   ngOnInit() {
@@ -38,6 +40,9 @@ export class MedicamentosCrearPage implements OnInit {
   CreateMedicament(Form:any){
     this.medicamentosService.Crear_Medicamento(Form).subscribe({
       next : (s)=>{
+        this.eventEmitterService.setEvent({
+          event:'LOAD_MEDICAMENTOS'
+        })
         this.toastService.sucess("Medicamentos Creados Correctamente.");
         this.router.navigate(['/medicamentos']);
       }
