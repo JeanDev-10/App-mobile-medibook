@@ -27,6 +27,7 @@
     "@capacitor/keyboard": "5.0.6",
     "@capacitor/status-bar": "5.0.6",
     "@ionic/angular": "^7.0.0",
+    "socket.io-client": "^4.7.2",
     "ionicons": "^7.0.0",
     "lottie-web": "^5.12.2",
     "ngx-lottie": "^10.0.0",

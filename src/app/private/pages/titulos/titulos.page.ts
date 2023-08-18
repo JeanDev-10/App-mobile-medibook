@@ -8,7 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TitulosPage implements OnInit {
   @Input() medico!:any;
   titulo!:any;
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit() {
   }

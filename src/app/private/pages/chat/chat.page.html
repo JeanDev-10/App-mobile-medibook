@@ -1,11 +1,67 @@
 <app-navbar [NameRoute]="'Chat'" [href]="''" />
 
+<ion-content>
+  <div class="chat-container ">
+    <div  [ngClass]="message.senderName==nombre?' message outgoing':'message incoming'"  *ngFor="let message of messages">
+      <div *ngIf="!(message.senderName==nombre)" [ngClass]="!(message.senderName==nombre)?'message-avatar2':'message-avatar1'">
+        <img
+          src="https://ionicframework.com/docs/img/demos/avatar.svg"
+          alt="Avatar"
+        />
+      </div>
 
-<ion-content [fullscreen]="true">
+      <div  [ngClass]="message.senderName==nombre?'message-content2':'message-content1'">
+        <div  [ngClass]="message.senderName==nombre?'message-name2':'message-name1'"> {{message.senderName|titlecase}} </div>
+        {{message.text |titlecase}}
+      </div>
+      <div *ngIf="message.senderName==nombre" class="message-avatar2">
+        <img
+          src="https://ionicframework.com/docs/img/demos/avatar.svg"
+          alt="Avatar"
+        />
+      </div>
+    </div>
 
+    <!-- <div class="message outgoing">
+      <div class="message-content2">
+        <div class="message-name2">Tú</div>
+        Sean serio muchachos
+      </div>
+      <div class="message-avatar2">
+        <img
+          src="https://ionicframework.com/docs/img/demos/avatar.svg"
+          alt="Avatar"
+        />
+      </div>
+    </div>
+    <div class="message incoming">
+      <div class="message-avatar1">
+        <img
+          src="https://ionicframework.com/docs/img/demos/avatar.svg"
+          alt="Avatar"
+        />
+      </div>
+      <div class="message-content1">
+        <div class="message-name1">Tú</div>
+        Sean serio muchachos
+      </div>
+    </div> -->
 
-
-
-
-
+    <!-- Agrega más mensajes aquí -->
+  </div>
 </ion-content>
+<ion-footer collapse="fade " class="">
+  <div class="message-bar">
+    <ion-input [(ngModel)]="newMessage" placeholder="Escribe tu mensaje"></ion-input>
+
+    <ion-icon (click)="sendMessage()" class="send" name="send-outline"></ion-icon>
+  </div>
+</ion-footer>
+<!-- <ion-footer>
+    <ion-toolbar>
+        <ion-input placeholder="Escribe un mensaje..."></ion-input>
+        <ion-button expand="block" class="send-button">
+            <ion-icon slot="icon-only" name="paper-plane"></ion-icon>
+        </ion-button>
+    </ion-toolbar>
+</ion-footer> -->
