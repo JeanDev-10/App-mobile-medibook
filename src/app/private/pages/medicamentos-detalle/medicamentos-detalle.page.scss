@@ -12,13 +12,12 @@ ion-content::part(background) {
     background-color: #e4e4e4a9;
     width: 350px;
     height: 500px;
-    border-radius: 15px;
+    margin: auto;
+    margin-top: 20px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
-    margin-left: 33px;
-    margin-top: 20px;
 }
 
 ion-button {
