@@ -4,9 +4,10 @@
 
     <ion-button type="button" [routerLink]="['/medicamentos-crear']" class="add">
         <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+        Añadir
     </ion-button>
 
-    <div [routerLink]="['/medicamentos-detalle', medicamento.id]"  *ngFor="let medicamento of Index_medicamentos">
+    <div [routerLink]="['/medicamentos-detalle', medicamento.id]" *ngFor="let medicamento of Index_medicamentos">
         <ion-img class="icon-img" src="../../../../assets/img/medicaments.png"></ion-img>
         <ion-label class="label-nombre" color="tertiary">{{medicamento.nombre}}</ion-label>
         <br>

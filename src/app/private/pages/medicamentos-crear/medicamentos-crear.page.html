@@ -9,7 +9,7 @@
 
     <ion-list>
 
-        <form [formGroup]="FormularioMedicamentos" (ngSubmit)="CreateMedicament(FormularioMedicamentos.value)">
+        <form class="formit" [formGroup]="FormularioMedicamentos" (ngSubmit)="CreateMedicament(FormularioMedicamentos.value)">
             <ion-item>
                 <ion-icon name="eyedrop-outline"></ion-icon>
                 <ion-input formControlName="nombre" class="inputs" label="Medicamento" labelPlacement="floating" placeholder="Lozartan"></ion-input>

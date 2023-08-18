@@ -8,7 +8,7 @@
 
     <ion-list>
 
-        <form style="margin: 0px 20px 20px 20px;" [formGroup]="FormularioExamenes" (submit)="CreateExamen(FormularioExamenes.value)">
+        <form class="formit" style="margin: 0px 20px 20px 20px;" [formGroup]="FormularioExamenes" (submit)="CreateExamen(FormularioExamenes.value)">
             <ion-item>
                 <ion-icon name="eyedrop-outline"></ion-icon>
                 <ion-input formControlName="nombre" class="inputs" label="Nombre" labelPlacement="floating" placeholder=""></ion-input>
@@ -53,10 +53,10 @@
 
 
             <div style="display: flex; justify-content: center;">
-              <ion-button style="margin-top: 20px; " color="success" shape="round" [disabled]="FormularioExamenes.invalid" type="submit">
-                Registrar
-                <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
-            </ion-button>
+                <ion-button style="margin-top: 20px; " color="success" shape="round" [disabled]="FormularioExamenes.invalid" type="submit">
+                    Registrar
+                    <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
+                </ion-button>
             </div>
 
         </form>

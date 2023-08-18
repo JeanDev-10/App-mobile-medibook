@@ -1,140 +1,108 @@
 <app-navbar [NameRoute]="'Perfil'" [href]="''" />
 
 <ion-content [fullscreen]="true">
-  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-  <ion-card *ngIf="paciente||medico">
-    <ion-card-header>
-      <div class="flex-warp">
-        <p class="title">
-          Perfil <span> {{rol==3?'Paciente':'Medico'}} </span>
-        </p>
-        <img
-          class="img-profile"
-          alt="user"
-          src="https://ionicframework.com/docs/img/demos/avatar.svg"
-        />
-        <h3>
-          {{medico?.usuario?.nombre |titlecase}}
-          <span> {{medico?.usuario.apellido|titlecase}} </span>
-        </h3>
-        <h3>
-          {{paciente?.usuario?.nombre |titlecase}}
-          <span> {{paciente?.usuario?.apellido|titlecase}} </span>
-        </h3>
-        <p>{{medico?.usuario?.email}}</p>
-        <p>{{paciente?.usuario?.email}}</p>
-      </div>
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <ion-card *ngIf="paciente||medico">
+        <ion-card-header>
+            <div class="flex-warp">
+                <p class="title">
+                    Perfil <span> {{rol==3?'Paciente':'Medico'}} </span>
+                </p>
+                <img class="img-profile" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+                <h3>
+                    {{medico?.usuario?.nombre |titlecase}}
+                    <span> {{medico?.usuario.apellido|titlecase}} </span>
+                </h3>
+                <h3>
+                    {{paciente?.usuario?.nombre |titlecase}}
+                    <span> {{paciente?.usuario?.apellido|titlecase}} </span>
+                </h3>
+                <p>{{medico?.usuario?.email}}</p>
+                <p>{{paciente?.usuario?.email}}</p>
+            </div>
 
-      <div class="flex-warp-content">
-        <div class="data-content">
-          <ion-icon name="location-outline"></ion-icon>
-          <div class="subtitle">
-            {{medico?.usuario?.ubicacion?.provincia|titlecase}}-<span>
+            <div class="flex-warp-content">
+                <div class="data-content">
+                    <ion-icon name="location-outline"></ion-icon>
+                    <div class="subtitle">
+                        {{medico?.usuario?.ubicacion?.provincia|titlecase}}-<span>
               {{medico?.usuario?.ubicacion?.canton|titlecase}}
             </span>
-          </div>
-          <div class="subtitle">
-            {{paciente?.usuario?.ubicacion?.provincia|titlecase}}<span>
+                    </div>
+                    <div class="subtitle">
+                        {{paciente?.usuario?.ubicacion?.provincia|titlecase}}<span>
               {{paciente?.usuario?.ubicacion?.canton|titlecase}}
             </span>
-          </div>
-        </div>
+                    </div>
+                </div>
 
-        <div class="data-content" *ngIf="rol===2">
-          <ion-icon name="calendar-outline"></ion-icon>
-          <div class="subtitle">
-            Especialidad: {{medico?.especialidad?.nombre}}
-          </div>
-        </div>
-      </div>
+                <div class="data-content" *ngIf="rol===2">
+                    <ion-icon name="calendar-outline"></ion-icon>
+                    <div class="subtitle">
+                        Especialidad: {{medico?.especialidad?.nombre}}
+                    </div>
+                </div>
+            </div>
+        </ion-card-header>
+    </ion-card>
+    <ng-container *ngIf="medico?.titulo.length>0">
+        <app-card-items-titulo *ngIf="rol===2" [titulos]="medico?.titulo" />
+
+    </ng-container>
+    <ion-card-header *ngIf="rol===2">
+        <ion-accordion-group [multiple]="false" [value]="['first']">
+            <ion-accordion-group>
+                <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start">
+                    <ion-item class="dias-laborables" slot="header" color="medium">
+                        <div class="subtitle">
+                            <span>Días Laborables: </span>{{medico?.horario?.length}}
+                        </div>
+                    </ion-item>
+
+                    <div slot="content" *ngIf="medico?.horario?.length>0">
+                        <div class="data-content" *ngFor="let horario of medico.horario">
+                            <ion-icon name="alarm-outline"></ion-icon>
+                            <div class="subtitle">
+                                Horario {{horario.dia |titlecase}}
+                                <span> {{horario.hora_inicio}} </span> -
+                                <span> {{horario.hora_fin}} </span>
+                            </div>
+                        </div>
+                    </div>
+                </ion-accordion>
+            </ion-accordion-group>
+        </ion-accordion-group>
     </ion-card-header>
-  </ion-card>
-  <ng-container *ngIf="medico?.titulo.length>0">
-  <app-card-items-titulo *ngIf="rol===2" [titulos]="medico?.titulo" />
+    <ng-container *ngIf="paciente?.antecedentes_medico?.length>0">
 
-  </ng-container>
-  <ion-card-header *ngIf="rol===2">
-    <ion-accordion-group [multiple]="false" [value]="['first']">
-      <ion-accordion-group>
-        <ion-accordion
-          value="second"
-          toggleIcon="caret-down-circle"
-          toggleIconSlot="start"
-        >
-          <ion-item class="dias-laborables" slot="header" color="medium">
-            <div class="subtitle">
-              <span>Días Laborables: </span>{{medico?.horario?.length}}
-            </div>
-          </ion-item>
+        <app-card-items-antecedentes [antecedentes]="paciente?.antecedentes_medico" *ngIf="rol===3" />
+    </ng-container>
+    <ng-container *ngIf="paciente?.cita?.length>0">
+        <app-card-items [Number]="paciente?.cita?.length" [Nombre]="'Citas'" *ngIf="paciente" />
+    </ng-container>
+    <ng-container *ngIf="medico?.cita?.length>0">
+        <app-card-items [Number]="medico?.cita?.length" [Nombre]="'Citas'" *ngIf="medico" />
+    </ng-container>
+    <ng-container *ngIf="paciente?.vacuna?.length>0">
 
-          <div slot="content" *ngIf="medico?.horario?.length>0">
-            <div class="data-content" *ngFor="let horario of medico.horario">
-              <ion-icon name="alarm-outline"></ion-icon>
-              <div class="subtitle">
-                Horario {{horario.dia |titlecase}}
-                <span> {{horario.hora_inicio}} </span> -
-                <span> {{horario.hora_fin}} </span>
-              </div>
-            </div>
-          </div>
-        </ion-accordion>
-      </ion-accordion-group>
-    </ion-accordion-group>
-  </ion-card-header>
-  <ng-container *ngIf="paciente?.antecedentes_medico?.length>0">
+        <app-card-items [Number]="paciente?.vacuna?.length" [Nombre]="'Vacunas'" *ngIf="rol===3" />
+    </ng-container>
+    <ng-container *ngIf="paciente?.medicamento?.length">
 
-    <app-card-items-antecedentes
-    [antecedentes]="paciente?.antecedentes_medico"
-    *ngIf="rol===3"
-    />
-  </ng-container>
-  <ng-container *ngIf="paciente?.cita?.length>0">
-    <app-card-items
-    [Number]="paciente?.cita?.length"
-    [Nombre]="'Citas'"
-    *ngIf="paciente"
-    />
-  </ng-container>
-  <ng-container
-  *ngIf="medico?.cita?.length>0"
-  >
-  <app-card-items
-  [Number]="medico?.cita?.length"
-  [Nombre]="'Citas'"
-  *ngIf="medico"
-/></ng-container>
-<ng-container *ngIf="paciente?.vacuna?.length>0">
+        <app-card-items [Number]="paciente?.medicamento?.length" [Nombre]="'Medicamentos'" *ngIf="rol===3" />
+    </ng-container>
+    <ng-container *ngIf="paciente?.examenes_medico?.length>0">
 
-  <app-card-items
-  [Number]="paciente?.vacuna?.length"
-  [Nombre]="'Vacunas'"
-  *ngIf="rol===3"
-  />
-</ng-container>
-<ng-container *ngIf="paciente?.medicamento?.length" >
-
-  <app-card-items
-  [Number]="paciente?.medicamento?.length"
-  [Nombre]="'Medicamentos'"
-  *ngIf="rol===3"
-  />
-</ng-container>
-<ng-container *ngIf="paciente?.examenes_medico?.length>0">
-
-  <app-card-items
-  [Number]="paciente?.examenes_medico?.length"
-  [Nombre]="'Examenes'"
-  *ngIf="rol===3"
-  />
-</ng-container>
-  <div class="ion-text-center ion-margin-top">
-    <ion-button [routerLink]="['/cambiar-password']" color="primary">
-      Cambiar contraseña
-    </ion-button>
-  </div>
-  <div class="ion-text-center ion-margin-top">
-    <ion-button (click)="logout()" color="danger"> Cerrar sesión </ion-button>
-  </div>
+        <app-card-items [Number]="paciente?.examenes_medico?.length" [Nombre]="'Examenes'" *ngIf="rol===3" />
+    </ng-container>
+    <div class="ion-text-center ">
+        <ion-button [routerLink]="['/cambiar-password']" color="primary">
+            Cambiar contraseña
+        </ion-button>
+    </div>
+    <div class="ion-text-center ">
+        <ion-button (click)="logout()" color="danger"> Cerrar sesión </ion-button>
+    </div>
 </ion-content>

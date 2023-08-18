@@ -3,16 +3,17 @@ ion-content::part(background) {
     background-size: cover;
     background-position: start;
     background-repeat: no-repeat;
-  
     /* Agrega un color de fondo con opacidad utilizando rgba() */
-    background-color: rgba(255, 255, 255, 0.9); /* El último valor (0.5) controla la opacidad */
+    background-color: rgba(255, 255, 255, 0.9);
+    /* El último valor (0.5) controla la opacidad */
 }
 
 .add {
     position: relative;
-    left: 180px;
-    width: 50px;
+    left: 140px;
+    width: 130px;
     height: 50px;
+    margin-top: 20px;
 }
 
 div {
@@ -61,4 +62,3 @@ div {
     top: -50px;
     font-size: 23px;
 }
-
