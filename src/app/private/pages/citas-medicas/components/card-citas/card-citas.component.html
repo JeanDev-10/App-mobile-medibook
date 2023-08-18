@@ -1,9 +1,12 @@
-<div *ngIf="cita?.estado==1">
-    <ion-img [routerLink]="['/cita-medicas-detalle/'+cita.id]" class="icon-img" src="https://res.cloudinary.com/duhm7ousd/image/upload/v1691509229/Imagenes-MediBook/Iconos/corazon-anaranjado_nb7vc6.png"></ion-img>
-    <ion-label [routerLink]="['/cita-medicas-detalle/'+cita.id]" class="label-titulo" color="tertiary"> {{cita.titulo}} </ion-label>
-    <br>
-    <ion-badge class="label-fecha-final" color="success">Finaliza: {{cita.fecha|date}} </ion-badge>
-    <ion-button *ngIf="user.rol.nombre=='Medico'"  color="medium" [routerLink]="['/observacion-create/'+cita.id]" routerLinkActive="router-link-active" class="btn-observacion">Observacion</ion-button>
-    <br>
-    <ion-button  *ngIf="user.rol.nombre=='Medico'" color="medium" [routerLink]="['/recetas-crear/'+cita.id]" routerLinkActive="router-link-active" class="btn-receta">Añadir Receta</ion-button>
+<div class="grid" *ngIf="cita?.estado==1">
+    <div class="flex-warp">
+        <img class="icon-img" [routerLink]="['/cita-medicas-detalle/'+cita.id]" src="https://res.cloudinary.com/duhm7ousd/image/upload/v1691509229/Imagenes-MediBook/Iconos/corazon-anaranjado_nb7vc6.png"/>
+    </div> 
+    
+    <div class="block-warp-2">
+        <p [routerLink]="['/cita-medicas-detalle/'+cita.id]" class="title" color="tertiary"> {{cita.titulo}} </p>
+        <ion-badge class="description" color="success">Finaliza: {{cita.fecha|date}} </ion-badge>
+        <ion-button *ngIf="user.rol.nombre=='Medico'"  color="medium" [routerLink]="['/observacion-create/'+cita.id]" routerLinkActive="router-link-active" class="btn-observacion">Observacion</ion-button>
+        <ion-button  *ngIf="user.rol.nombre=='Medico'" color="medium" [routerLink]="['/recetas-crear/'+cita.id]" routerLinkActive="router-link-active" class="btn-receta">Añadir Receta</ion-button>
+    </div>
 </div>

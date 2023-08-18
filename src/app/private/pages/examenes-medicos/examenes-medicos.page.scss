@@ -1,50 +1,15 @@
-ion-content::part(background) {
-  background-image: url('https://res.cloudinary.com/duhm7ousd/image/upload/v1692322450/Imagenes-MediBook/img/fondo_movil_oto4cx.jpg');
-  background-size: cover;
-  background-position: start;
-  background-repeat: no-repeat;
-
-  /* Agrega un color de fondo con opacidad utilizando rgba() */
-  background-color: rgba(255, 255, 255, 0.9); /* El último valor (0.5) controla la opacidad */
-}
-
-.add {
-    position: relative;
-    left: 180px;
-    width: 50px;
-    height: 50px;
+.app {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: 120px;
+    margin-right: 120px;
     margin-top: 20px;
 }
 
-.active {
-    font-size: 30px;
-    margin-left: -70px;
-    margin-top: 30px;
-}
-
-.citas-formato {
-    font-size: 30px;
-    position: relative;
-    left: 30px;
-}
-
-.icon-img {
-    width: 90px;
-    height: 90px;
-    position: relative;
-    top: 30px;
-    left: 25px;
-}
-
-.label-estado-3 {
-    position: relative;
-    left: 130px;
-    top: -45px;
-}
-
-.label-cita {
-    position: relative;
-    left: 130px;
-    top: -50px;
-    font-size: 23px;
+.add {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    text-align: center;
 }

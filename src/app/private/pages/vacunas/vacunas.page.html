@@ -2,10 +2,13 @@
 
 
 <ion-content [fullscreen]="true">
-  <ion-button type="button" [routerLink]="['/vacunas-crear']" class="add">
-    <ion-icon  slot="icon-only" name="add-outline"></ion-icon>
-  </ion-button>
+  <div class="app">
+    <ion-button type="button" [routerLink]="['/vacunas-crear']" class="add">
+      <ion-icon  slot="icon-only" name="add-outline"></ion-icon>
+      Añadir
+    </ion-button>
+  </div>
 
- <app-card-vacunas />
+  <app-card-vacunas />
 
 </ion-content>
