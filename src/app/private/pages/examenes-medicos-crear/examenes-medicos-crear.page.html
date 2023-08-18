@@ -8,7 +8,7 @@
 
     <ion-list>
 
-        <form [formGroup]="FormularioExamenes" (submit)="CreateExamen(FormularioExamenes.value)">
+        <form style="margin: 0px 20px 20px 20px;" [formGroup]="FormularioExamenes" (submit)="CreateExamen(FormularioExamenes.value)">
             <ion-item>
                 <ion-icon name="eyedrop-outline"></ion-icon>
                 <ion-input formControlName="nombre" class="inputs" label="Nombre" labelPlacement="floating" placeholder=""></ion-input>
@@ -52,10 +52,13 @@
             <ion-badge *ngIf="FormularioExamenes.get('resultado')?.hasError('minlength')" color="warning">3 Caracteres Minímos Permitidos</ion-badge>
 
 
-            <ion-button [disabled]="FormularioExamenes.invalid" color="medium" type="submit">
+            <div style="display: flex; justify-content: center;">
+              <ion-button style="margin-top: 20px; " color="success" shape="round" [disabled]="FormularioExamenes.invalid" type="submit">
                 Registrar
                 <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
             </ion-button>
+            </div>
+
         </form>
 
     </ion-list>

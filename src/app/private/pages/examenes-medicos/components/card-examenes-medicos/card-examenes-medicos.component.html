@@ -1,11 +1,15 @@
 <ion-card>
   <ion-card-header>
     <div [routerLink]="['/examenes-medicos-detalle',examenmedico.id]" *ngFor="let examenmedico of ExamenesMedicos_Todos">
-      <ion-img class="icon-img" src="../../../../assets/img/examen.png"></ion-img>
-      <ion-label class="label-nombre" color="tertiary">{{examenmedico.nombre}}
-      </ion-label>
-      <br>
-      <ion-badge class="label-fecha" color="success">{{examenmedico.fecha}}</ion-badge>
+      <div class="interno">
+        <ion-img class="icon-img" src="../../../../assets/img/examen.png"></ion-img>
+        <div style="margin-left: 20px;">
+          <ion-label class="label-nombre" color="tertiary">{{examenmedico.nombre}}</ion-label>
+          <br>
+          <ion-badge class="label-fecha" color="success">{{examenmedico.fecha}}</ion-badge>
+        </div>
+      </div>
+
     </div>
   </ion-card-header>
 </ion-card>
