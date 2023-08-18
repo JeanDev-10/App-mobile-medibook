@@ -194,7 +194,7 @@ const routes: Routes = [
           import('../pages/pagos/pagos.module').then((m) => m.PagosPageModule),
       },
       {
-        path: 'pagos-crear',
+        path: 'pagos-crear/:idCita/:idMedico',
         loadChildren: () =>
           import('../pages/pagos-crear/pagos-crear.module').then(
             (m) => m.PagosCrearPageModule
