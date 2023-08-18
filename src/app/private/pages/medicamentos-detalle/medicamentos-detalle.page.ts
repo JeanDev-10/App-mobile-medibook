@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { MedicamentosService } from '../../services/medicamentos.service';
+import { ToastService } from 'src/app/core/shared/services/toast.service';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class MedicamentosDetallePage implements OnInit {
 
   StateForm:boolean = false;
 
-  constructor(private formBuilder:FormBuilder, private activatedRoute:ActivatedRoute, private toastController:ToastController,private router:Router, private medicamentoServicio:MedicamentosService) { 
+  constructor(private formBuilder:FormBuilder, private activatedRoute:ActivatedRoute, private toastService:ToastService,private router:Router, private medicamentoServicio:MedicamentosService) { 
     this.FormularioMedicamentoDetalle = this.formBuilder.group({
       'nombre' : new FormControl('',[Validators.required,Validators.minLength(3)]),
       'dosis' : new FormControl('',[Validators.required,Validators.minLength(3)]),
@@ -56,7 +57,7 @@ export class MedicamentosDetallePage implements OnInit {
     debugger;
     this.medicamentoServicio.Actualizar_Medicamento(this.idMedicamento,Form).subscribe({
       next : (s) =>{
-        this.presentToast2('bottom');
+        this.toastService.sucess('Medicamentos Actualizados Correctamente.');
         this.router.navigate(['medicamentos']);
       }
     })
@@ -69,34 +70,11 @@ export class MedicamentosDetallePage implements OnInit {
       next: (s) =>{
         debugger;
         this.router.navigate(['/medicamentos'])
-        // Toast de ionic
-        this.presentToast('bottom');
+        this.toastService.sucess("Medicamento Eliminado Correctamente.");
       }
     })
   }
 
-
-  // Se podría mejorar el toast con un diseño mejor
-
-  async presentToast(position: 'top' | 'middle' | 'bottom') {
-    const toast = await this.toastController.create({
-      message: 'Medicamento, Eliminado Correctamente!',
-      duration: 1500,
-      position: position,
-    });
-
-    await toast.present();
-  }
-
-  async presentToast2(position: 'top' | 'middle' | 'bottom') {
-    const toast = await this.toastController.create({
-      message: 'Medicamento, Actualizado Correctamente!',
-      duration: 1500,
-      position: position,
-    });
-
-    await toast.present();
-  }
 
   // Cambiar el estado del formulario
 
