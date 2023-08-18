@@ -2,8 +2,6 @@
 
 div {
   background-color: #f3f3f3e0;
-  width: 350px;
-  height: 180px;
   margin: auto;
   border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -11,7 +9,7 @@ div {
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
   margin-top: 20px;
-  box-shadow: 5px 5px 5px rgba(112, 112, 112, 0.345);
+  box-shadow: 5px 5px 5px rgba(112, 112, 112, 0.345);;
 }
 
 .icon-img {
@@ -59,3 +57,4 @@ ion-button{
   left: 10px;
   top: -72.5px;
 }
+
