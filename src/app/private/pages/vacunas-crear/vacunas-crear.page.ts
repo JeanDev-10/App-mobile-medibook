@@ -39,6 +39,7 @@ export class VacunasCrearPage implements OnInit {
     this.vacunasService.Crear_Vacuna(Form).subscribe({
       next: (s) =>{
         this.router.navigate(['/vacunas']);
+        this.notificacion.sucess('Vacuna Creada Exitosamente.');
       }
     })
   }
