@@ -14,11 +14,11 @@
     <i>
       <ion-textarea [readonly]="true" [label]="contenido"></ion-textarea>
     </i>
-    <ion-button (click)="cancelReply()">
+    <ion-button (click)="cancelReply()" *ngIf="closeReplyDuda">
       <ion-icon slot="icon-only" name="close"></ion-icon>
     </ion-button>
   </ion-item>
-  <div class="container">
+  <div class="container" *ngIf="showDuda">
     <form
       class="ion-margin"
       [formGroup]="FormularioObservacion"

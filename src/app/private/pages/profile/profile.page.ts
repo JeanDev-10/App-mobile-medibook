@@ -14,7 +14,6 @@ export class ProfilePage implements OnInit {
   rol!:number;
   medico:any=null;
   paciente:any=null;
-
   constructor(private authService: AuthService,private toastService: ToastService,private router:Router,private medicoService:MedicoService,private pacienteService:PacienteService) {
     console.log("constrtuctor profile")
 
