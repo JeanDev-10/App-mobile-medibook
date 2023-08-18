@@ -4,11 +4,11 @@
 <ion-content [fullscreen]="true">
     <div class="container-div">
         <ion-img class="icon-img" src="../../../../assets/img/medicaments.png"></ion-img>
-        <ion-label class="label-nombre" color="tertiary">{{ShowMedicamento?.nombre}}</ion-label>
+        <ion-label class="label-nombre">{{ShowMedicamento?.nombre}}</ion-label>
         <br>
         <ion-badge class="label-dosis" color="success">{{ShowMedicamento?.dosis}}</ion-badge>
         <br>
-        <ion-label class="label-lapso" color="dark">Tiempo de Lapso:  {{ShowMedicamento?.lapso}}</ion-label>
+        <ion-label class="label-lapso" color="dark">Tiempo de Lapso: {{ShowMedicamento?.lapso}}</ion-label>
         <br>
         <ion-label class="label-duracion" color="dark">Duración: {{ShowMedicamento?.duracion}}</ion-label>
 
@@ -27,9 +27,9 @@
     </div>
 
 
-    <form *ngIf="StateForm" [formGroup]="FormularioMedicamentoDetalle" (ngSubmit)="UpdateMedicament(FormularioMedicamentoDetalle.value)">
+    <form style="margin: 30px;" *ngIf="StateForm" [formGroup]="FormularioMedicamentoDetalle" (ngSubmit)="UpdateMedicament(FormularioMedicamentoDetalle.value)">
         <ion-item>
-            <ion-icon name="eyedrop-outline"></ion-icon>
+            <ion-icon class="iconlol" name="eyedrop-outline"></ion-icon>
             <ion-input value="Lozártan" formControlName="nombre" class="inputs" label="Medicamento" labelPlacement="floating" placeholder="Lozartan"></ion-input>
         </ion-item>
 
@@ -44,7 +44,7 @@
         <!-- Input de dosis -->
 
         <ion-item>
-            <ion-icon name="skull-outline"></ion-icon>
+            <ion-icon class="iconlol" name="skull-outline"></ion-icon>
             <ion-input formControlName="dosis" class="inputs" label="Dosis" labelPlacement="floating" placeholder="50 mg"></ion-input>
         </ion-item>
 
@@ -59,7 +59,7 @@
         <!-- Input de lapso -->
 
         <ion-item>
-            <ion-icon name="alarm-outline"></ion-icon>
+            <ion-icon class="iconlol" name="alarm-outline"></ion-icon>
             <ion-input formControlName="lapso" class="inputs" label="Lapso" labelPlacement="floating" placeholder="8 Horas"></ion-input>
         </ion-item>
 
@@ -74,7 +74,7 @@
         <!-- Input duración -->
 
         <ion-item>
-            <ion-icon name="hourglass-outline"></ion-icon>
+            <ion-icon class="iconlol" name="hourglass-outline"></ion-icon>
             <ion-input formControlName="duracion" class="inputs" label="Duración" labelPlacement="floating" placeholder="4 Meses"></ion-input>
         </ion-item>
 
@@ -95,17 +95,20 @@
         <!-- Validacion de campo dosis caracter menor que 3 -->
         <ion-badge *ngIf="FormularioMedicamentoDetalle.get('dosis')?.hasError('minlength')" color="warning">3 Caracteres Minímos Permitidos</ion-badge>
 
-        
-        <ion-button [disabled]="FormularioMedicamentoDetalle.invalid" color="medium" type="submit">
-            Actualizar Medicamento
-            <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
-        </ion-button>
+
+        <div class="btn">
+            <ion-button shape="round" [disabled]="FormularioMedicamentoDetalle.invalid" color="success" type="submit">
+                Actualizar Medicamento
+                <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
+            </ion-button>
+        </div>
+
 
         <br><br><br><br><br><br>
     </form>
 
 
-   <!-- <ion-fab [routerLink]="['/medicamentos']" slot="fixed" horizontal="end" vertical="start">
+    <!-- <ion-fab [routerLink]="['/medicamentos']" slot="fixed" horizontal="end" vertical="start">
         <ion-fab-button color="dark">
             <ion-icon name="chevron-back"></ion-icon>
         </ion-fab-button>

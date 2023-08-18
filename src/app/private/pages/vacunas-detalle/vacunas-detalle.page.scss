@@ -1,14 +1,24 @@
-.container-div{
-    background-color: #95a5a6a9;
+ion-content::part(background) {
+    background-image: url('https://res.cloudinary.com/duhm7ousd/image/upload/v1692322450/Imagenes-MediBook/img/fondo_movil_oto4cx.jpg');
+    background-size: cover;
+    background-position: start;
+    background-repeat: no-repeat;
+    /* Agrega un color de fondo con opacidad utilizando rgba() */
+    background-color: rgba(255, 255, 255, 0.9);
+    /* El último valor (0.5) controla la opacidad */
+}
+
+.container-div {
+    background-color: #f1f1f1ab;
+    position: relative;
     width: 350px;
-    height: 500px;
-    border-radius: 15px;
+    height: 400px;
+    margin: auto;
+    margin-top: 30px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
-    margin-left: 35px;
-    margin-top: 20px;
 }
 
 ion-datetime {
@@ -16,30 +26,29 @@ ion-datetime {
     --background-rgb: 245, 235, 247;
     --wheel-highlight-background: rgb(218, 216, 255);
     --wheel-fade-background-rgb: 245, 235, 247;
-  }
-  
-  ion-datetime::part(wheel-item) {
-    color: rgb(255, 66, 97);
-  }
-  
-  ion-datetime::part(wheel-item active) {
-    color: rgb(128, 30, 171);
-  }
+}
 
-ion-button{
+ion-datetime::part(wheel-item) {
+    color: rgb(255, 66, 97);
+}
+
+ion-datetime::part(wheel-item active) {
+    color: rgb(128, 30, 171);
+}
+
+ion-button {
     margin-left: 15px;
 }
 
-.inputs{
+.inputs {
     margin-left: 10px;
 }
 
-.fecha{
+.fecha {
     margin-left: -50px;
 }
 
-
-.icon-img{
+.icon-img {
     width: 150px;
     height: 150px;
     position: relative;
@@ -47,28 +56,37 @@ ion-button{
     left: 115px;
 }
 
-
-.close{
-    margin-left: -50px;
-    margin-top: 230px;
+.close {
+    position: absolute;
+    top: 8px;
+    left: 280px;
 }
 
-.edit{
-    margin-left: -140px;
-    margin-top: 230px;
+.edit {
+    margin-left: -110px;
+    margin-top: 120px;
 }
 
-.label-vacuna{
+.label-vacuna {
     position: relative;
     top: 40px;
-    left: 140px;
+    left: 100px;
     font-size: 30px;
+    color: rgb(66, 66, 66);
+    font-weight: bold;
 }
 
-.label-fecha{
+.label-fecha {
     position: relative;
-    top: 80px;
-    left: 70px;
+    top: 70px;
+    left: 50px;
     font-size: 16px;
 }
 
+.btn {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 20px;
+}
