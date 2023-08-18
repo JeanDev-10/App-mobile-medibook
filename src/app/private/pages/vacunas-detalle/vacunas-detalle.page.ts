@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { AnimationOptions } from 'ngx-lottie';
 import { VacunasService } from '../../services/vacunas.service';
+import { EventEmitterService } from '../dudas/services/event-emitter.service';
 import { ToastService } from 'src/app/core/shared/services/toast.service';
 
 @Component({
@@ -27,7 +28,7 @@ export class VacunasDetallePage implements OnInit {
 
 
 
-  constructor(private formBuilder:FormBuilder, private router:Router, private toastService:ToastService, private vacunasService:VacunasService, private activatedRouter:ActivatedRoute) {
+    constructor(private formBuilder:FormBuilder, private router:Router, private toastController:ToastController, private vacunasService:VacunasService, private activatedRouter:ActivatedRoute,private eventEmitterService:EventEmitterService,private toastService:ToastService) {
 
    }
 
@@ -60,9 +61,12 @@ export class VacunasDetallePage implements OnInit {
   DeleteMedicament(){
     this.vacunasService.Eliminar_Vacuna(this.idVacuna).subscribe({
       next: (s) =>{
+        this.eventEmitterService.setEvent({
+          event:'LOAD_VACUNAS'
+        })
         this.router.navigate(['vacunas'])
         // Toast de ionic
-        this.toastService.sucess('Vacuna Eliminada Correctamente.');
+        this.toastService.sucess('Vacuna eliminada exitosamente!')
       }
     })
   }
@@ -73,8 +77,12 @@ export class VacunasDetallePage implements OnInit {
   UpdateMedicament(form:any){
     this.vacunasService.Actualizar_Vacuna(this.idVacuna,form).subscribe({
       next: (s) =>{
-        this.router.navigate(['/vacunas']);
-        this.toastService.sucess('Vacuna Actualizada Correctamente.');
+        this.eventEmitterService.setEvent({
+          event:'LOAD_VACUNAS'
+        })
+        this.toastService.sucess('Vacuna editada exitosamente!')
+
+        this.router.navigate(['/vacunas'])
       }
     })
   }

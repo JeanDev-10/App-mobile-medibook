@@ -3,52 +3,52 @@
 
 <ion-content [fullscreen]="true">
 
-  <p class="title">Detalle título</p>
+    <p class="title">Detalle título</p>
 
-  <ion-card>
-    <ion-card-header>
-       <p>{{titulo.nombre}}</p>
-       <ion-badge color="success">{{titulo.fecha}}</ion-badge>
-       <div class="icon-content">
-        <ion-icon (click)="edit()" class="icon-warp" name="create-outline"></ion-icon>
-        <ion-icon (click)="Delete()" class="icon-warp" name="trash-outline"></ion-icon>
-       </div>
-    </ion-card-header>
-  </ion-card>
-
-
-  <ion-list *ngIf="editShow">
-
-    <form [formGroup]="FormularioTitulo" (submit)="Update(FormularioTitulo.value)">
+    <ion-card>
+        <ion-card-header>
+            <p>{{titulo?.nombre}}</p>
+            <ion-badge color="success">{{titulo?.fecha}}</ion-badge>
+            <div class="icon-content">
+                <ion-icon (click)="edit()" class="icon-warp" name="create-outline"></ion-icon>
+                <ion-icon (click)="Delete()" class="icon-warp" name="trash-outline"></ion-icon>
+            </div>
+        </ion-card-header>
+    </ion-card>
 
 
-        <ion-item>
-            <ion-icon slot="start" name="library-outline"></ion-icon>
-            <ion-input formControlName="nombre" placeholder="Medico General" class="inputs" label="Nombre de Titulo" labelPlacement="floating" type="text"></ion-input>
-        </ion-item>
+    <ion-list *ngIf="editShow">
 
-        <!-- Validación de campo nombre requerido -->
-        <div class="mt-1" *ngIf="FormularioTitulo.get('nombre')?.invalid && FormularioTitulo.get('nombre')?.touched">
-        <ion-badge *ngIf="FormularioTitulo.get('nombre')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
-        </div>
+        <form [formGroup]="FormularioTitulo" (submit)="Update(FormularioTitulo.value)">
 
-         <!-- Validacion de campo para que solo sea letras -->
-         <ion-badge *ngIf="FormularioTitulo.get('nombre')?.hasError('pattern')" color="warning">Solo Se Permiten Letras</ion-badge>
 
-         <ion-item>
-          <ion-icon name="calendar-outline"></ion-icon>
-          <ion-input formControlName="fecha" class="inputs" label="Hora Salida" labelPlacement="floating" placeholder="" type="date"></ion-input>
-          </ion-item>
-       <div class="mt-1" *ngIf="FormularioTitulo.get('fecha')?.invalid && FormularioTitulo.get('fecha')?.touched">
-        <ion-badge *ngIf="FormularioTitulo.get('fecha')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
-        </div>
-        <div class="boton">
-            <ion-button   color="success" type="submit" [disabled]="FormularioTitulo.invalid">
-                Editar Titulo
-                <ion-icon class="ion-icon-create" slot="end" name="checkmark-circle"></ion-icon>
-            </ion-button>
-        </div>
-    </form>
+            <ion-item>
+                <ion-icon slot="start" name="library-outline"></ion-icon>
+                <ion-input formControlName="nombre" placeholder="Medico General" class="inputs" label="Nombre de Titulo" labelPlacement="floating" type="text"></ion-input>
+            </ion-item>
 
-</ion-list>
+            <!-- Validación de campo nombre requerido -->
+            <div class="mt-1" *ngIf="FormularioTitulo.get('nombre')?.invalid && FormularioTitulo.get('nombre')?.touched">
+                <ion-badge *ngIf="FormularioTitulo.get('nombre')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            </div>
+
+            <!-- Validacion de campo para que solo sea letras -->
+            <ion-badge *ngIf="FormularioTitulo.get('nombre')?.hasError('pattern')" color="warning">Solo Se Permiten Letras</ion-badge>
+
+            <ion-item>
+                <ion-icon name="calendar-outline"></ion-icon>
+                <ion-input formControlName="fecha" class="inputs" label="Hora Salida" labelPlacement="floating" placeholder="" type="date"></ion-input>
+            </ion-item>
+            <div class="mt-1" *ngIf="FormularioTitulo.get('fecha')?.invalid && FormularioTitulo.get('fecha')?.touched">
+                <ion-badge *ngIf="FormularioTitulo.get('fecha')?.hasError('required')" color="warning">Campo Obligatorio</ion-badge>
+            </div>
+            <div class="boton">
+                <ion-button color="success" type="submit" [disabled]="FormularioTitulo.invalid">
+                    Editar Titulo
+                    <ion-icon class="ion-icon-create" slot="end" name="checkmark-circle"></ion-icon>
+                </ion-button>
+            </div>
+        </form>
+
+    </ion-list>
 </ion-content>

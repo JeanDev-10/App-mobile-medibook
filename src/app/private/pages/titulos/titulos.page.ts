@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { EventEmitterService } from '../dudas/services/event-emitter.service';
 
 @Component({
   selector: 'app-titulos',
@@ -8,8 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TitulosPage implements OnInit {
   @Input() medico!:any;
   titulo!:any;
-  constructor() {
-   }
+  
 
   ngOnInit() {
   }

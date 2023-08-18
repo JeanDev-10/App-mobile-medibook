@@ -3,9 +3,7 @@
         <div [routerLink]="['/titulos-detalle/'+titulo.id]" *ngFor="let titulo of title">
             <ion-img class="icon-img" src="../../../../../../assets/img/titulo.png"></ion-img>
             <ion-label class="label-cita" color="tertiary">{{titulo.nombre}}</ion-label>
-            <ion-badge class="label-estado label-estado-1" color="warning">{{titulo.fecha}}</ion-badge>
+            <ion-badge class="label-estado label-estado-1" color="warning">{{titulo.fecha|date}}</ion-badge>
         </div>
     </ion-card-header>
-  </ion-card>
-
-
+</ion-card>

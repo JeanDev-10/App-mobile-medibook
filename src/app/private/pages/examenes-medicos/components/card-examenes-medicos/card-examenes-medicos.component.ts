@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExamenesMedicoService } from 'src/app/private/services/examenes-medico.service';
+import { EventEmitterService } from '../../../dudas/services/event-emitter.service';
 
 
 @Component({
@@ -9,7 +10,13 @@ import { ExamenesMedicoService } from 'src/app/private/services/examenes-medico.
 })
 export class CardExamenesMedicosComponent  implements OnInit {
 
-  constructor(private examenesMedicos:ExamenesMedicoService) { }
+  constructor(private examenesMedicos:ExamenesMedicoService,private eventEmitterService:EventEmitterService) { 
+    this.eventEmitterService.getEvent().subscribe((data:any)=>{
+      if(data.event==='LOAD_EXAMENES'){
+        this.Obtener_ExamenesMedicos()
+      }
+    })
+  }
 
   ExamenesMedicos_Todos:any;
 
