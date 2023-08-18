@@ -1,24 +1,25 @@
 
 
 div {
-  background-color: #95a5a6a9;
+  background-color: #f3f3f3e0;
   width: 350px;
   height: 180px;
+  margin: auto;
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
-  margin-left: 15px;
   margin-top: 20px;
+  box-shadow: 5px 5px 5px rgba(112, 112, 112, 0.345);
 }
 
 .icon-img {
   width: 90px;
   height: 90px;
   position: relative;
-  top: 30px;
-  left: 25px;
+  top: 20px;
+  left: 30px;
 }
 
 ion-button{
@@ -27,9 +28,9 @@ ion-button{
 
 .label-titulo{
   position: relative;
-  left: 160px;
+  left: 145px;
   top: -60px;
-  font-size: 30px;
+  font-size: 20pt;
 }
 
 .label-fecha-inicio{
@@ -41,7 +42,7 @@ ion-button{
 
 .label-fecha-final{
   position: relative;
-  left: 160px;
+  left: 145px;
   top: -50px;
   font-size: 15px;
 }
@@ -49,12 +50,12 @@ ion-button{
 
 .btn-observacion{
   position: relative;
-  left: -135px;
-  top: -25px;
+  left: -145px;
+  top: -28px;
 }
 
 .btn-receta{
   position: relative;
-  left: 20px;
-  top: -69px;
+  left: 10px;
+  top: -72.5px;
 }

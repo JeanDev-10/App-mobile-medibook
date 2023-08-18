@@ -1,5 +1,5 @@
 <div *ngIf="cita?.estado==1">
-    <ion-img [routerLink]="['/cita-medicas-detalle/'+cita.id]" class="icon-img" src="../../../../assets/img/cita-medica.png"></ion-img>
+    <ion-img [routerLink]="['/cita-medicas-detalle/'+cita.id]" class="icon-img" src="https://res.cloudinary.com/duhm7ousd/image/upload/v1691509229/Imagenes-MediBook/Iconos/corazon-anaranjado_nb7vc6.png"></ion-img>
     <ion-label [routerLink]="['/cita-medicas-detalle/'+cita.id]" class="label-titulo" color="tertiary"> {{cita.titulo}} </ion-label>
     <br>
     <ion-badge class="label-fecha-final" color="success">Finaliza: {{cita.fecha|date}} </ion-badge>

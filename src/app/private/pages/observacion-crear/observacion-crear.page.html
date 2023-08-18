@@ -4,23 +4,28 @@
   <!-- Animación -->
   <div class="anim">
     <ng-lottie [options]="options"></ng-lottie>
-</div>
+  </div>
 
-<ion-list>
+  <ion-list>
 
     <form [formGroup]="FormularioObservacion" (ngSubmit)="Observacion(FormularioObservacion.value)">
-        <ion-item>
-            <ion-icon name="eyedrop-outline"></ion-icon>
-            <ion-input class="inputs" label="Observación" labelPlacement="floating" placeholder="Ingrese observación" formControlName="observacion"></ion-input>
-        </ion-item>
-        <div class="mt-1" *ngIf="FormularioObservacion.get('observacion')?.invalid && FormularioObservacion.get('observacion')?.touched">
-          <ion-badge *ngIf="FormularioObservacion.get('observacion')?.hasError('required')" color="warning">Campo Requerido</ion-badge>
+
+      <ion-item color="light" style="border-radius: 20px; margin: 0 30px;">
+        <ion-icon name="eyedrop-outline"></ion-icon>
+        <ion-input class="inputs" label="Observación" labelPlacement="floating" placeholder="Ingrese observación" formControlName="observacion"></ion-input>
+      </ion-item>
+
+      <div class="mt-1" *ngIf="FormularioObservacion.get('observacion')?.invalid && FormularioObservacion.get('observacion')?.touched">
+        <span *ngIf="FormularioObservacion.get('observacion')?.hasError('required')">Campo Requerido</span>
       </div>
 
-      <ion-button color="medium" type="submit" [disabled]="FormularioObservacion.invalid">
-        Registrar
-      <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
-      </ion-button>
+      <div class="btn">
+        <ion-button color="warning" shape="round" type="submit" [disabled]="FormularioObservacion.invalid">
+          Registrar
+          <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
+        </ion-button>
+      </div>
+
     </form>
 
 </ion-list>
