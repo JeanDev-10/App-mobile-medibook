@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
 import { MedicoService } from '../../services/medico.service';
+import { AuthService } from 'src/app/public/services/auth.service';
 
 @Component({
   selector: 'app-profile-medico',
@@ -10,7 +11,8 @@ import { MedicoService } from '../../services/medico.service';
 export class ProfileMedicoPage implements OnInit {
   medico:any
   id:any
-  constructor(private route: ActivatedRoute,private medicoService:MedicoService) {
+  user:any
+  constructor(private route: ActivatedRoute,private medicoService:MedicoService,private authService:AuthService) {
     this.route.params.subscribe(params => {
       this.id = params['id']; // Aquí obtienes el valor del parámetro :id de la URL
       // Puedes usar this.id como quieras en tu componente
@@ -19,7 +21,9 @@ export class ProfileMedicoPage implements OnInit {
         this.medico=medico;
       })
     });
-
+    this.authService.userInformation().subscribe((data)=>{
+      this.user=data;
+    })
    }
 
   ngOnInit() {

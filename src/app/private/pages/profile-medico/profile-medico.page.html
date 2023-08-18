@@ -124,7 +124,7 @@
       </ion-accordion-group>
     </ion-card-header>
 
-    <div class="ion-text-center ion-margin-vertical" [routerLink]="['/citas-medicas-crear/',medico.id]" routerLinkActive="router-link-active" >
+    <div class="ion-text-center ion-margin-vertical" *ngIf="user.rol.id==3" [routerLink]="['/citas-medicas-crear/',medico.id]" routerLinkActive="router-link-active" >
       <ion-button> Agendar cita </ion-button>
     </div>
   </ion-card>

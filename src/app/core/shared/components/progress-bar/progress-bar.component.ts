@@ -8,8 +8,8 @@ import { of } from 'rxjs';
   styleUrls: ['./progress-bar.component.scss'],
 })
 export class ProgressBarComponent {
- /*  isLoading$=this.spinnerService.isLoading$; */
-   isLoading$=of(true);
+  isLoading$=this.spinnerService.isLoading$; 
+ /*   isLoading$=of(true); */
   constructor(private  spinnerService: SpinnerService){}
 
 
