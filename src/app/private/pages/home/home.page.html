@@ -1,6 +1,9 @@
 <app-navbar [NameRoute]="'Inicio'" [href]="''" />
 
 <ion-content class="ion-padding" [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ng-container *ngIf="user">
     <app-cards-items *ngIf="user.rol.nombre==='Medico'"
       [icon]="'trophy-outline'"

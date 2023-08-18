@@ -1,3 +1,6 @@
+<ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
 <ng-container *ngIf="antecedente">
   <div [routerLink]="['/antedecentes-medicos-detalle/'+antecedente.id]" *ngFor="let antecedente of antecedente">
     <ion-img class="icon-img" src="../../../../assets/img/antecedentes.png"></ion-img>

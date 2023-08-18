@@ -1,5 +1,8 @@
 <app-navbar [NameRoute]="'Citas'" [href]="'/home'" />
 
 <ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
     <app-card-citas [cita]="cita" *ngFor="let cita of citas" />
 </ion-content>

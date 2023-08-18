@@ -28,7 +28,13 @@ export class BuscarPage implements OnInit {
       item.especialidad.nombre.toLowerCase().includes(this.specialtyFilter.toLowerCase())
     );
   }
-
+  handleRefresh(event:any){
+    this.medicoService.getAllMedicos().subscribe((data)=>{
+      this.medicos=data;
+      event.target.complete();
+    })
+    this.especialidades=this.especialidadesService.getAllEspecialidades()
+  }
 
 
 }

@@ -23,5 +23,11 @@ export class ProfilePacientePage implements OnInit {
 
   ngOnInit() {
   }
-
+  handleRefresh(event:any){
+    this.pacienteService.getOnePaciente(this.id).subscribe((data)=>{
+      console.log(data)
+      this.paciente=data;
+      event.target.complete();
+    })
+  }
 }

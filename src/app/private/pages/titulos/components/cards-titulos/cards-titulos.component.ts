@@ -33,4 +33,11 @@ export class CardsTitulosComponent  implements OnInit {
       this.title = data.titulos;
   }) */
   }
+  handleRefresh(event:any){
+    this.medicoSerivce.obtenerMedico().subscribe((data)=>{
+      event.target.complete()
+      console.log(data.titulo);
+      this.title=data.titulo
+    })
+  }
 }

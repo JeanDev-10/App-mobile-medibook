@@ -99,4 +99,12 @@ export class DudasPage implements OnInit {
     this.contenido = null;
 
   }
+
+  handleRefresh(event:any){
+    this.dudaService.getDudas().subscribe((data: any) => {
+      console.log(data);
+      event.target.complete();
+      this.dudas = data.dudas;
+    });
+  }
 }

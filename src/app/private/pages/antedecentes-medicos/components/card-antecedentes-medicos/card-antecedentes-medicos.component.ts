@@ -7,23 +7,34 @@ import { EventEmitterService } from '../../../dudas/services/event-emitter.servi
   templateUrl: './card-antecedentes-medicos.component.html',
   styleUrls: ['./card-antecedentes-medicos.component.scss'],
 })
-export class CardAntecedentesMedicosComponent  implements OnInit {
-  constructor(private antecedenteService:AntecedenteMedicoService,private eventEmmiterService:EventEmitterService) {
+export class CardAntecedentesMedicosComponent implements OnInit {
+  constructor(
+    private antecedenteService: AntecedenteMedicoService,
+    private eventEmmiterService: EventEmitterService
+  ) {
     this.getAntecedente();
-    this.eventEmmiterService.getEvent().subscribe((data)=>{
-      if(data.event=='LOAD_ANTECEDENTES'){
-        this.getAntecedente()
+    this.eventEmmiterService.getEvent().subscribe((data) => {
+      if (data.event == 'LOAD_ANTECEDENTES') {
+        this.getAntecedente();
       }
-    })
+    });
   }
 
   ngOnInit() {}
-  antecedente!:any;
-  getAntecedente(){
+  showAntecedente:any;
+  antecedente!: any;
+  getAntecedente() {
     this.antecedenteService.obtenerTodos().subscribe((data) => {
       console.log(data);
-      this.antecedente = data.antecedentes_medicos;
-  })
+  this.antecedente = data.antecedentes_medicos;
+    });
   }
+  handleRefresh(event: any) {
+    this.antecedenteService.obtenerTodos().subscribe((data) => {
+      console.log(data);
 
+      this.antecedente = data.antecedentes_medicos;
+      event.target.complete();
+    });
+  }
 }

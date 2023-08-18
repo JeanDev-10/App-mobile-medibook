@@ -1,7 +1,9 @@
 <app-navbar [NameRoute]="'Medicamentos'" [href]="'/home'" />
 
 <ion-content [fullscreen]="true">
-
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
     <ion-button type="button" [routerLink]="['/medicamentos-crear']" class="add">
         <ion-icon slot="icon-only" name="add-outline"></ion-icon>
     </ion-button>

@@ -23,5 +23,11 @@ export class HistorialMedicoPage implements OnInit {
 
   ngOnInit() {
   }
-
+  handleRefresh(event:any){
+    this.pacienteService.historialMedico(this.id).subscribe(data=>{
+      console.log(data)
+      this.historial=data;
+      event.target.complete();
+    })
+  }
 }

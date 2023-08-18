@@ -1,4 +1,6 @@
-
+<ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+  <ion-refresher-content></ion-refresher-content>
+</ion-refresher>
     <div class="grid" [routerLink]="['/vacunas-detalle', vacunas.id]" *ngFor="let vacunas of Todas_Vacunas">
       <div class="flex-warp">
         <ion-img class="icon-img" src="../../../../assets/img/vacuna.png"></ion-img>

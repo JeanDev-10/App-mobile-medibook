@@ -1,6 +1,8 @@
+<app-navbar [NameRoute]="'Dudas'" [href]="''" />
 <ion-content [fullscreen]="true">
-  <app-navbar [NameRoute]="'Dudas'" [href]="''" />
-
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <p class="title">¿Tienes alguna duda?</p>
 
   <ng-container *ngIf="dudas">

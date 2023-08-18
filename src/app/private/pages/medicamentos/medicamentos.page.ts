@@ -37,7 +37,15 @@ export class MedicamentosPage implements OnInit {
       }
     })
   }
-
+  handleRefresh(event:any){
+    this.medicamentosService.Traer_Todos_Los_Medicamentos().subscribe({
+      next: (s:any) =>{
+        this.Index_medicamentos = s.Informacion.medicamento;
+        event.target.complete();
+        console.log(this.Index_medicamentos);
+      }
+    })
+  }
 
 
 }

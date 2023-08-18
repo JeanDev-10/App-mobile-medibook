@@ -38,5 +38,23 @@ export class CitasMedicasPage implements OnInit {
 
   ngOnInit() {
   }
-
+  handleRefresh(event:any){
+  this.authService.userInformation().subscribe((data)=>{
+    console.log(data)
+    this.rol=data.rol.id;
+    if(this.rol===3){
+      this.pacienteService.obtenerPaciente().pipe(map(res=>res.cita)).subscribe((data)=>{
+        console.log(data)
+        event.target.complete();
+        this.citas=data;
+      })
+    }else if(this.rol==2){
+      this.medicoService.obtenerMedico().pipe(map(res=>res.cita)).subscribe((data)=>{
+        console.log(data)
+        event.target.complete();
+        this.citas=data;
+      })
+    }
+  })
+}
 }

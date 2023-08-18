@@ -16,5 +16,10 @@ export class HomePage implements OnInit {
       this.user=data;
     })
   }
-
+  handleRefresh(event:any){
+    this.authService.userInformation().subscribe((data)=>{
+      this.user=data;
+      event.target.complete();
+    })
+  }
 }

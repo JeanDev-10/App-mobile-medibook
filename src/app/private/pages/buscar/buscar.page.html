@@ -3,7 +3,9 @@
 
 <ion-content [fullscreen]="true">
     <app-progress-bar/>
-
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
     <ion-searchbar color="medium" [(ngModel)]="searchTerm" placeholder="Buscar" show-clear-button="always" clear-icon="trash-bin"></ion-searchbar>
 
 
@@ -48,7 +50,7 @@
                             <img src="../../../../assets/img/no-img.png" alt="Avatar">
                         </ion-thumbnail>
 
-                            
+
                         <div class="info">
                             <h2>{{ item.usuario.nombre|titlecase }} {{item.usuario.apellido|titlecase}}</h2>
                             <p>{{ item.especialidad.nombre|titlecase }} - {{item.usuario.datos_personale.ci}}</p>

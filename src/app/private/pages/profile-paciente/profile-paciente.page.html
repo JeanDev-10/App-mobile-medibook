@@ -1,6 +1,9 @@
 <app-navbar [NameRoute]="'Perfil paciente'" [href]="'/home'" />
 
 <ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <ng-container *ngIf="paciente"
     ><ion-card>
       <ion-card-header>

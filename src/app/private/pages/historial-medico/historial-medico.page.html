@@ -1,66 +1,128 @@
 <app-navbar [NameRoute]="'Historial Medico'" [href]="'/profile-paciente'" />
 
-
 <ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <p class="title">Historial</p>
 
   <ion-card *ngIf="historial">
     <ion-card-header>
-       <div class="flex-warp">
-        <img class="rounded" alt="user" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-        <h3> {{historial.usuario.nombre|titlecase}}  <span>{{historial.usuario.apellido|titlecase}}</span></h3>
-       </div>
-       <p>Paciente <span> {{historial.usuario.datos_personale.fecha|date}} </span></p>
+      <div class="flex-warp">
+        <img
+          class="rounded"
+          alt="user"
+          src="https://ionicframework.com/docs/img/demos/avatar.svg"
+        />
+        <h3>
+          {{historial?.usuario?.nombre|titlecase}}
+          <span>{{historial?.usuario?.apellido|titlecase}}</span>
+        </h3>
+      </div>
+      <p>
+        Paciente
+        <span> {{historial?.usuario?.datos_personale?.fecha|date}} </span>
+      </p>
 
-      <ion-accordion-group class="ion-no-padding" *ngIf="historial.antecedentes_medico.length>0">
-        <ion-accordion value="first" toggleIcon="caret-down-circle" toggleIconSlot="start">
+      <ion-accordion-group class="ion-no-padding">
+        <ion-accordion
+          value="first"
+          toggleIcon="caret-down-circle"
+          toggleIconSlot="start"
+        >
           <ion-item slot="header" color="light">
             <ion-label>Antecedente médicos</ion-label>
           </ion-item>
-          <div class="ion-padding" slot="content">
-            <p class="content-data">Codición medica: {{historial.antecedentes_medico[0].condicion_medica |titlecase}}</p>
-            <p class="content-data">Alergias: {{historial.antecedentes_medico[0].alergias |titlecase}} </p>
-            <p class="content-data">Tipo sangre: {{historial.antecedentes_medico[0].tipo_sangre |titlecase}} </p>
+          <div
+            class="ion-padding"
+            slot="content"
+            *ngIf="historial.antecedentes_medico.length>0"
+          >
+            <p class="content-data">
+              Codición medica:
+              {{historial?.antecedentes_medico[0].condicion_medica |titlecase}}
+            </p>
+            <p class="content-data">
+              Alergias: {{historial?.antecedentes_medico[0].alergias
+              |titlecase}}
+            </p>
+            <p class="content-data">
+              Tipo sangre: {{historial?.antecedentes_medico[0].tipo_sangre
+              |titlecase}}
+            </p>
           </div>
         </ion-accordion>
 
-        <ion-accordion value="second" toggleIcon="caret-down-circle" toggleIconSlot="start" *ngIf="historial.medicamento.length>0">
+        <ion-accordion
+          value="second"
+          toggleIcon="caret-down-circle"
+          toggleIconSlot="start"
+        >
           <ion-item slot="header" color="light">
-            <ion-label> {{historial.medicamento.length}} Medicamentos</ion-label>
+            <ion-label>
+              {{historial.medicamento.length}} Medicamentos</ion-label
+            >
           </ion-item>
-          <ng-container *ngFor="let medicamento of historial.medicamento">
-            <div class="ion-padding" slot="content">
-              <p class="content-data">Nombre: {{medicamento.nombre|titlecase}} </p>
-              <p class="content-data">Dosis: {{medicamento.dosis}}</p>
-              <p class="content-data">Lapso: {{medicamento.lapso}}</p>
-              <p class="content-data">Duracion: {{medicamento.duracion}}</p>
+          <ng-container *ngIf="historial.medicamento.length>0">
+            <ng-container *ngFor="let medicamento of historial.medicamento">
+              <div class="ion-padding" slot="content">
+                <p class="content-data">
+                  Nombre: {{medicamento.nombre|titlecase}}
+                </p>
+                <p class="content-data">Dosis: {{medicamento.dosis}}</p>
+                <p class="content-data">Lapso: {{medicamento.lapso}}</p>
+                <p class="content-data">Duracion: {{medicamento.duracion}}</p>
+              </div>
+            </ng-container>
+          </ng-container>
+        </ion-accordion>
+
+        <ion-accordion
+          value="tried"
+          toggleIcon="caret-down-circle"
+          toggleIconSlot="start"
+          *ngIf="historial?.vacuna?.length>0"
+        >
+          <ion-item slot="header" color="light">
+            <ion-label> {{historial.vacuna.length}} Vacunas</ion-label>
+          </ion-item>
+          <ng-container *ngIf="historial.vacuna.length>0">
+            <div
+              class="ion-padding"
+              slot="content"
+              *ngFor="let vacuna of historial.vacuna"
+            >
+              <p class="content-data">Nombre: {{vacuna.nombre|titlecase}}</p>
+              <p class="content-data">Fecha: {{vacuna.fecha|date}}</p>
             </div>
           </ng-container>
         </ion-accordion>
 
-        <ion-accordion value="tried" toggleIcon="caret-down-circle" toggleIconSlot="start" *ngIf="historial.vacuna.length>0">
+        <ion-accordion
+          value="four"
+          toggleIcon="caret-down-circle"
+          toggleIconSlot="start"
+        >
           <ion-item slot="header" color="light">
-            <ion-label> {{historial.vacuna.length}} Vacunas</ion-label>
+            <ion-label>
+              {{historial.examenes_medico.length}} Exámenes medicos</ion-label
+            >
           </ion-item>
-            <div class="ion-padding" slot="content" *ngFor="let vacuna of historial.vacuna">
-              <p class="content-data">Nombre: {{vacuna.nombre|titlecase}} </p>
-              <p class="content-data">Fecha: {{vacuna.fecha|date}} </p>
+          <ng-container *ngIf="historial.examenes_medico.length>0">
+            <div
+              class="ion-padding"
+              slot="content"
+              *ngFor="let examen of historial.examenes_medico"
+            >
+              <p class="content-data">Nombre: {{examen.nombre|titlecase}}</p>
+              <p class="content-data">
+                Resutado: {{examen.resultado|titlecase}}
+              </p>
+              <p class="content-data">Fecha: {{examen.fecha|date}}</p>
             </div>
+          </ng-container>
         </ion-accordion>
-
-        <ion-accordion value="four" toggleIcon="caret-down-circle" toggleIconSlot="start" *ngIf="historial.examenes_medico.length>0">
-          <ion-item slot="header" color="light">
-            <ion-label> {{historial.examenes_medico.length}} Exámenes medicos</ion-label>
-          </ion-item>
-          <div class="ion-padding" slot="content" *ngFor="let examen of historial.examenes_medico">
-            <p class="content-data">Nombre: {{examen.nombre|titlecase}} </p>
-            <p class="content-data">Resutado: {{examen.resultado|titlecase}} </p>
-            <p class="content-data">Fecha: {{examen.fecha|date}} </p>
-          </div>
-        </ion-accordion>
-
       </ion-accordion-group>
-
     </ion-card-header>
   </ion-card>
 </ion-content>
