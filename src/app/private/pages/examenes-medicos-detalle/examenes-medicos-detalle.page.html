@@ -27,19 +27,19 @@
 
             <ion-fab class="edit">
                 <ion-fab-button (click)=" ChangeStateForm()" color="warning">
-                    <ion-icon name="create"></ion-icon>
+                    <ion-icon style="margin: 0;" name="create"></ion-icon>
                 </ion-fab-button>
             </ion-fab>
 
             <ion-fab class="close">
                 <ion-fab-button (click)="deleteExamen()" color="danger">
-                    <ion-icon name="close"></ion-icon>
+                    <ion-icon style="margin: 0;" name="close"></ion-icon>
                 </ion-fab-button>
             </ion-fab>
 
         </div>
 
-    <form *ngIf="StateForm" [formGroup]="FormularioExamenMedicoDetalle" (ngSubmit)="UpdateExamenMedico(FormularioExamenMedicoDetalle.value)">
+    <form style="margin: 30px;" *ngIf="StateForm" [formGroup]="FormularioExamenMedicoDetalle" (ngSubmit)="UpdateExamenMedico(FormularioExamenMedicoDetalle.value)">
         <ion-item>
             <ion-icon name="eyedrop-outline"></ion-icon>
             <ion-input formControlName="nombre" class="inputs" label="Nombre" labelPlacement="floating" placeholder=""></ion-input>
@@ -82,13 +82,12 @@
         <!-- Validacion de campo resultado caracter menor que 3 -->
         <ion-badge *ngIf="FormularioExamenMedicoDetalle.get('resultado')?.hasError('minlength')" color="warning">3 Caracteres Minímos Permitidos</ion-badge>
 
-
-        <ion-button [disabled]="FormularioExamenMedicoDetalle.invalid" color="medium" type="submit">
+        <div style="display: flex;justify-content: center; text-align: center;align-items: center; margin-top: 30px;">
+          <ion-button shape="round" [disabled]="FormularioExamenMedicoDetalle.invalid" color="warning" type="submit">
             Actualizar Examen Medico
             <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
         </ion-button>
-
-
+        </div>
 
     </form>
 
