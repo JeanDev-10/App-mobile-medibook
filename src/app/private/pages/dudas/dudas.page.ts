@@ -3,6 +3,7 @@ import { DudasService } from '../../services/dudas.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastService } from 'src/app/core/shared/services/toast.service';
 import { EventEmitterService } from './services/event-emitter.service';
+import { AuthService } from 'src/app/public/services/auth.service';
 
 @Component({
   selector: 'app-dudas',
@@ -11,18 +12,38 @@ import { EventEmitterService } from './services/event-emitter.service';
 })
 export class DudasPage implements OnInit {
   reply_duda_id: any = null;
+  showDuda:boolean=false;
   contenido: any = null;
   dudas: any;
+  user:any;
+  closeReplyDuda:boolean=false;
   FormularioObservacion: FormGroup;
   constructor(
     private dudaService: DudasService,
     private formBuilder: FormBuilder,
     private toastService: ToastService,
-    private readonly eventEmitterService: EventEmitterService
+    private readonly eventEmitterService: EventEmitterService,
+    private authService:AuthService
   ) {
+    this.authService.userInformation().subscribe((data)=>{
+      console.log(data);
+      this.user=data;
+      console.log(this.user.rol.id);
+      if(this.user.rol.id==3){
+        console.log("mostrar dudas a paciente");
+        this.showDuda=true;
+        this.closeReplyDuda=true;
+      }else{
+        console.log("no mostrar a medico");
+        this.showDuda=false;
+      }
+    })
     this.eventEmitterService.getEvent().subscribe((eve) => {
       if (eve.event === 'REPLY_DUDA_CREATE') {
+        console.log("reply duda evento");
         this.reply_duda_id = eve.id;
+        this.showDuda=true;
+        this.closeReplyDuda=false;
         this.contenido = eve.contenido;
       }
     });
@@ -59,6 +80,9 @@ export class DudasPage implements OnInit {
           this.reply_duda_id = null;
           this.contenido = null;
           this.getDudas();
+          if(this.user.rol.id==2){
+            this.showDuda=false;
+          }
         });
       }
     }
