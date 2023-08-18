@@ -1,59 +1,48 @@
+.grid {
+  background: #b8b4b4;
+  border-radius: 12px;
+  margin: 20px;
+  grid-template-columns: 2fr auto;
+  display: flex;
+}
 
-
-div {
-  background-color: #f3f3f3e0;
-  margin: auto;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
-  margin-top: 20px;
-  box-shadow: 5px 5px 5px rgba(112, 112, 112, 0.345);;
+.flex-warp {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
 }
 
 .icon-img {
+  display: flex;
+  align-items: center;
   width: 90px;
   height: 90px;
-  position: relative;
-  top: 20px;
-  left: 30px;
 }
 
-ion-button{
-  margin-left: 165px;
+.block-warp-2 {
+  display: block;
+  padding: 10px 10px 10px 20px;
 }
 
-.label-titulo{
-  position: relative;
-  left: 145px;
-  top: -60px;
-  font-size: 20pt;
+.title {
+  font-weight: 700;
+  font-size: 18px;
 }
 
-.label-fecha-inicio{
-  position: relative;
-  left: 80px;
-  top: -30px;
-  font-size: 20px;
-}
-
-.label-fecha-final{
-  position: relative;
-  left: 145px;
-  top: -50px;
+.description {
+  font-weight: 500;
   font-size: 15px;
+  padding: 15px;
+  color: black;
+  border-radius: 12px;
 }
-
 
 .btn-observacion{
-  position: relative;
   left: -145px;
   top: -28px;
 }
 
 .btn-receta{
-  position: relative;
   left: 10px;
   top: -72.5px;
 }
