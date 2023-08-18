@@ -10,6 +10,7 @@ export class CardsItemsComponent  implements OnInit {
   @Input() title!:any
   @Input() href!:any
   @Input() content!:any
+  @Input() fondo!:any
   constructor() { }
 
   ngOnInit() {}

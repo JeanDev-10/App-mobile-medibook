@@ -1,6 +1,7 @@
 <ion-card>
   <ion-card-header>
     <div class="grid">
+
       <div class="flex-warp">
         <ion-icon class="icon-warp" [name]="icon"></ion-icon>
       </div>
@@ -8,12 +9,15 @@
       <div class="line"></div>
 
       <div class="block-warp-2">
+
         <p class="title"> {{title}} </p>
         <p class="description">{{content}}</p>
-        <button class="btn" type="button" [routerLink]="[href]">
-          <ion-icon class="icon-view" name="eye-outline"></ion-icon>
-          <ion-text>Visitar</ion-text>
-        </button>
+        <div class="btn-end">
+          <button class="btn" type="button" [routerLink]="[href]">
+            <ion-icon class="icon-view" name="eye-outline"></ion-icon>
+            <ion-text>Visitar</ion-text>
+          </button>
+        </div>
       </div>
     </div>
   </ion-card-header>

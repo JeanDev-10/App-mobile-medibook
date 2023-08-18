@@ -1,45 +1,50 @@
 <app-navbar [NameRoute]="'Home'" [href]="''" />
 
-<ion-content [fullscreen]="true">
+<ion-content class="ion-padding" [fullscreen]="true">
   <ng-container *ngIf="user">
-    <app-cards-items *ngIf="user.rol.name==='Medico'"
+    <app-cards-items *ngIf="user.rol.nombre==='Medico'"
       [icon]="'trophy-outline'"
       [title]="'Títulos'"
+      [content]="'Profesional de la medicina dedicado al bienestar'"
       [href]="'/titulos'"
+      [fondo]="''"
     />
-    <app-cards-items *ngIf="user.rol.name==='Paciente'"
+    <app-cards-items *ngIf="user.rol.nombre==='Paciente'"
       [icon]="'folder-outline'"
       [title]="'Exámenes'"
+      [content]="'Pruebas para detectar enfermedades a tiempo'"
       [href]="'/examenes-medicos'"
+      [fondo]="''"
     />
-    <app-cards-items *ngIf="user.rol.name==='Paciente'"
+    <app-cards-items *ngIf="user.rol.nombre==='Paciente'"
       [icon]="'medical-outline'"
       [title]="'Vacunas'"
+      [content]="'Inyecciones que previenen enfermedades y protegen la salud'"
       [href]="'/vacunas'"
+      [fondo]="''"
     />
-    <app-cards-items *ngIf="user.rol.name==='Paciente'"
+    <app-cards-items
+      [icon]="'reader-outline'"
+      [title]="'Citas'"
+      [content]="'Reuniones programadas con un médico para recibir atención'"
+      [href]="'/citas-medicas'"
+      [fondo]="''"
+    />
+    <app-cards-items *ngIf="user.rol.nombre==='Paciente'"
       [icon]="'reader-outline'"
       [title]="'Medicamentos'"
+      [content]="'Sustancias que se utilizan para tratar enfermedades'"
       [href]="'/medicamentos'"
+      [fondo]="''"
     />
-    <app-cards-items *ngIf="user.rol.name==='Paciente'"
+    <app-cards-items *ngIf="user.rol.nombre==='Paciente'"
       [icon]="'reader-outline'"
       [title]="'Antecedentes medicos'"
+      [content]="'Información sobre la salud previa de un paciente'"
       [href]="'/antedecentes-medicos'"
+      [fondo]="''"
     />
-  </ng-container>
-
-  <app-cards-items [icon]="'trophy-outline'" [title]="'Títulos'" [content]="'Profesional de la medicina dedicado al bienestar'" [href]="'/titulos'" />
-
-  <app-cards-items [icon]="'folder-outline'" [title]="'Exámenes'" [content]="'Pruebas para detectar enfermedades a tiempo'" [href]="'/examenes-medicos'" />
-
-  <app-cards-items [icon]="'medical-outline'" [title]="'Vacunas'" [content]="'Inyecciones que previenen enfermedades y protegen la salud'" [href]="'/vacunas'" />
-
-  <app-cards-items [icon]="'reader-outline'" [title]="'Citas'" [content]="'Reuniones programadas con un médico para recibir atención'" [href]="'/citas-medicas'" />
-
-  <app-cards-items [icon]="'receipt-outline'" [title]="'Medicamentos'" [content]="'Sustancias que se utilizan para tratar enfermedades'" [href]="'/medicamentos'" />
-
-  <app-cards-items [icon]="'accessibility-outline'" [title]="'Antecedentes medicos'" [content]="'Información sobre la salud previa de un paciente'" [href]="'/antedecentes-medicos'" />
+  </ng-container>
 
 </ion-content>
 
