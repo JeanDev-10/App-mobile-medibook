@@ -2,23 +2,24 @@
 
 
 <ion-content [fullscreen]="true">
-
-
-
     <div class="container-div">
         <ion-img class="icon-img" src="../../../../assets/img/ante-detalles.png"></ion-img>
 
-        <h2>Fiebre</h2>
-
         <div class="datos">
-            <ion-label class="label-cita" color="dark">Sin Alergias</ion-label>
+            <ion-label *ngIf="antecedente.alergias" class="label-cita" color="dark"><span>Alergía:</span>  {{antecedente.alergias}}</ion-label>
+            <ion-label *ngIf="!antecedente.alergias" class="label-lapso" color="dark"><span class="cirujias_previas-text">No hay Alergia.</span> {{antecedente.cirujias_previas}}</ion-label>
             <br>
-            <ion-label class="label-cita" color="dark">No hay Cirugias</ion-label>
+            <ion-label *ngIf="antecedente.tipo_sangre"  class="label-cita" color="dark"><span>Condición Medica: </span>{{antecedente.condicion_medica}}</ion-label>
+            <ion-label *ngIf="!antecedente.tipo_sangre" class="label-lapso" color="dark"><span class="cirujias_previas-text">No hay Condición Medica.</span> {{antecedente.cirujias_previas}}</ion-label>
             <br>
-            <ion-label class="label-lapso" color="dark">A+</ion-label>
+            <ion-label *ngIf="antecedente.tipo_sangre"  class="label-lapso" color="dark"><span>Tipo de Sangre: </span>{{antecedente.tipo_sangre}}</ion-label>
+            <ion-label *ngIf="!antecedente.tipo_sangre" class="label-lapso" color="dark"><span class="cirujias_previas-text">No hay Tipo Sangre.</span> {{antecedente.cirujias_previas}}</ion-label>
             <br>
-            <ion-label class="label-lapso" color="dark">La fiebre no se quita</ion-label>
-
+            <ion-label *ngIf="antecedente.cirujias_previas" class="label-lapso" color="dark"><span>Cirujia Previa:</span> {{antecedente.cirujias_previas}}</ion-label>
+            <ion-label *ngIf="!antecedente.cirujias_previas" class="label-lapso" color="dark"><span class="cirujias_previas-text">No hay Cirujias Previas.</span> {{antecedente.cirujias_previas}}</ion-label>
+            <br>
+            <ion-label *ngIf="!antecedente.otros_datos"  class="label-lapso" color="dark"><span>Otros Datos:</span> {{antecedente.otros_datos}}</ion-label>  
+            <ion-label *ngIf="!antecedente.otros_datos" class="label-lapso" color="dark"><span class="cirujias_previas-text">No hay Otros Datos.</span> {{antecedente.cirujias_previas}}</ion-label>
         </div>
 
 
@@ -135,7 +136,7 @@
             <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
         </ion-button>
 
-
+        <br><br><br><br><br><br>
 
     </form>
 

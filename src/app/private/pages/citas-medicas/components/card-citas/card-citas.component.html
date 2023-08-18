@@ -1,6 +1,6 @@
-<div [routerLink]="['/cita-medicas-detalle/'+cita.id]" *ngIf="cita?.estado==1">
-    <ion-img class="icon-img" src="../../../../assets/img/cita-medica.png"></ion-img>
-    <ion-label class="label-titulo" color="tertiary"> {{cita.titulo}} </ion-label>
+<div *ngIf="cita?.estado==1">
+    <ion-img [routerLink]="['/cita-medicas-detalle/'+cita.id]" class="icon-img" src="../../../../assets/img/cita-medica.png"></ion-img>
+    <ion-label [routerLink]="['/cita-medicas-detalle/'+cita.id]" class="label-titulo" color="tertiary"> {{cita.titulo}} </ion-label>
     <br>
     <ion-badge class="label-fecha-final" color="success">Finaliza: {{cita.fecha|date}} </ion-badge>
     <ion-button color="medium" [routerLink]="['/observacion-create/'+cita.id]" routerLinkActive="router-link-active" class="btn-observacion">Observacion</ion-button>
