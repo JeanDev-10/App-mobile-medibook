@@ -4,44 +4,125 @@
   <div class="container-div" *ngIf="cita">
     <ion-img
       class="icon-img"
-      src="../../../../assets/img/cita-medica.png"
+      src="https://res.cloudinary.com/duhm7ousd/image/upload/v1691509230/Imagenes-MediBook/Iconos/estetoscopio-anaranjado_w5lauw.png"
     ></ion-img>
-    <ion-label class="label-titulo" color="tertiary"
-      >Titulo: {{cita.titulo|titlecase}}
-    </ion-label>
-    <ion-badge class="label-doctor label-estado-1" color="success"
-      >Nombre de Doctor: {{cita.medico.usuario.nombre|titlecase}}
-    </ion-badge>
-    <ion-badge class="label-doctor label-estado-1" color="success"
-      >Especialidad: {{cita.medico.especialidad.nombre|titlecase}}
-    </ion-badge>
-    <br />
-    <ion-label class="label-lapso" color="dark"
-      >Hora Inicio: {{cita.hora_inicio}}
-    </ion-label>
-    <br />
-    <ion-label class="label-duracion" color="dark"
-      >Hora Fin: {{cita.hora_fin}}
-    </ion-label>
-    <br /><br /><br />
-    <ion-label color="dark" *ngFor="let recetas of cita.receta"
-      >Receta: {{recetas.nombre_medicamento}}</ion-label
-    >
-    <br />
-    <ion-label color="dark" *ngFor="let recetas of cita.cita_observacion"
-      >Observación: {{recetas.contenido}}</ion-label
-    >
-    <br /><br /><br /><br />
-    <ion-label color="dark">Estado: {{cita.estado_cita.nombre}}</ion-label>
-    <br /><br />
-    <ion-label color="dark" *ngFor="let resenia of cita.resenia"
-      >Calificación: {{resenia.calificacion}}</ion-label
-    >
-    <ion-fab class="edit">
-      <ion-fab-button (click)=" EditMecament()" color="warning">
-        <ion-icon name="create"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
+
+    <div class="descripcion">
+      <h1 style="width: 50%; text-align: end; margin-right: 6px;">
+        Detalle de cita:
+      </h1>
+      <h1 style="width: 50%; text-align: start; margin-left: 6px;">
+        {{cita.titulo|titlecase}}
+      </h1>
+    </div>
+
+    <div class="descripcion">
+      <h2 style="width: 50%; text-align: end; margin-right: 6px; color: #3498DB;">
+        Nombre de Doctor:
+      </h2>
+      <h2 style="width: 50%; text-align: start; margin-left: 6px;">
+        {{cita.medico.usuario.nombre|titlecase}}
+      </h2>
+    </div>
+
+    <div class="descripcion">
+      <h2 style="width: 50%; text-align: end; margin-right: 6px; color: #3498DB;">
+        Especialidad:
+      </h2>
+      <h2 style="width: 50%; text-align: start; margin-left: 6px;">
+        {{cita.medico.especialidad.nombre|titlecase}}
+      </h2>
+    </div>
+
+    <div class="descripcion">
+      <h2 style="width: 50%; text-align: end; margin-right: 6px; color: #3498DB;">
+        Estado:
+      </h2>
+      <h2 style="width: 50%; text-align: start; margin-left: 6px;">
+        {{cita.estado_cita.nombre}}
+      </h2>
+    </div>
+
+    <div class="hora">
+      <h3>
+        Hora Inicio:<br>{{cita.hora_inicio}}
+      </h3>
+
+      <h3>
+        Hora Fin:<br>{{cita.hora_fin}}
+      </h3>
+    </div>
+
+    <ion-accordion-group slot="acordion" [multiple]="false" [value]="['first']">
+
+      <ion-accordion
+      value="primary"
+      toggleIcon="caret-down-circle"
+      toggleIconSlot="start"
+      class="accordion"
+      >
+        <ion-item slot="header" color="success">
+          <ion-label>Recetas: {{cita.receta.length}}</ion-label>
+        </ion-item>
+
+        <div slot="content">
+          <div *ngFor="let recetas of cita.receta">
+            <h5>{{recetas.nombre_medicamento}}</h5>
+            <hr>
+          </div>
+        </div>
+
+      </ion-accordion>
+
+      <ion-accordion
+      value="second"
+      toggleIcon="caret-down-circle"
+      toggleIconSlot="start"
+      class="accordion"
+      >
+        <ion-item slot="header" color="success">
+          <ion-label>Observaciones: {{cita.cita_observacion.length}}</ion-label>
+        </ion-item>
+
+        <div slot="content">
+          <div *ngFor="let recetas of cita.cita_observacion">
+            <h5>{{recetas.contenido}}</h5>
+            <hr>
+          </div>
+        </div>
+
+      </ion-accordion>
+
+      <ion-accordion
+      value="thrid"
+      toggleIcon="caret-down-circle"
+      toggleIconSlot="start"
+      class="accordion"
+      >
+        <ion-item slot="header" color="success">
+          <ion-label>Reseñas: {{cita.resenia.length}}</ion-label>
+        </ion-item>
+
+        <div slot="content">
+          <div *ngFor="let resenia of cita.resenia">
+            <h5>{{resenia.calificacion}}</h5>
+            <hr>
+            <hr>
+          </div>
+        </div>
+
+      </ion-accordion>
+
+    </ion-accordion-group>
+
+    <div class="btn">
+      <ion-button color="primary" [routerLink]="['/resenia-crear',id]" shape="round">
+        Crear Reseña
+      </ion-button>
+      <ion-button (click)=" EditMecament()" color="warning" shape="round">
+        Editar Cita
+      </ion-button>
+    </div>
 
     <ion-fab class="close">
       <ion-fab-button (click)="DeleteMedicament()" color="danger">
@@ -49,18 +130,18 @@
       </ion-fab-button>
     </ion-fab>
 
-    <ion-button color="dark" [routerLink]="['/resenia-crear',id]"
-      >Crear Reseña</ion-button
-    >
-  </div>
-
-  <form
+    <form
     *ngIf="StateForm"
     [formGroup]="FormCitasMedicasEditar"
     (ngSubmit)="UpdateMedicament(FormCitasMedicasEditar.value)"
   >
-    <ion-item>
-      <ion-icon name="leaf"></ion-icon>
+
+    <div style="text-align: center; width: 100%; font-weight: bold; margin: 30px 0 20px 0; font-size: 18pt; color: #F39C12;">
+      Actualizar Cita
+    </div>
+
+    <ion-item style="margin-bottom: 10px; border-radius: 15px;">
+      <ion-icon name="leaf" style="margin-right: 15px; color: rgb(6, 205, 43);"></ion-icon>
 
       <!-- Inputs de titulo -->
       <ion-input
@@ -75,16 +156,16 @@
       class="mt-1"
       *ngIf="FormCitasMedicasEditar.get('titulo')?.invalid && FormCitasMedicasEditar.get('titulo')?.touched"
     >
-      <ion-badge
+      <span
         *ngIf="FormCitasMedicasEditar.get('titulo')?.hasError('required')"
         color="warning"
-        >Campo Requerido</ion-badge
+        >Campo Requerido</span
       >
     </div>
 
     <!-- Input de Hora Inicio -->
-    <ion-item>
-      <ion-icon name="time"></ion-icon>
+    <ion-item style="margin-bottom: 10px; border-radius: 15px;">
+      <ion-icon name="time" style="margin-right: 15px; color: rgb(139, 138, 136);"></ion-icon>
       <ion-input
         formControlName="hora_inicio"
         class="inputs"
@@ -98,17 +179,17 @@
       class="mt-1"
       *ngIf="FormCitasMedicasEditar.get('hora_inicio')?.invalid && FormCitasMedicasEditar.get('hora_inicio')?.touched"
     >
-      <ion-badge
+      <span
         *ngIf="FormCitasMedicasEditar.get('hora_inicio')?.hasError('required')"
         color="warning"
-        >Campo Requerido</ion-badge
+        >Campo Requerido</span
       >
     </div>
 
     <!-- Input de hora_fin -->
 
-    <ion-item>
-      <ion-icon name="alarm-outline"></ion-icon>
+    <ion-item style="margin-bottom: 10px; border-radius: 15px;">
+      <ion-icon name="alarm-outline" style="margin-right: 15px; color: #3498DB;"></ion-icon>
       <ion-input
         formControlName="hora_fin"
         class="inputs"
@@ -122,16 +203,16 @@
       class="mt-1"
       *ngIf="FormCitasMedicasEditar.get('hora_fin')?.invalid && FormCitasMedicasEditar.get('hora_fin')?.touched"
     >
-      <ion-badge
+      <span
         *ngIf="FormCitasMedicasEditar.get('hora_fin')?.hasError('required')"
         color="warning"
-        >Campo Requerido</ion-badge
+        >Campo Requerido</span
       >
     </div>
 
     <!-- Input medico_id -->
-    <ion-item>
-      <ion-icon name="alarm-outline"></ion-icon>
+    <ion-item style="margin-bottom: 10px; border-radius: 15px;">
+      <ion-icon name="alarm-outline" style="margin-right: 15px; color: #7b29d8;"></ion-icon>
       <ion-input
         formControlName="fecha"
         class="inputs"
@@ -145,21 +226,25 @@
       class="mt-1"
       *ngIf="FormCitasMedicasEditar.get('fecha')?.invalid && FormCitasMedicasEditar.get('hora_fin')?.touched"
     >
-      <ion-badge
+      <span
         *ngIf="FormCitasMedicasEditar.get('fecha')?.hasError('required')"
         color="warning"
-        >Campo Requerido</ion-badge
+        >Campo Requerido</span
       >
     </div>
 
-    <ion-button
-      color="medium"
-      type="submit"
-      [disabled]="FormCitasMedicasEditar.invalid"
-    >
-      Actualizar
-      <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
-    </ion-button>
+    <div class="btn">
+      <ion-button color="medium"
+        type="submit"
+        [disabled]="FormCitasMedicasEditar.invalid"
+        shape="round">
+          Actualizar
+          <ion-icon class="ion-icon-create" slot="end" name="create"></ion-icon>
+      </ion-button>
+    </div>
+
   </form>
+
+  </div>
 
 </ion-content>
