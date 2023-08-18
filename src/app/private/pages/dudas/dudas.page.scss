@@ -1,24 +1,31 @@
 .title {
-  margin-top: 25px;
-  text-align: center;
-  font-weight: 700;
+    margin-top: 25px;
+    text-align: center;
+    font-weight: 700;
 }
 
-
-
-
-
 ion-input {
-  width: 315px;
+    width: 315px;
+    color: black;
 }
 
 .container {
-  display: flex;
+    display: flex;
 }
 
 .all {
-  display: flex;
-  gap: 8px;
-  width: 373px;
+    display: flex;
+    gap: 8px;
+    width: 373px;
 }
 
+ion-content::part(background) {
+    background-image: url('https://res.cloudinary.com/duhm7ousd/image/upload/v1692322450/Imagenes-MediBook/img/fondo_movil_oto4cx.jpg');
+    background-size: cover;
+    background-position: start;
+    background-repeat: no-repeat;
+    /* Agrega un color de fondo con opacidad utilizando rgba() */
+    background-color: rgba(255, 255, 255, 0.9);
+    /* El último valor (0.5) controla la opacidad */
+    color: black;
+}

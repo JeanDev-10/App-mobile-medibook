@@ -1,34 +1,95 @@
+ion-content::part(background) {
+  background-image: url('https://res.cloudinary.com/duhm7ousd/image/upload/v1692322450/Imagenes-MediBook/img/fondo_movil_oto4cx.jpg');
+  background-size: cover;
+  background-position: start;
+  background-repeat: no-repeat;
+
+  /* Agrega un color de fondo con opacidad utilizando rgba() */
+  background-color: rgba(255, 255, 255, 0.9); /* El último valor (0.5) controla la opacidad */
+}
+
+
+ion-card{
+  background-color: #efefefb6;
+  width: 85%;
+  margin: auto;
+  border-radius: 15px;
+}
+
 .title {
   margin-top: 25px;
   text-align: center;
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 19pt;
+  color: #F39C12;
+  margin-bottom: 20px;
 }
 
 .rounded {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  margin-right: 10px;
 }
 
 .flex-warp {
   display: flex;
+  justify-content: start;
   align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 h3 {
-  font-weight: 20px;
+  font-weight: 15pt;
   padding-left: 5px;
   font-weight: 700;
+  margin: 0;
 }
 
-p {
-  font-size: 20px;
-  font-weight: 500;
-  margin-top: 2.5px;
+.fecha{
+  display: flex;
+  justify-content: end;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 75%;
+  color: #b1b1b1d8;
+}
+
+.fecha p{
+  margin: 0;
 }
 
 .content-data {
   font-size: 16px;
   font-weight: 300;
-  margin-top: -15px;
+  margin: 0;
 }
+
+
+/* Estilo para los encabezados de los acordeones */
+ion-item[slot="header"] {
+  border-radius: 25px;
+  border-bottom: 1px solid #ccc;
+  font-size: 14pt;
+  margin-top: 10px;
+  font-weight: bold;
+  background-color: transparent;
+}
+
+/* Estilo para los encabezados de los acordeones cerrados */
+ion-accordion:not([expanded]) ion-item[slot="header"] {
+  border-bottom: none;
+  background-color: transparent;
+}
+
+ion-accordion-group[slot="acordion"]{
+  margin: 15px 0;
+}
+
+.accordion{
+  background-color: transparent;
+}
+
