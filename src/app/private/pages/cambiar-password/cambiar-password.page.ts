@@ -17,7 +17,12 @@ export class CambiarPasswordPage implements OnInit {
   isSeePassword!:boolean;
   isSeePasswordnewPassword!:boolean;
   isSeePasswordConfirmationPassword!:boolean;
+  user!:any
   constructor(private formBuilder: FormBuilder,private notificacion: ToastService,private readonly contraseniaService:CambiarPasswordService,private toastService:ToastService,private readonly authService:AuthService,private readonly router:Router) {
+
+    this.authService.userInformation().subscribe((data)=>{
+      this.user=data
+    })
   }
 
   ngOnInit(): void {
