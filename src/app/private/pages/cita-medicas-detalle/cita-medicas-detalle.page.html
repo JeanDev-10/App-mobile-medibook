@@ -143,9 +143,8 @@
     (ngSubmit)="UpdateMedicament(FormCitasMedicasEditar.value)"
   >
 
-    <div style="text-align: center; width: 100%; font-weight: bold; margin: 30px 0 20px 0; font-size: 18pt; color: #F39C12;">
-      Actualizar Cita
-    </div>
+    <ion-button color="success" [routerLink]="['/pagos-crear',cita.id,cita.medico.id]">Realizar Pago</ion-button>
+
 
     <ion-item style="margin-bottom: 10px; border-radius: 15px;">
       <ion-icon name="leaf" style="margin-right: 15px; color: rgb(6, 205, 43);"></ion-icon>

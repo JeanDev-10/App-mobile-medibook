@@ -20,9 +20,31 @@
             <ion-card [routerLink]="['/profile-medico/',item.id]"  >
                 <ion-card-content>
                     <div class="card-content">
-                        <ion-thumbnail class="avatar">
+                        <ion-thumbnail *ngIf="item.especialidad.nombre == 'Medicina Familiar'" class="avatar">
                             <img src="../../../../assets/img/ante-detalles.png" alt="Avatar">
                         </ion-thumbnail>
+                        <ion-thumbnail *ngIf="item.especialidad.nombre == 'Infectología'" class="avatar">
+                            <img src="../../../../assets/img/infectologia.png" alt="Avatar">
+                        </ion-thumbnail>
+                        <ion-thumbnail *ngIf="item.especialidad.nombre == 'Cardiología'" class="avatar">
+                            <img src="../../../../assets/img/cardiologia.png" alt="Avatar">
+                        </ion-thumbnail>
+                        <ion-thumbnail *ngIf="item.especialidad.nombre == 'Dermatología'" class="avatar">
+                            <img src="../../../../assets/img/dermartologia.png" alt="Avatar">
+                        </ion-thumbnail>
+                        <ion-thumbnail *ngIf="item.especialidad.nombre == 'Endocrinología'" class="avatar">
+                            <img src="../../../../assets/img/Endocrinología.png" alt="Avatar">
+                        </ion-thumbnail>
+                        <ion-thumbnail *ngIf="item.especialidad.nombre == 'Traumatología'" class="avatar">
+                            <img src="../../../../assets/img/Traumatología.png" alt="Avatar">
+                        </ion-thumbnail>
+                        <ion-thumbnail *ngIf="item.especialidad.nombre == 'Pediatría'" class="avatar">
+                            <img src="../../../../assets/img/pediatria.png" alt="Avatar">
+                        </ion-thumbnail>
+                        <ion-thumbnail *ngIf="item.especialidad.nombre == 'Psiquiatría'" class="avatar">
+                            <img src="../../../../assets/img/Psiquiatría.png" alt="Avatar">
+                        </ion-thumbnail>
+                            
                         <div class="info">
                             <h2>{{ item.usuario.nombre|titlecase }} {{item.usuario.apellido|titlecase}}</h2>
                             <p>{{ item.especialidad.nombre|titlecase }} - {{item.usuario.datos_personale.ci}}</p>
