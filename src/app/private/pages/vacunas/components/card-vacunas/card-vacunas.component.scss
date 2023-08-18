@@ -7,7 +7,7 @@ div{
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
-    margin-left: 15px;
+    margin-left: 0px;
     margin-top: 20px;
 }
 
@@ -28,10 +28,12 @@ div{
 
 .label-vacuna{
     position: relative;
-    left: 160px;
+    left: 145px;
     top: -60px;
-    font-size: 40px;
-    overflow-wrap: break-word;
+    font-size: 30px;
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 80%;
 }
 
 .label-fecha{
